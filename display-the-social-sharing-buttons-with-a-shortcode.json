@@ -1,0 +1,299 @@
+{
+    "title": "Display the social sharing buttons with a shortcode",
+    "category": "Social,Shortcode",
+    "description": "Display the social sharing buttons with a shortcode : [social_share facebook twitter linkedin reddit]Share on : [\/social_share]",
+    "content": {
+        "4bd4dc4d606a5a3fc4fd411a28fa61a6": {
+            "title": "sociallinks",
+            "type": "template",
+            "content": "<div class=\"credit-cards\">\n    {% set url = fp_function('get_permalink') %}\n    {{message}}\n    {% if 'facebook' in args %}<a href=\"http:\/\/www.facebook.com\/sharer.php?u={{url}}\" target=\"_blank\"><i class=\"fab fa-facebook-square\"><\/i><\/a>{% endif %}\n    {% if 'twitter' in args %}<a href=\"https:\/\/twitter.com\/share?url={{url}}\" target=\"_blank\"><i class=\"fab fa-twitter-square\"><\/i><\/a>{% endif %}\n    {% if 'linkedin' in args %}<a href=\"http:\/\/www.linkedin.com\/shareArticle?url={{url}}\" target=\"_blank\"><i class=\"fab fa-linkedin\"><\/i><\/a>{% endif %}\n    {% if 'reddit' in args %}<a href=\"http:\/\/reddit.com\/submit?url={{url}}\" target=\"_blank\"><i class=\"fab fa-reddit-square\"><\/i><\/a>{% endif %}\n<\/div>"
+        },
+        "9733319914e7df1ad675cde607f47700": {
+            "title": "load_font_awesome",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "value": false,
+                "is_settings": true,
+                "title": "Load FontAwesome",
+                "description": "Disable this option if font-awesome is already loaded"
+            }
+        },
+        "e169ee55cfadde2b9b05e59800f3cef9": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "e9cdb7f53ef771214c40622fcfcf2d2f": {
+                        "name": "load_font_awesome",
+                        "x": 0,
+                        "y": 75,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "9733319914e7df1ad675cde607f47700"
+                    },
+                    "0b40ae2c9ee03d213244c66d49957419": {
+                        "x": 270,
+                        "y": 0,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "4b916ea9c5771b72e91c2c39fccd0ad5": {
+                        "x": 570,
+                        "y": 0,
+                        "name": "wp_enqueue_style",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "fontawesome"
+                            },
+                            "src": {
+                                "label": "src",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "''",
+                                "required": false,
+                                "value": "https:\/\/use.fontawesome.com\/releases\/v5.7.2\/css\/all.css"
+                            },
+                            "deps": {
+                                "label": "deps",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            },
+                            "ver": {
+                                "label": "ver",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool",
+                                    "null"
+                                ],
+                                "default": "false",
+                                "required": false
+                            },
+                            "media": {
+                                "label": "media",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'all'",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "3b220cb79c11a562b843b38b646749dc": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "toConnector": "ifct"
+                    },
+                    "89fd8a0145191254dfdea96b2b280b8b": {
+                        "fromComponent": "e9cdb7f53ef771214c40622fcfcf2d2f",
+                        "fromConnector": "content",
+                        "toComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "toConnector": "condition"
+                    },
+                    "5895b7e6626d74997af3c10c6f4aaec6": {
+                        "fromComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "4b916ea9c5771b72e91c2c39fccd0ad5",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "ef07e54bac0755cbca5c8c67b8dbadb4": {
+            "title": "social_share",
+            "type": "shortcode",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "social_share",
+                        "type": "hook-shortcode",
+                        "x": -65,
+                        "y": 0,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "array"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "ccfc407e19d3fafef1fb09219f8f23c2": {
+                        "name": "sociallinks",
+                        "x": 460,
+                        "y": 60,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "4bd4dc4d606a5a3fc4fd411a28fa61a6"
+                    },
+                    "876ca70ea766e6f3c1cc2909e7a91fe7": {
+                        "x": 225,
+                        "y": 60,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "0a2dacb1d0980ff5c392126912ffc83c": {
+                                "label": "args",
+                                "type": "mixed"
+                            },
+                            "5f13f4cad7498930d26d03a669e924b0": {
+                                "label": "message",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "cc468305c95f37131150f1cdf1b6d2ff": {
+                        "x": 715,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "87ef2992617020b1d001768291d2858e": {
+                        "fromComponent": "876ca70ea766e6f3c1cc2909e7a91fe7",
+                        "fromConnector": "output_array",
+                        "toComponent": "ccfc407e19d3fafef1fb09219f8f23c2",
+                        "toConnector": "args"
+                    },
+                    "25efae7d700c9ea97c6fe00a40d6846f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "args",
+                        "toComponent": "876ca70ea766e6f3c1cc2909e7a91fe7",
+                        "toConnector": "0a2dacb1d0980ff5c392126912ffc83c"
+                    },
+                    "734966ef45de8f6e5f8c325506b2c94f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "cc468305c95f37131150f1cdf1b6d2ff",
+                        "toConnector": "ifct"
+                    },
+                    "780d175b69fbd5ad25d18d9bed6a1c4a": {
+                        "fromComponent": "ccfc407e19d3fafef1fb09219f8f23c2",
+                        "fromConnector": "content",
+                        "toComponent": "cc468305c95f37131150f1cdf1b6d2ff",
+                        "toConnector": "value"
+                    },
+                    "227debe7029ca256af52a3651fb10b72": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "876ca70ea766e6f3c1cc2909e7a91fe7",
+                        "toConnector": "5f13f4cad7498930d26d03a669e924b0"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

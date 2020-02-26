@@ -1,0 +1,93 @@
+{
+    "title": "Replace shop page title",
+    "category": "WooCommerce,Third-party",
+    "description": "Change the shop page title in WooCommerce",
+    "content": {
+        "2fe0357aad83186a919975623f600b43": {
+            "title": "woocommerce_page_title",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_page_title",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "fbbd3bd1f40bc907c387a6ec9d2597e7": {
+                                "label": "page_title",
+                                "type": "string"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "50797a35d50c794bcf1a20e83c176835": {
+                        "name": "title",
+                        "x": 0,
+                        "y": 100,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "43f5281057bea17fa52e38457298f0a3"
+                    },
+                    "89955392368fba104dba040c07744144": {
+                        "x": 480,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "b762f8d9029419ffa8e417ec12f4abbd": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "89955392368fba104dba040c07744144",
+                        "toConnector": "ifct"
+                    },
+                    "5f72cae0ee9aeadcef6bffa5fa1afcaf": {
+                        "fromComponent": "50797a35d50c794bcf1a20e83c176835",
+                        "fromConnector": "content",
+                        "toComponent": "89955392368fba104dba040c07744144",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "43f5281057bea17fa52e38457298f0a3": {
+            "title": "title",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "Shop",
+                "is_settings": true,
+                "title": "Shop page title"
+            }
+        }
+    }
+}

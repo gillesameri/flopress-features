@@ -1,0 +1,161 @@
+{
+    "title": "Logout redirect to home page",
+    "category": "Admin,User",
+    "description": "Redirect to the homepage after user logout.",
+    "content": {
+        "febe2350bb12a364b62294420d08eba6": {
+            "title": "wp_logout",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_logout",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -115,
+                        "y": 0
+                    },
+                    "d88149415020e60a0540e09879486ada": {
+                        "x": 175,
+                        "y": 0,
+                        "name": "wp_redirect",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "location": {
+                                "label": "location",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "status": {
+                                "label": "status",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "302",
+                                "required": false
+                            },
+                            "x_redirect_by": {
+                                "label": "x_redirect_by",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'WordPress'",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "1bb6d97cfdd6bf48eb0b557e176e70fb": {
+                        "x": -115,
+                        "y": 75,
+                        "name": "get_home_url",
+                        "type": "fct",
+                        "inputs": {
+                            "blog_id": {
+                                "label": "blog_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "null",
+                                "required": false
+                            },
+                            "path": {
+                                "label": "path",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "scheme": {
+                                "label": "scheme",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "null"
+                                ],
+                                "default": "null",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "765cee9e6ce28e2b3603709590581740": {
+                        "x": 420,
+                        "y": 0,
+                        "name": "exit",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "status": {
+                                "label": "status",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "int"
+                                ]
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "da09d081f66681159eeb5c64c39bee4e": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "d88149415020e60a0540e09879486ada",
+                        "toConnector": "ifct"
+                    },
+                    "c8d45d1100c8893781e1cd4c4bebafb4": {
+                        "fromComponent": "1bb6d97cfdd6bf48eb0b557e176e70fb",
+                        "fromConnector": "return",
+                        "toComponent": "d88149415020e60a0540e09879486ada",
+                        "toConnector": "location"
+                    },
+                    "51c171bd59389923765f683a1c4c2a60": {
+                        "fromComponent": "d88149415020e60a0540e09879486ada",
+                        "fromConnector": "ofct",
+                        "toComponent": "765cee9e6ce28e2b3603709590581740",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

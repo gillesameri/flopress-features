@@ -1,0 +1,320 @@
+{
+    "title": "Disable RSS feeds",
+    "category": "Tools",
+    "description": "Not all websites need RSS feeds. If you want to disable RSS feeds on your WordPress site, then add this feature.",
+    "content": {
+        "3f0f24b7b9f223461c70421e050440ca": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 90,
+                        "y": 0
+                    },
+                    "0b68df4ae012a1131d401bbd2f911f4a": {
+                        "x": 90,
+                        "y": 95,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "7e8204ab6c36a8eee3d69c4f2bba9aa9": {
+                                "label": "do_feed",
+                                "type": "mixed"
+                            },
+                            "13dfc6eb345bf5764f67595f72965685": {
+                                "label": "do_feed_rdf",
+                                "type": "mixed"
+                            },
+                            "28404b6075c17f67e24a07cc05bc79be": {
+                                "label": "do_feed_rss",
+                                "type": "mixed"
+                            },
+                            "80d30b98b9502d7ee0568f28d846bb5a": {
+                                "label": "do_feed_rss2",
+                                "type": "mixed"
+                            },
+                            "4145dfd06ffdd17e5c4d21cc53c50846": {
+                                "label": "do_feed_atom",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "5822749d60b6fde2bac7ea42107a2664": {
+                        "x": 345,
+                        "y": 0,
+                        "name": "foreach",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "default": "array()"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "label": "finish"
+                            },
+                            "ofct_loop": {
+                                "type": "efct",
+                                "label": "loop"
+                            },
+                            "item_loop": {
+                                "type": "mixed",
+                                "label": "item"
+                            },
+                            "key_loop": {
+                                "type": "mixed",
+                                "label": "key"
+                            }
+                        }
+                    },
+                    "054b6c148ea104e1011d741ef54b6d5b": {
+                        "x": 625,
+                        "y": 20,
+                        "name": "add_action",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false,
+                                "value": 1
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    },
+                    "24770ad3656fdb05be3eadd530a16a3d": {
+                        "name": "showmessage",
+                        "x": 345,
+                        "y": 160,
+                        "type": "action",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "062eed65f59f065cf2f1b3aec56f00a4"
+                    }
+                },
+                "links": {
+                    "40f1abfa0b10efd72f32a6fb44e1b734": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "5822749d60b6fde2bac7ea42107a2664",
+                        "toConnector": "ifct"
+                    },
+                    "42c2d1f9c5b437947a96c3429a582115": {
+                        "fromComponent": "0b68df4ae012a1131d401bbd2f911f4a",
+                        "fromConnector": "output_array",
+                        "toComponent": "5822749d60b6fde2bac7ea42107a2664",
+                        "toConnector": "array"
+                    },
+                    "bea845774a381b0d031d97bc54dc1151": {
+                        "fromComponent": "5822749d60b6fde2bac7ea42107a2664",
+                        "fromConnector": "ofct_loop",
+                        "toComponent": "054b6c148ea104e1011d741ef54b6d5b",
+                        "toConnector": "ifct"
+                    },
+                    "385e6f40d1079437290d68a43cae9b35": {
+                        "fromComponent": "5822749d60b6fde2bac7ea42107a2664",
+                        "fromConnector": "key_loop",
+                        "toComponent": "054b6c148ea104e1011d741ef54b6d5b",
+                        "toConnector": "tag"
+                    },
+                    "880417ee7461ada6ff90bb95091890c4": {
+                        "fromComponent": "24770ad3656fdb05be3eadd530a16a3d",
+                        "fromConnector": "callable",
+                        "toComponent": "054b6c148ea104e1011d741ef54b6d5b",
+                        "toConnector": "function_to_add"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "062eed65f59f065cf2f1b3aec56f00a4": {
+            "title": "showmessage",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "showmessage",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "74122da5aac433c50e68e65c573cef83": {
+                        "x": 265,
+                        "y": 0,
+                        "name": "wp_die",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "message": {
+                                "label": "message",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "mixed"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "title": {
+                                "label": "title",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "int"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "array",
+                                    "int"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "627b7a2bcdb2c2ff713ef1e1df17e7ec": {
+                        "name": "message",
+                        "x": 0,
+                        "y": 85,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "04867f6f6051327d1158e41088c4a833"
+                    }
+                },
+                "links": {
+                    "9c6a00fab61c6897410ece60e507c3d9": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "74122da5aac433c50e68e65c573cef83",
+                        "toConnector": "ifct"
+                    },
+                    "230af49a68971e8bbab0bdb1e839283e": {
+                        "fromComponent": "627b7a2bcdb2c2ff713ef1e1df17e7ec",
+                        "fromConnector": "content",
+                        "toComponent": "74122da5aac433c50e68e65c573cef83",
+                        "toConnector": "message"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "04867f6f6051327d1158e41088c4a833": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textarea"
+                ],
+                "value": "No feed",
+                "is_settings": true,
+                "title": "Message",
+                "description": "The message to display"
+            }
+        }
+    }
+}

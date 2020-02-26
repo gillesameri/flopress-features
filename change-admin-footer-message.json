@@ -1,0 +1,95 @@
+{
+    "title": "Change admin footer message",
+    "category": "Admin",
+    "description": "Change the message 'Thank you for creating with WordPress' by anything you want.",
+    "content": {
+        "f2e789f4794e6298983406b1f369e301": {
+            "title": "admin_footer_text",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "admin_footer_text",
+                        "x": -463,
+                        "y": -142,
+                        "type": "hook-filter",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "text": {
+                                "label": "text",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        }
+                    },
+                    "b36e541fcc103b9f25820ba1639057c4": {
+                        "name": "return",
+                        "x": -111,
+                        "y": -143,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "7871a045f2371d6b97698c9072f04faa": {
+                        "name": "footer_message",
+                        "x": -462,
+                        "y": -25,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "ae4df3005ff93c47c8f51b08ec8d394e"
+                    }
+                },
+                "links": {
+                    "66ba9c0752b6d399d3c27556162410c5": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "b36e541fcc103b9f25820ba1639057c4",
+                        "toConnector": "ifct"
+                    },
+                    "f7861bdde4179bc432daca37c053c431": {
+                        "fromComponent": "7871a045f2371d6b97698c9072f04faa",
+                        "fromConnector": "content",
+                        "toComponent": "b36e541fcc103b9f25820ba1639057c4",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "ae4df3005ff93c47c8f51b08ec8d394e": {
+            "title": "footer_message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Footer message",
+                "description": "Set your new footer message"
+            }
+        }
+    }
+}

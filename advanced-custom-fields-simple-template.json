@@ -1,0 +1,470 @@
+{
+    "title": "Advanced Custom Fields simple template",
+    "category": "ACF,Third-party",
+    "description": "ACF demo. Past your fields definitions inside the \"fields\" template and customize the \"display\" template to output your content.",
+    "content": {
+        "49d8ff17c695f304de8a31c2d344a3a2": {
+            "title": "display",
+            "type": "template",
+            "content": "{# Display the default content #}\n{{content | raw}}\n\n{# Display the test field #}\n<p>My test field {{ get_field('test_field') }}<\/p>\n\n{# Example for a repeater field #}\n{#\n<table>\n{% for row in get_field('test_repeater') %}\n    <tr>\n        <td>\n            {{ row.subfield1 }}\n        <\/td>\n        <td>\n            {{ row.subfield2 }}\n        <\/td>\n        <td>\n            {{ row.subfield3 }}\n        <\/td>\n    <\/tr>\n{% endfor %}\n<\/table>\n#}\n"
+        },
+        "919a302c772eed21f0ab90ff9cd0c52b": {
+            "title": "the_content",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "the_content",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": -820,
+                        "y": 70
+                    },
+                    "0b7deee5a68694ea7f170f22dc943b39": {
+                        "x": -40,
+                        "y": -20,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "a5ccc1d9e2b4a53285699ec9c295f5ea": {
+                        "name": "display",
+                        "x": -280,
+                        "y": -20,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "49d8ff17c695f304de8a31c2d344a3a2"
+                    },
+                    "f3b7b9c3781e41ba7a1bb345a458c604": {
+                        "name": "array",
+                        "x": -550,
+                        "y": -20,
+                        "type": "variable",
+                        "inputs": {
+                            "9ea752c5d0f05174794f9bb308c444db": {
+                                "label": "content",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "ab373b93521eddde89fad3e427fc4c2e": {
+                        "name": "get_post_type",
+                        "x": -820,
+                        "y": 170,
+                        "type": "fct",
+                        "inputs": {
+                            "post": {
+                                "label": "post",
+                                "type": "int",
+                                "types": [
+                                    "int",
+                                    "mixed",
+                                    "null"
+                                ],
+                                "default": "null",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "ebedd41b9202ffe52328341e45e7bfe2": {
+                        "name": "if",
+                        "x": -280,
+                        "y": 70,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "065240b3dc7033082268fdce62af852e": {
+                        "name": "equals",
+                        "x": -550,
+                        "y": 200,
+                        "type": "comparison",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed",
+                                    "int",
+                                    "string"
+                                ]
+                            },
+                            "item2": {
+                                "label": "item2",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed",
+                                    "int",
+                                    "string"
+                                ]
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "e66f6d63ae5d8a493f25532bf2e427e5": {
+                        "name": "post_type",
+                        "x": -820,
+                        "y": 250,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "57b631f73fa2be7e180fdb7214d0a170"
+                    },
+                    "3e8ce7178039747d81b814992d1e0198": {
+                        "x": -30,
+                        "y": 155,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "e3ea7b74465342f3cb2799b34612bce7": {
+                        "fromComponent": "a5ccc1d9e2b4a53285699ec9c295f5ea",
+                        "fromConnector": "content",
+                        "toComponent": "0b7deee5a68694ea7f170f22dc943b39",
+                        "toConnector": "value"
+                    },
+                    "128bdc0d0904b88090934903251192ef": {
+                        "fromComponent": "f3b7b9c3781e41ba7a1bb345a458c604",
+                        "fromConnector": "output_array",
+                        "toComponent": "a5ccc1d9e2b4a53285699ec9c295f5ea",
+                        "toConnector": "args"
+                    },
+                    "8f1d751937666cf23823424daaa94224": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "f3b7b9c3781e41ba7a1bb345a458c604",
+                        "toConnector": "9ea752c5d0f05174794f9bb308c444db"
+                    },
+                    "db9f5baf2a03a7beef8cc8b3c1b15ad1": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "ebedd41b9202ffe52328341e45e7bfe2",
+                        "toConnector": "ifct"
+                    },
+                    "13c2375d50b7132609f1b0d37ce2872e": {
+                        "fromComponent": "ab373b93521eddde89fad3e427fc4c2e",
+                        "fromConnector": "return",
+                        "toComponent": "065240b3dc7033082268fdce62af852e",
+                        "toConnector": "item1"
+                    },
+                    "6deb3fd7a427bd451258c7e080d45a2e": {
+                        "fromComponent": "e66f6d63ae5d8a493f25532bf2e427e5",
+                        "fromConnector": "content",
+                        "toComponent": "065240b3dc7033082268fdce62af852e",
+                        "toConnector": "item2"
+                    },
+                    "12f58d48264546ae8b69e29deda22882": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "3e8ce7178039747d81b814992d1e0198",
+                        "toConnector": "value"
+                    },
+                    "b341c917728558ea94bca1647b657f70": {
+                        "fromComponent": "065240b3dc7033082268fdce62af852e",
+                        "fromConnector": "return",
+                        "toComponent": "ebedd41b9202ffe52328341e45e7bfe2",
+                        "toConnector": "condition"
+                    },
+                    "8681ae4995ff20f2b68e24833985885d": {
+                        "fromComponent": "ebedd41b9202ffe52328341e45e7bfe2",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "3e8ce7178039747d81b814992d1e0198",
+                        "toConnector": "ifct"
+                    },
+                    "d0a9a7d8fd4fea445acf38bb0a51980a": {
+                        "fromComponent": "ebedd41b9202ffe52328341e45e7bfe2",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "0b7deee5a68694ea7f170f22dc943b39",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "d5fb2fcd37e46ea4bd288b06d8c8f323": {
+            "title": "acf\/init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "acf\/init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -350,
+                        "y": 0
+                    },
+                    "919e76d43dca7f12ceb9a2900505a024": {
+                        "name": "fields",
+                        "x": -350,
+                        "y": 80,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "04214200d2bd8692d310a035a626c3ca"
+                    },
+                    "ba99e9141862d58e5e328b373a7c8cbf": {
+                        "name": "json_decode",
+                        "x": -120,
+                        "y": 0,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "assoc_array": {
+                                "label": "assoc_array",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false,
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "c2ecf0eb7d8d477b7f07264a98d74aa3": {
+                        "x": 110,
+                        "y": 0,
+                        "name": "acf_add_local_field_group",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "field_group": {
+                                "label": "field_group",
+                                "type": "array",
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "05c2463f99854979bd88ed708a5cba31": {
+                        "name": "array",
+                        "x": -575,
+                        "y": 80,
+                        "type": "variable",
+                        "inputs": {
+                            "eb69805971a01b2fcd7186080a15cff3": {
+                                "label": "post_type",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "70efd5c88bb03c42c2c55009ff4d67c3": {
+                        "name": "post_type",
+                        "x": -800,
+                        "y": 80,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "57b631f73fa2be7e180fdb7214d0a170"
+                    }
+                },
+                "links": {
+                    "31a2f55a0a484918cb8427216d3cdd63": {
+                        "fromComponent": "919e76d43dca7f12ceb9a2900505a024",
+                        "fromConnector": "content",
+                        "toComponent": "ba99e9141862d58e5e328b373a7c8cbf",
+                        "toConnector": "string"
+                    },
+                    "d37a63ec38330b5890777047698b957e": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "ba99e9141862d58e5e328b373a7c8cbf",
+                        "toConnector": "ifct"
+                    },
+                    "667196e62de3f81af46baad6128b831b": {
+                        "fromComponent": "ba99e9141862d58e5e328b373a7c8cbf",
+                        "fromConnector": "ofct",
+                        "toComponent": "c2ecf0eb7d8d477b7f07264a98d74aa3",
+                        "toConnector": "ifct"
+                    },
+                    "c5ebe94ea0dc1becedac2d64c20f2db8": {
+                        "fromComponent": "ba99e9141862d58e5e328b373a7c8cbf",
+                        "fromConnector": "return",
+                        "toComponent": "c2ecf0eb7d8d477b7f07264a98d74aa3",
+                        "toConnector": "field_group"
+                    },
+                    "0f9ac928ff5f12fc4a03b18da766385e": {
+                        "fromComponent": "05c2463f99854979bd88ed708a5cba31",
+                        "fromConnector": "output_array",
+                        "toComponent": "919e76d43dca7f12ceb9a2900505a024",
+                        "toConnector": "args"
+                    },
+                    "379ff9b7cc4c710c42fd47359bb0e5ce": {
+                        "fromComponent": "70efd5c88bb03c42c2c55009ff4d67c3",
+                        "fromConnector": "content",
+                        "toComponent": "05c2463f99854979bd88ed708a5cba31",
+                        "toConnector": "eb69805971a01b2fcd7186080a15cff3"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "04214200d2bd8692d310a035a626c3ca": {
+            "title": "fields",
+            "type": "template",
+            "content": "{\n    \"key\": \"group_5c819e48cd999\",\n    \"title\": \"Test fields group\",\n    \"fields\": [\n        {\n            \"key\": \"field_5c819e4bac899\",\n            \"label\": \"Test field\",\n            \"name\": \"test\u00b0field\",\n            \"type\": \"text\",\n            \"instructions\": \"\",\n            \"required\": 0,\n            \"conditional_logic\": 0,\n            \"wrapper\": {\n                \"width\": \"\",\n                \"class\": \"\",\n                \"id\": \"\"\n            },\n            \"default_value\": \"\",\n            \"placeholder\": \"\",\n            \"prepend\": \"\",\n            \"append\": \"\",\n            \"maxlength\": \"\"\n        }\n    ],\n    \"location\": [\n        [\n            {\n                \"param\": \"post_type\",\n                \"operator\": \"==\",\n                \"value\": \"{{post_type}}\"\n            }\n        ]\n    ],\n    \"menu_order\": 0,\n    \"position\": \"normal\",\n    \"style\": \"default\",\n    \"label_placement\": \"top\",\n    \"instruction_placement\": \"label\",\n    \"hide_on_screen\": \"\",\n    \"active\": true,\n    \"description\": \"\"\n}\n"
+        },
+        "57b631f73fa2be7e180fdb7214d0a170": {
+            "title": "post_type",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "post",
+                "is_settings": true,
+                "title": "Post type slug"
+            }
+        }
+    }
+}

@@ -1,0 +1,242 @@
+{
+    "title": "Empty cart message",
+    "category": "WooCommerce,Third-party",
+    "description": "Customize the message when the cart is empty.",
+    "content": {
+        "fe58a6c00b1344f506747eb1270fa328": {
+            "title": "wc_empty_cart_message",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wc_empty_cart_message",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "16f3f1b0c0cc378657eececc6f52a188": {
+                                "label": "message",
+                                "type": "string"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": -55
+                    },
+                    "ddc78e03f59ef9e021b60a9a4f24e455": {
+                        "name": "message",
+                        "x": 0,
+                        "y": 45,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "1ce9e5beb33905003bdaaaac60642316"
+                    },
+                    "1522cd5a6e5e93e9e9a22520f90f7c04": {
+                        "x": 1160,
+                        "y": -60,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "81efcbeb51720448fb2f7934b0865422": {
+                        "name": "string",
+                        "x": 320,
+                        "y": -130,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "string",
+                                "label": "value"
+                            }
+                        },
+                        "value": "<p>"
+                    },
+                    "eb523c0a7df95e7d570d3f5848b4895f": {
+                        "name": "string",
+                        "x": 320,
+                        "y": -210,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "string",
+                                "label": "value"
+                            }
+                        },
+                        "value": "<\/p>"
+                    },
+                    "99ebe64cb383520b7b24732f3f1fe303": {
+                        "name": "concat",
+                        "x": 585,
+                        "y": -130,
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "06f52f8ad6c08e94f0238f3e0c886574": {
+                        "name": "concat",
+                        "x": 855,
+                        "y": -230,
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "baee0333a23756e249e73dbff936477b": {
+                        "name": "__",
+                        "x": 320,
+                        "y": -55,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "text": {
+                                "label": "text",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "domain": {
+                                "label": "domain",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'default'",
+                                "required": false,
+                                "value": "woocommerce"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "6e2d2378d43258301849b53dce58f485": {
+                        "fromComponent": "81efcbeb51720448fb2f7934b0865422",
+                        "fromConnector": "output",
+                        "toComponent": "99ebe64cb383520b7b24732f3f1fe303",
+                        "toConnector": "string1"
+                    },
+                    "2f56f642dfdd6aaebe84a7748c8d0977": {
+                        "fromComponent": "99ebe64cb383520b7b24732f3f1fe303",
+                        "fromConnector": "string",
+                        "toComponent": "06f52f8ad6c08e94f0238f3e0c886574",
+                        "toConnector": "string1"
+                    },
+                    "29601df79b26c7872599fea5a40b741e": {
+                        "fromComponent": "eb523c0a7df95e7d570d3f5848b4895f",
+                        "fromConnector": "output",
+                        "toComponent": "06f52f8ad6c08e94f0238f3e0c886574",
+                        "toConnector": "string2"
+                    },
+                    "f9713323d21826a97f643d2e1a5c95de": {
+                        "fromComponent": "06f52f8ad6c08e94f0238f3e0c886574",
+                        "fromConnector": "string",
+                        "toComponent": "1522cd5a6e5e93e9e9a22520f90f7c04",
+                        "toConnector": "value"
+                    },
+                    "2c2d7a9aac9319ead7c9cf98a02b7b30": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "baee0333a23756e249e73dbff936477b",
+                        "toConnector": "ifct"
+                    },
+                    "260183f9f304176d873120b8c41b2fab": {
+                        "fromComponent": "baee0333a23756e249e73dbff936477b",
+                        "fromConnector": "ofct",
+                        "toComponent": "1522cd5a6e5e93e9e9a22520f90f7c04",
+                        "toConnector": "ifct"
+                    },
+                    "a42fd1488f8b9808d23512d638e39790": {
+                        "fromComponent": "ddc78e03f59ef9e021b60a9a4f24e455",
+                        "fromConnector": "content",
+                        "toComponent": "baee0333a23756e249e73dbff936477b",
+                        "toConnector": "text"
+                    },
+                    "78f3952db4bf5dc36fac79123d5593f5": {
+                        "fromComponent": "baee0333a23756e249e73dbff936477b",
+                        "fromConnector": "return",
+                        "toComponent": "99ebe64cb383520b7b24732f3f1fe303",
+                        "toConnector": "string2"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "1ce9e5beb33905003bdaaaac60642316": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "Your cart is currently empty.",
+                "is_settings": true,
+                "title": "Empty message"
+            }
+        }
+    }
+}

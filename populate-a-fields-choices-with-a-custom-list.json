@@ -1,0 +1,423 @@
+{
+    "title": "Populate a ACF field\u2019s choices with a custom list.",
+    "category": "Third-party",
+    "description": "Add options to a select field\u2019s choices. This feature works also with radios and checkbox.\nCustomize this feature to dynamically add options with your own script.",
+    "content": {
+        "1a082bfb2450cc715faa12a36034ec24": {
+            "title": "set_options",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "set_options",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "5cbb298cd4dc052752ec8aebddc33639": {
+                                "label": "field",
+                                "type": "array"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": -690,
+                        "y": -420
+                    },
+                    "3c49e4bc40aef1e1074a2fae6ccfce55": {
+                        "name": "options",
+                        "x": -350,
+                        "y": -175,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "58881099747531924086cb87a6b16325"
+                    },
+                    "dd4fdaa967aca5e2c242e9b89c89f53c": {
+                        "x": 1250,
+                        "y": -190,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "95afe3ec0556082cd8110f9fd7677b87": {
+                        "name": "set_array_value",
+                        "x": 860,
+                        "y": -325,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "array"
+                            },
+                            "key": {
+                                "label": "key",
+                                "type": "string",
+                                "value": "choices"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "7fcbfb436a48b16246396f70543020b8": {
+                        "x": 355,
+                        "y": -415,
+                        "name": "call_user_func_array",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "callable": {
+                                "label": "callable",
+                                "type": "callable",
+                                "value": "array_merge"
+                            },
+                            "param_arr": {
+                                "label": "param_arr",
+                                "type": "array"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "b3df16fddacff58d3abc4a711aec26d7": {
+                        "name": "array",
+                        "x": -45,
+                        "y": -240,
+                        "type": "variable",
+                        "inputs": {
+                            "6855af406874db17ed14dc893a1e3dbd": {
+                                "label": "",
+                                "type": "mixed"
+                            },
+                            "d0e19bc14058b63a913f8629d2a987ee": {
+                                "label": "",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "04e9c5358ade504c1e1dfa3ccadec20c": {
+                        "name": "get_array_value",
+                        "x": -350,
+                        "y": -280,
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "choices"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "5aaa5c3bdb0bc29746cf35f61fc1b7be": {
+                        "fromComponent": "95afe3ec0556082cd8110f9fd7677b87",
+                        "fromConnector": "ofct",
+                        "toComponent": "dd4fdaa967aca5e2c242e9b89c89f53c",
+                        "toConnector": "ifct"
+                    },
+                    "c142a8f07bb4141d09cddde36eff05c8": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "7fcbfb436a48b16246396f70543020b8",
+                        "toConnector": "ifct"
+                    },
+                    "46377584b1deaf6fd58ed256504bf93e": {
+                        "fromComponent": "7fcbfb436a48b16246396f70543020b8",
+                        "fromConnector": "ofct",
+                        "toComponent": "95afe3ec0556082cd8110f9fd7677b87",
+                        "toConnector": "ifct"
+                    },
+                    "ef61f1daf5e9d665c5153c8d75b5786b": {
+                        "fromComponent": "7fcbfb436a48b16246396f70543020b8",
+                        "fromConnector": "return",
+                        "toComponent": "95afe3ec0556082cd8110f9fd7677b87",
+                        "toConnector": "value"
+                    },
+                    "ae1a15f8a54ba296651e63e7db26e064": {
+                        "fromComponent": "b3df16fddacff58d3abc4a711aec26d7",
+                        "fromConnector": "output_array",
+                        "toComponent": "7fcbfb436a48b16246396f70543020b8",
+                        "toConnector": "param_arr"
+                    },
+                    "7ac691dcbad89c76703b189beb32d8f1": {
+                        "fromComponent": "04e9c5358ade504c1e1dfa3ccadec20c",
+                        "fromConnector": "return",
+                        "toComponent": "b3df16fddacff58d3abc4a711aec26d7",
+                        "toConnector": "6855af406874db17ed14dc893a1e3dbd"
+                    },
+                    "9fe78384da5ea28044cd6c3e01bdc153": {
+                        "fromComponent": "3c49e4bc40aef1e1074a2fae6ccfce55",
+                        "fromConnector": "content",
+                        "toComponent": "b3df16fddacff58d3abc4a711aec26d7",
+                        "toConnector": "d0e19bc14058b63a913f8629d2a987ee"
+                    },
+                    "d73772eab042e917c23cf89d8ba24e3f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "5cbb298cd4dc052752ec8aebddc33639",
+                        "toComponent": "95afe3ec0556082cd8110f9fd7677b87",
+                        "toConnector": "variable"
+                    },
+                    "4b4aa6ed5ce9425e49ab2209fb815fe5": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "5cbb298cd4dc052752ec8aebddc33639",
+                        "toComponent": "dd4fdaa967aca5e2c242e9b89c89f53c",
+                        "toConnector": "value"
+                    },
+                    "5dc3ef6358d53ab16b59b17a058d853d": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "5cbb298cd4dc052752ec8aebddc33639",
+                        "toComponent": "04e9c5358ade504c1e1dfa3ccadec20c",
+                        "toConnector": "array"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "58881099747531924086cb87a6b16325": {
+            "title": "options",
+            "type": "data",
+            "content": {
+                "weight": "1",
+                "type": [
+                    "array"
+                ],
+                "value": null,
+                "is_settings": true,
+                "title": "Options",
+                "description": "key | value"
+            }
+        },
+        "32833794806c3755880310e8986ac185": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -350,
+                        "y": -295
+                    },
+                    "ebeb1baab2f3892d74aeaabf97c02bfc": {
+                        "name": "concat",
+                        "x": -115,
+                        "y": -70,
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string",
+                                "value": "acf\/load_field\/name="
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "64c88012c9e7463d14d67d341ac36345": {
+                        "name": "fieldname",
+                        "x": -350,
+                        "y": -65,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "33c6d5423fe1e75ed9638e9d33adf8a2"
+                    },
+                    "642eb5a53ac657c8f0dab1cc50fe8227": {
+                        "name": "set_options",
+                        "x": -355,
+                        "y": 180,
+                        "type": "filter",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "1a082bfb2450cc715faa12a36034ec24"
+                    },
+                    "f8ee91f60a9e03b2265e74123e383535": {
+                        "x": 270,
+                        "y": -90,
+                        "name": "add_filter",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "8aab7af438072413aeefc1c6e9b46e31": {
+                        "fromComponent": "64c88012c9e7463d14d67d341ac36345",
+                        "fromConnector": "content",
+                        "toComponent": "ebeb1baab2f3892d74aeaabf97c02bfc",
+                        "toConnector": "string2"
+                    },
+                    "f4de75bdeedebacfe7e023e353320770": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "f8ee91f60a9e03b2265e74123e383535",
+                        "toConnector": "ifct"
+                    },
+                    "f786d497acf5d778fe370ab6436ed66b": {
+                        "fromComponent": "ebeb1baab2f3892d74aeaabf97c02bfc",
+                        "fromConnector": "string",
+                        "toComponent": "f8ee91f60a9e03b2265e74123e383535",
+                        "toConnector": "tag"
+                    },
+                    "22f17863e166b966fceddd497e7af192": {
+                        "fromComponent": "642eb5a53ac657c8f0dab1cc50fe8227",
+                        "fromConnector": "callable",
+                        "toComponent": "f8ee91f60a9e03b2265e74123e383535",
+                        "toConnector": "function_to_add"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "33c6d5423fe1e75ed9638e9d33adf8a2": {
+            "title": "fieldname",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "mycustomfield",
+                "is_settings": true,
+                "title": "Field name",
+                "description": "Set the name of the field."
+            }
+        }
+    }
+}

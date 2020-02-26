@@ -1,0 +1,300 @@
+{
+    "title": "Login screen logo and colors",
+    "category": "Admin",
+    "description": "Change the login logo with yours and set the background and text colors.",
+    "content": {
+        "f1c5abb8a94b99b9ce913e1a5c816aab": {
+            "title": "login_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "login_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "32d6e685dc62af1438019ff081b0ac87": {
+                        "name": "Image",
+                        "x": 0,
+                        "y": 90,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a1d7df4704de204a58b44472db16003f"
+                    },
+                    "6cca4e0210bcab35281764afabccb580": {
+                        "name": "array",
+                        "x": 735,
+                        "y": 90,
+                        "type": "variable",
+                        "inputs": {
+                            "8fc7a35f82b86851075c5f275c073c3a": {
+                                "label": "logo",
+                                "type": "mixed"
+                            },
+                            "2f9547fd48e35c2820c41258c87d3682": {
+                                "label": "bgcolor",
+                                "type": "mixed"
+                            },
+                            "93624c10aa31a18ebe3d75360bfd7cd0": {
+                                "label": "linkscolor",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "2c7b39660ec95a7020170329fbf4e466": {
+                        "name": "styles",
+                        "x": 990,
+                        "y": 90,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "f2c1d4fd7f5a16983d8f6b0c5cf4606a"
+                    },
+                    "c0348a131d75f812fed9af3a38292f8e": {
+                        "x": 1255,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "bf630974bf47f620520c016c06bcf021": {
+                        "name": "wp_get_attachment_image_src",
+                        "x": 250,
+                        "y": 90,
+                        "type": "fct",
+                        "inputs": {
+                            "attachment_id": {
+                                "label": "attachment_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "size": {
+                                "label": "size",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "array"
+                                ],
+                                "default": "'thumbnail'",
+                                "required": false
+                            },
+                            "icon": {
+                                "label": "icon",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "f12a1f257b9ad041a6fe5442adb6c3bc": {
+                        "name": "get_array_value",
+                        "x": 495,
+                        "y": 90,
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "0"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "72f67d14cf0aea1dd28fe170faa363ec": {
+                        "name": "bgcolor",
+                        "x": 495,
+                        "y": 190,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "6bf7b336c62549f45ea304eb50cf3ba0"
+                    },
+                    "e05c9013db742b6087922fe10cc7b146": {
+                        "name": "linkcolor",
+                        "x": 495,
+                        "y": 270,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "9e0a9a55f24a78be1c50b3a55c7bbfac"
+                    }
+                },
+                "links": {
+                    "50c63f5f91f4cae50ea5b9a31f2dc4b1": {
+                        "fromComponent": "6cca4e0210bcab35281764afabccb580",
+                        "fromConnector": "output_array",
+                        "toComponent": "2c7b39660ec95a7020170329fbf4e466",
+                        "toConnector": "args"
+                    },
+                    "6984d70234a7502bbfffd807177f9335": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "c0348a131d75f812fed9af3a38292f8e",
+                        "toConnector": "ifct"
+                    },
+                    "5884d1bcadf49185f841f10b2fa8415d": {
+                        "fromComponent": "2c7b39660ec95a7020170329fbf4e466",
+                        "fromConnector": "content",
+                        "toComponent": "c0348a131d75f812fed9af3a38292f8e",
+                        "toConnector": "string"
+                    },
+                    "a9fe5aebbd5b16a6d1598ae553cddb95": {
+                        "fromComponent": "32d6e685dc62af1438019ff081b0ac87",
+                        "fromConnector": "content",
+                        "toComponent": "bf630974bf47f620520c016c06bcf021",
+                        "toConnector": "attachment_id"
+                    },
+                    "45f2f32cb3447f01ee97ab7e8f301bf3": {
+                        "fromComponent": "bf630974bf47f620520c016c06bcf021",
+                        "fromConnector": "return",
+                        "toComponent": "f12a1f257b9ad041a6fe5442adb6c3bc",
+                        "toConnector": "array"
+                    },
+                    "9a5aa255da85504875600d3f3991f726": {
+                        "fromComponent": "f12a1f257b9ad041a6fe5442adb6c3bc",
+                        "fromConnector": "return",
+                        "toComponent": "6cca4e0210bcab35281764afabccb580",
+                        "toConnector": "8fc7a35f82b86851075c5f275c073c3a"
+                    },
+                    "0038f038921a171a16e4e05e382081e5": {
+                        "fromComponent": "72f67d14cf0aea1dd28fe170faa363ec",
+                        "fromConnector": "content",
+                        "toComponent": "6cca4e0210bcab35281764afabccb580",
+                        "toConnector": "2f9547fd48e35c2820c41258c87d3682"
+                    },
+                    "5ddb578a826c90f9cf7d501810b15cc2": {
+                        "fromComponent": "e05c9013db742b6087922fe10cc7b146",
+                        "fromConnector": "content",
+                        "toComponent": "6cca4e0210bcab35281764afabccb580",
+                        "toConnector": "93624c10aa31a18ebe3d75360bfd7cd0"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "a1d7df4704de204a58b44472db16003f": {
+            "title": "Image",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "object",
+                    "media"
+                ],
+                "is_settings": true,
+                "title": "New logo",
+                "description": "Select the logo image"
+            }
+        },
+        "f2c1d4fd7f5a16983d8f6b0c5cf4606a": {
+            "title": "styles",
+            "type": "template",
+            "content": "<style type=\"text\/css\">\n    body { background-color:{{bgcolor}} !important; }\n    .login #backtoblog a, .login #nav a { color:{{linkscolor}} !important; }\n    h1 a { background-image:url({{logo}}) !important; }\n<\/style>"
+        },
+        "6bf7b336c62549f45ea304eb50cf3ba0": {
+            "title": "bgcolor",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "picker",
+                    "colorpicker"
+                ],
+                "value": "#F1F1F1",
+                "is_settings": true,
+                "title": "Background color"
+            }
+        },
+        "9e0a9a55f24a78be1c50b3a55c7bbfac": {
+            "title": "linkcolor",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "picker",
+                    "colorpicker"
+                ],
+                "value": "#124964",
+                "is_settings": true,
+                "title": "Links color"
+            }
+        }
+    }
+}

@@ -1,0 +1,341 @@
+{
+    "title": "Quick maintenance mode",
+    "category": "Tools",
+    "description": "Quick maintenance mode. It returns a 503 Service unavailable header code.",
+    "content": {
+        "5630881ce460afb4f0e5ea0c560c9bf3": {
+            "title": "block_site_access",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "get_header",
+                        "x": -675.7175300681945,
+                        "y": -140.04202669394164,
+                        "type": "hook-action",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "name": {
+                                "label": "name",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        }
+                    },
+                    "d9c01b83b7a9465bf2904dcc4740efc5": {
+                        "name": "wp_die",
+                        "x": 920,
+                        "y": -30,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "message": {
+                                "label": "message",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "mixed"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "title": {
+                                "label": "title",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "int"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "int",
+                                "types": [
+                                    "string",
+                                    "array",
+                                    "int"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "22912cde457f259e6fd1bd33cd341036": {
+                        "name": "if",
+                        "x": 465,
+                        "y": -130,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "96aa58bd0bb9dda5930e9bec824b39dc": {
+                        "name": "current_user_can",
+                        "x": -408.1931847565668,
+                        "y": -136.01656956662805,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "capability": {
+                                "label": "capability",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "edit_themes"
+                            },
+                            "object_id": {
+                                "label": "object_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "747466b3cca26bf99a7a0ed719d8876c": {
+                        "name": "is_user_logged_in",
+                        "x": -403.0915728777832,
+                        "y": 61.56058004081467,
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "d74e90993a38383a0c7c8b38415aaf98": {
+                        "name": "and",
+                        "x": -127.36487757550144,
+                        "y": -48.45418055318315,
+                        "type": "logical",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed"
+                            },
+                            "item2": {
+                                "label": "item2",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "b1dfadb6e871eab8ac5bb183dcbb9996": {
+                        "name": "not",
+                        "x": 115.57912765478548,
+                        "y": -49.88660464422541,
+                        "type": "logical",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "bool": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "f751509094739c33ef60885218e1eaec": {
+                        "name": "maintenance_message",
+                        "x": 472,
+                        "y": -2,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "835d7e4dd0f51bdfcb1b83348e960639"
+                    },
+                    "8cf79a7162e58c1ca327c21630cf981b": {
+                        "name": "integer",
+                        "x": 470,
+                        "y": 170,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": 503
+                    },
+                    "4a515ece7386bc82dcd9daa122327b7f": {
+                        "name": "maintenance_title",
+                        "x": 470,
+                        "y": 80,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a93b878e69212bb50e0eee987df2f1e3"
+                    }
+                },
+                "links": {
+                    "67b4a33eaab0b121979c54c7f8961666": {
+                        "fromComponent": "22912cde457f259e6fd1bd33cd341036",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "d9c01b83b7a9465bf2904dcc4740efc5",
+                        "toConnector": "ifct"
+                    },
+                    "a1e0fa6b5ba1924dd9a82b811f043212": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "96aa58bd0bb9dda5930e9bec824b39dc",
+                        "toConnector": "ifct"
+                    },
+                    "8f9cfccc985421b39508b2d3da51e5e3": {
+                        "fromComponent": "96aa58bd0bb9dda5930e9bec824b39dc",
+                        "fromConnector": "return",
+                        "toComponent": "d74e90993a38383a0c7c8b38415aaf98",
+                        "toConnector": "item1"
+                    },
+                    "9af8ead524dfb1ea6bc45fb35ca1099c": {
+                        "fromComponent": "747466b3cca26bf99a7a0ed719d8876c",
+                        "fromConnector": "return",
+                        "toComponent": "d74e90993a38383a0c7c8b38415aaf98",
+                        "toConnector": "item2"
+                    },
+                    "4b695b6659d4657839e1ebd5c688ff8d": {
+                        "fromComponent": "d74e90993a38383a0c7c8b38415aaf98",
+                        "fromConnector": "return",
+                        "toComponent": "b1dfadb6e871eab8ac5bb183dcbb9996",
+                        "toConnector": "item1"
+                    },
+                    "e09fae579a95ffa2475327985316f21e": {
+                        "fromComponent": "b1dfadb6e871eab8ac5bb183dcbb9996",
+                        "fromConnector": "bool",
+                        "toComponent": "22912cde457f259e6fd1bd33cd341036",
+                        "toConnector": "condition"
+                    },
+                    "1e2520fc6e6f3f9188af5630869645a2": {
+                        "fromComponent": "96aa58bd0bb9dda5930e9bec824b39dc",
+                        "fromConnector": "ofct",
+                        "toComponent": "22912cde457f259e6fd1bd33cd341036",
+                        "toConnector": "ifct"
+                    },
+                    "3a9045ba7ac9c66c41b00db51e079efe": {
+                        "fromComponent": "f751509094739c33ef60885218e1eaec",
+                        "fromConnector": "content",
+                        "toComponent": "d9c01b83b7a9465bf2904dcc4740efc5",
+                        "toConnector": "message"
+                    },
+                    "10bad4b53313ac1ec350ae9292462121": {
+                        "fromComponent": "8cf79a7162e58c1ca327c21630cf981b",
+                        "fromConnector": "output",
+                        "toComponent": "d9c01b83b7a9465bf2904dcc4740efc5",
+                        "toConnector": "args"
+                    },
+                    "cb8ca2b279969597227403ae6472d119": {
+                        "fromComponent": "4a515ece7386bc82dcd9daa122327b7f",
+                        "fromConnector": "content",
+                        "toComponent": "d9c01b83b7a9465bf2904dcc4740efc5",
+                        "toConnector": "title"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "835d7e4dd0f51bdfcb1b83348e960639": {
+            "title": "maintenance_message",
+            "type": "data",
+            "content": {
+                "weight": "2",
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "value": "Coming soon...",
+                "title": "Message",
+                "description": "Set maintenance mode message"
+            }
+        },
+        "a93b878e69212bb50e0eee987df2f1e3": {
+            "title": "maintenance_title",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "value": "Maintenance mode",
+                "title": "Page title",
+                "description": "Set maintenance mode title"
+            }
+        }
+    }
+}

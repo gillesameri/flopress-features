@@ -1,0 +1,159 @@
+{
+    "title": "Keep logged in WordPress for a longer period",
+    "category": "Admin",
+    "description": "Extend the time of the WordPress login session",
+    "content": {
+        "63e1bd783b1f947c0a1841226d4c4ecc": {
+            "title": "auth_cookie_expiration",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "auth_cookie_expiration",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "length": {
+                                "label": "length",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ]
+                            },
+                            "user_id": {
+                                "label": "user_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ]
+                            },
+                            "remember": {
+                                "label": "remember",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "28caeb44096ae2547ed3a749ba7ac216": {
+                        "x": 555,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "4866b9793c3a96b5dd5389024887c346": {
+                        "name": "duration",
+                        "x": 0,
+                        "y": 150,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "4878005be36cf2cce625d954da604c0e"
+                    },
+                    "af33e484a31495fcbbce2c625527f13c": {
+                        "name": "multiplication",
+                        "x": 245,
+                        "y": 175,
+                        "type": "arithmetic",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed"
+                            },
+                            "item2": {
+                                "label": "item2",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "float",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "4fb004a74d954129a8bb9aa2f1649bcc": {
+                        "name": "integer",
+                        "x": 0,
+                        "y": 235,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": 3600
+                    }
+                },
+                "links": {
+                    "5d0b2d3c0988298ba04acc86da7bdf95": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "28caeb44096ae2547ed3a749ba7ac216",
+                        "toConnector": "ifct"
+                    },
+                    "1f0d2779700d9b8cb3fcb715b0fd1e66": {
+                        "fromComponent": "4866b9793c3a96b5dd5389024887c346",
+                        "fromConnector": "content",
+                        "toComponent": "af33e484a31495fcbbce2c625527f13c",
+                        "toConnector": "item1"
+                    },
+                    "74ab33dc1f25a1b1dd1347f8e2513363": {
+                        "fromComponent": "4fb004a74d954129a8bb9aa2f1649bcc",
+                        "fromConnector": "output",
+                        "toComponent": "af33e484a31495fcbbce2c625527f13c",
+                        "toConnector": "item2"
+                    },
+                    "de9fb593731b9257a9d1d0a2b5d96def": {
+                        "fromComponent": "af33e484a31495fcbbce2c625527f13c",
+                        "fromConnector": "return",
+                        "toComponent": "28caeb44096ae2547ed3a749ba7ac216",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "4878005be36cf2cce625d954da604c0e": {
+            "title": "duration",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 336,
+                "is_settings": true,
+                "title": "Login duration",
+                "description": "The login duration in (hours)"
+            }
+        }
+    }
+}

@@ -1,0 +1,350 @@
+{
+    "title": "Redirect author archive link to any page",
+    "category": "Tools",
+    "description": "It is good practice to redirect the author page to another page if it's not used",
+    "content": {
+        "c2cc63046f6eb00080129b8821126ffa": {
+            "title": "author_link",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "author_link",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "link": {
+                                "label": "link",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            },
+                            "author_id": {
+                                "label": "author_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ]
+                            },
+                            "author_nicename": {
+                                "label": "author_nicename",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "bd7df54db42bc1361e031a4d81871c47": {
+                        "x": 565,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "b4c66b2021db71787c1b083e2942d6e8": {
+                        "name": "page",
+                        "x": 0,
+                        "y": 160,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "08b28658b52fa1df1d0156a28b5d1e2c"
+                    },
+                    "f2b54cd19f5759f2a01c8184c09a6055": {
+                        "name": "get_permalink",
+                        "x": 260,
+                        "y": 155,
+                        "type": "fct",
+                        "inputs": {
+                            "post": {
+                                "label": "post",
+                                "type": "int",
+                                "types": [
+                                    "int",
+                                    "mixed"
+                                ],
+                                "default": "0",
+                                "required": false
+                            },
+                            "leavename": {
+                                "label": "leavename",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "0d9fefa8836ba99291881f606dfbbb6d": {
+                        "fromComponent": "b4c66b2021db71787c1b083e2942d6e8",
+                        "fromConnector": "content",
+                        "toComponent": "f2b54cd19f5759f2a01c8184c09a6055",
+                        "toConnector": "post"
+                    },
+                    "fb142a44655739463f87860ec3b9e517": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "bd7df54db42bc1361e031a4d81871c47",
+                        "toConnector": "ifct"
+                    },
+                    "ece31d842ff8e2556f5f29101a8345bd": {
+                        "fromComponent": "f2b54cd19f5759f2a01c8184c09a6055",
+                        "fromConnector": "return",
+                        "toComponent": "bd7df54db42bc1361e031a4d81871c47",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "08b28658b52fa1df1d0156a28b5d1e2c": {
+            "title": "page",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "object",
+                    "post"
+                ],
+                "value": 1,
+                "is_settings": true,
+                "title": "The page to redirect"
+            }
+        },
+        "24c545668ee447e9c9fa8a9b96e58229": {
+            "title": "template_redirect",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "template_redirect",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "6887b4f131d1e43d78c58980050519c4": {
+                        "x": 320,
+                        "y": 5,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "9e62051f926211381b2c927ea42c2f67": {
+                        "name": "is_author",
+                        "x": 0,
+                        "y": 80,
+                        "type": "fct",
+                        "inputs": {
+                            "author": {
+                                "label": "author",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ],
+                                "default": "''",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "bf81b49e164955d90a4eb406b0545f4c": {
+                        "x": 620,
+                        "y": 20,
+                        "name": "wp_redirect",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "location": {
+                                "label": "location",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "status": {
+                                "label": "status",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "302",
+                                "required": false
+                            },
+                            "x_redirect_by": {
+                                "label": "x_redirect_by",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'WordPress'",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "01938e7bb7f342398785fc5e68505ec1": {
+                        "name": "page",
+                        "x": 0,
+                        "y": 160,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "08b28658b52fa1df1d0156a28b5d1e2c"
+                    },
+                    "9304823814adf28fc55e9e8abf18162a": {
+                        "x": 305,
+                        "y": 150,
+                        "name": "get_permalink",
+                        "type": "fct",
+                        "inputs": {
+                            "post": {
+                                "label": "post",
+                                "type": "int",
+                                "types": [
+                                    "int",
+                                    "mixed"
+                                ],
+                                "default": "0",
+                                "required": false
+                            },
+                            "leavename": {
+                                "label": "leavename",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "bdbdba99218a219bda9679e44e038ad1": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "6887b4f131d1e43d78c58980050519c4",
+                        "toConnector": "ifct"
+                    },
+                    "70a2b211cfafa1283a20a890ce3ec8da": {
+                        "fromComponent": "9e62051f926211381b2c927ea42c2f67",
+                        "fromConnector": "return",
+                        "toComponent": "6887b4f131d1e43d78c58980050519c4",
+                        "toConnector": "condition"
+                    },
+                    "86caf0116e4ca29307676b00b4f6d7a7": {
+                        "fromComponent": "6887b4f131d1e43d78c58980050519c4",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "bf81b49e164955d90a4eb406b0545f4c",
+                        "toConnector": "ifct"
+                    },
+                    "fe2c64d00949152d5a5046756638195c": {
+                        "fromComponent": "01938e7bb7f342398785fc5e68505ec1",
+                        "fromConnector": "content",
+                        "toComponent": "9304823814adf28fc55e9e8abf18162a",
+                        "toConnector": "post"
+                    },
+                    "36c841b14a99ad8ed06639935bdff479": {
+                        "fromComponent": "9304823814adf28fc55e9e8abf18162a",
+                        "fromConnector": "return",
+                        "toComponent": "bf81b49e164955d90a4eb406b0545f4c",
+                        "toConnector": "location"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

@@ -1,0 +1,148 @@
+{
+    "title": "Google Analytics tracking code",
+    "category": "Third-party,Statistics",
+    "description": "Display the Google Analytics tracking code in your website.",
+    "content": {
+        "66ca19e2986fc370b072ff77a617036d": {
+            "title": "display_code",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_footer",
+                        "x": -801.9826840490882,
+                        "y": -118.53779030173243,
+                        "type": "hook-action",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        }
+                    },
+                    "8a8ec59b57e1e46fe889dcb0903f1577": {
+                        "name": "google_code_template",
+                        "x": -333.53779030173246,
+                        "y": -5.075580603464857,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "42efa5af3d1adc901719e1b54280a898"
+                    },
+                    "118f421adce6933ebd60c2d89017f791": {
+                        "name": "array",
+                        "x": -563.9912739225216,
+                        "y": -6.4622096982675785,
+                        "type": "variable",
+                        "inputs": {
+                            "88e11a8f1a082c0279865104b7296a3e": {
+                                "label": "GA_TRACKING_ID",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "b3a3bcf3c80244a894099d1f2bbdd6c6": {
+                        "name": "google_code",
+                        "x": -798.8401127155919,
+                        "y": -6.462209698267571,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "19326a05c05518eb7b137ef1a0298822"
+                    },
+                    "3982da0d281898658b8d5a6dd5e4a288": {
+                        "name": "print",
+                        "x": -24,
+                        "y": -114,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "67975f4baa7d70cb4bb8a6e1485129da": {
+                        "fromComponent": "118f421adce6933ebd60c2d89017f791",
+                        "fromConnector": "output_array",
+                        "toComponent": "8a8ec59b57e1e46fe889dcb0903f1577",
+                        "toConnector": "args"
+                    },
+                    "9da4e0f7ccd2e8de60ab08d25d1759ac": {
+                        "fromComponent": "b3a3bcf3c80244a894099d1f2bbdd6c6",
+                        "fromConnector": "content",
+                        "toComponent": "118f421adce6933ebd60c2d89017f791",
+                        "toConnector": "88e11a8f1a082c0279865104b7296a3e"
+                    },
+                    "caecc58eafbf5b3412104c509041009f": {
+                        "fromComponent": "8a8ec59b57e1e46fe889dcb0903f1577",
+                        "fromConnector": "content",
+                        "toComponent": "3982da0d281898658b8d5a6dd5e4a288",
+                        "toConnector": "string"
+                    },
+                    "1779bd5edb580ab1eeef4d6115eaa94c": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "3982da0d281898658b8d5a6dd5e4a288",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "42efa5af3d1adc901719e1b54280a898": {
+            "title": "google_code_template",
+            "type": "template",
+            "content": "<script async src=\"https:\/\/www.googletagmanager.com\/gtag\/js?id={{GA_TRACKING_ID}}\"><\/script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', '{{GA_TRACKING_ID}}');\n<\/script>"
+        },
+        "19326a05c05518eb7b137ef1a0298822": {
+            "title": "google_code",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "UA-XXXXXX-X",
+                "is_settings": true,
+                "title": "Google tracking ID",
+                "description": "Set your Google tracking ID (UA-XXXXXX-X)"
+            }
+        }
+    }
+}

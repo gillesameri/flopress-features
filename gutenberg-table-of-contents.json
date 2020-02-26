@@ -1,0 +1,1671 @@
+{
+    "title": "Gutenberg Table of contents",
+    "category": "Gutenberg,Tools,Post",
+    "description": "Display a table of contents automatically generated from titles with a simple shortcode.\nSmooth scroll, offset and scroll duration.\nexample: [table_of_content \/]",
+    "content": {
+        "89e997422446bce6ec4df4958414e307": {
+            "title": "resources_template",
+            "type": "template",
+            "content": "<ul class=\"{{classname}}\">\n    {% for block in blocks %}\n        {% set class = 'level-' ~ block.level %}\n        <li class=\"{{class}}\">\n            {% set anchor = \"#\" %}\n            {% if block.slug[1] is defined %}\n                {% set anchor = anchor ~ block.slug[1] %}\n                <a href=\"{{anchor}}\">\n                    {{ block.title|raw }}\n                <\/a>\n            {% else %}\n                {{ block.title|raw }}\n            {% endif %}\n        <\/li>\n    {% endfor %}\n<\/ul>"
+        },
+        "47343aa85806cdb0e1572173fe312c07": {
+            "title": "wp_footer",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_footer",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 70,
+                        "y": -95
+                    },
+                    "26abbd941749e39b8587d52343e80680": {
+                        "x": 690,
+                        "y": -30,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "9a9aa59dd11a094e9f0de5d352f87cb2": {
+                        "name": "styles",
+                        "x": 70,
+                        "y": 65,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "169af8492118489e181b1912ac43f115"
+                    },
+                    "d435eb8f171e56049d63c157a465e6e0": {
+                        "name": "is_shortcode",
+                        "x": 70,
+                        "y": -15,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a828dd510f459d3386eaa9bbf3a51f80"
+                    },
+                    "7309a754c4381c559ac600a664a50827": {
+                        "x": 375,
+                        "y": -95,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "c55018413129c04e04041055d704780f": {
+                        "name": "scripts",
+                        "x": 70,
+                        "y": 145,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "15d19471b28f26a0d1b572263f232a12"
+                    },
+                    "6b2eb22534a48763a09103eed9ffc853": {
+                        "name": "scroll_offset",
+                        "x": -510,
+                        "y": 165,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "fa6167198cf212be641c16c33f77e573"
+                    },
+                    "b2c003a43bcd12aa4e09243c3ceccc8d": {
+                        "name": "array",
+                        "x": -190,
+                        "y": 145,
+                        "type": "variable",
+                        "inputs": {
+                            "5a29db73bd24a700c553166da837c24e": {
+                                "label": "classname",
+                                "type": "mixed"
+                            },
+                            "4dd23a409a47592a9ec16542e6fb574a": {
+                                "label": "offset",
+                                "type": "mixed"
+                            },
+                            "bac47801e86bbb6a688d6c7401900890": {
+                                "label": "duration",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "4c4a888a433fb52f1e97d190be995c7b": {
+                        "name": "array",
+                        "x": -190,
+                        "y": 65,
+                        "type": "variable",
+                        "inputs": {
+                            "5a29db73bd24a700c553166da837c24e": {
+                                "label": "classname",
+                                "type": "mixed",
+                                "value": ""
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "7034b7bdcd94f3e2fac2df9800db6cae": {
+                        "name": "classname",
+                        "x": -510,
+                        "y": 65,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "29c505e626e5a4f1321150aacf9d7600"
+                    },
+                    "58f2a36adc46ce4c4d92a96e9b68db60": {
+                        "name": "duration",
+                        "x": -510,
+                        "y": 250,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "acab2ca5958de9ed6ffd9b657edb90e8"
+                    },
+                    "74a5110cc6fd0c339d198ca24062aa86": {
+                        "name": "concat",
+                        "x": 375,
+                        "y": 65,
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string1",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "d64fe87465758460940e412c5e07c696": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "7309a754c4381c559ac600a664a50827",
+                        "toConnector": "ifct"
+                    },
+                    "8ec34f85e60f8e001ef845bdf0d5cbbb": {
+                        "fromComponent": "7309a754c4381c559ac600a664a50827",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "26abbd941749e39b8587d52343e80680",
+                        "toConnector": "ifct"
+                    },
+                    "7ab123ed706111a21c64ae873bf959c2": {
+                        "fromComponent": "d435eb8f171e56049d63c157a465e6e0",
+                        "fromConnector": "content",
+                        "toComponent": "7309a754c4381c559ac600a664a50827",
+                        "toConnector": "condition"
+                    },
+                    "34d2a2f38e44e8cdcef616a36919cb32": {
+                        "fromComponent": "b2c003a43bcd12aa4e09243c3ceccc8d",
+                        "fromConnector": "output_array",
+                        "toComponent": "c55018413129c04e04041055d704780f",
+                        "toConnector": "args"
+                    },
+                    "9ec363cafbc4b28f16f12600da8c8f25": {
+                        "fromComponent": "7034b7bdcd94f3e2fac2df9800db6cae",
+                        "fromConnector": "content",
+                        "toComponent": "4c4a888a433fb52f1e97d190be995c7b",
+                        "toConnector": "5a29db73bd24a700c553166da837c24e"
+                    },
+                    "9e8ef64db16fbaee98aa3b73cd76e20d": {
+                        "fromComponent": "4c4a888a433fb52f1e97d190be995c7b",
+                        "fromConnector": "output_array",
+                        "toComponent": "9a9aa59dd11a094e9f0de5d352f87cb2",
+                        "toConnector": "args"
+                    },
+                    "b7117d83a532d636cb893e406a757c3f": {
+                        "fromComponent": "6b2eb22534a48763a09103eed9ffc853",
+                        "fromConnector": "content",
+                        "toComponent": "b2c003a43bcd12aa4e09243c3ceccc8d",
+                        "toConnector": "4dd23a409a47592a9ec16542e6fb574a"
+                    },
+                    "fe74794c78c15fcb26cfc75259e75c86": {
+                        "fromComponent": "7034b7bdcd94f3e2fac2df9800db6cae",
+                        "fromConnector": "content",
+                        "toComponent": "b2c003a43bcd12aa4e09243c3ceccc8d",
+                        "toConnector": "5a29db73bd24a700c553166da837c24e"
+                    },
+                    "1646d85ef724bb5130fb108d5806aaad": {
+                        "fromComponent": "58f2a36adc46ce4c4d92a96e9b68db60",
+                        "fromConnector": "content",
+                        "toComponent": "b2c003a43bcd12aa4e09243c3ceccc8d",
+                        "toConnector": "bac47801e86bbb6a688d6c7401900890"
+                    },
+                    "2b1b7fc5d67b2d682249d3f1703bb0b7": {
+                        "fromComponent": "9a9aa59dd11a094e9f0de5d352f87cb2",
+                        "fromConnector": "content",
+                        "toComponent": "74a5110cc6fd0c339d198ca24062aa86",
+                        "toConnector": "string1"
+                    },
+                    "fea00be2d7a3a5401b5f2210b0e6db2d": {
+                        "fromComponent": "c55018413129c04e04041055d704780f",
+                        "fromConnector": "content",
+                        "toComponent": "74a5110cc6fd0c339d198ca24062aa86",
+                        "toConnector": "string2"
+                    },
+                    "e4bcf2619652cacd35846b9ec2daa403": {
+                        "fromComponent": "74a5110cc6fd0c339d198ca24062aa86",
+                        "fromConnector": "string",
+                        "toComponent": "26abbd941749e39b8587d52343e80680",
+                        "toConnector": "string"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "169af8492118489e181b1912ac43f115": {
+            "title": "styles",
+            "type": "template",
+            "content": "<style>\n.{{classname}} a:link, .{{classname}} a:visited{\n    color:#222;\n}\n\n.{{classname}} a:hover{\n    text-decoration:underline;\n}\n\n.{{classname}} li.level-2{\n    \n}\n\n.{{classname}} li.level-3{\n    text-indent:20px;\n}\n\n.{{classname}} li.level-4{\n    text-indent:40px;\n}\n<\/style>"
+        },
+        "6b3655d8b9a487729089f4643e7a3360": {
+            "title": "table_of_content",
+            "type": "shortcode",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "table_of_content",
+                        "type": "hook-shortcode",
+                        "x": -920,
+                        "y": -495,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "array"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "3e3da08c1751c3281c2ede48f7e2e30e": {
+                        "name": "parse_blocks",
+                        "x": -110,
+                        "y": -390,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "array",
+                                "label": "array"
+                            }
+                        }
+                    },
+                    "dab11532ac76592e9b86be0725bab1ce": {
+                        "name": "get_the_content",
+                        "x": -410,
+                        "y": -255,
+                        "type": "fct",
+                        "inputs": {
+                            "more_link_text": {
+                                "label": "more_link_text",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "null",
+                                "required": false
+                            },
+                            "strip_teaser": {
+                                "label": "strip_teaser",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "b7168fe216d9bb772804860e100a8eb5": {
+                        "x": 565,
+                        "y": -490,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "89c7c283ce4a22ffb2279939dffc4b50": {
+                        "name": "array",
+                        "x": 10,
+                        "y": -690,
+                        "type": "variable",
+                        "inputs": {
+                            "07d6b73ee3b83c35efcacaed8197f8a6": {
+                                "label": "blocks",
+                                "type": "mixed",
+                                "value": ""
+                            },
+                            "d4428e97bd0cc44f8fd6ded237170e08": {
+                                "label": "title",
+                                "type": "mixed"
+                            },
+                            "dabe080ee0e3a15dda0e2c01247df902": {
+                                "label": "classname",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "fbbb17df207ac2acac1483eb21b75de3": {
+                        "name": "resources_template",
+                        "x": 280,
+                        "y": -605,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "89e997422446bce6ec4df4958414e307"
+                    },
+                    "371bb009e15f18363f3ffeae6a4a556e": {
+                        "name": "title",
+                        "x": -290,
+                        "y": -670,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "29c505e626e5a4f1321150aacf9d7600"
+                    },
+                    "87fb03fc71acb497c3a2f4ea8224ee0c": {
+                        "name": "is_shortcode",
+                        "x": -920,
+                        "y": -370,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a828dd510f459d3386eaa9bbf3a51f80"
+                    },
+                    "cd5c363859bc7531b2e47e8ca967c1e6": {
+                        "x": 160,
+                        "y": -390,
+                        "name": "foreach",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "default": "array()"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "label": "finish"
+                            },
+                            "ofct_loop": {
+                                "type": "efct",
+                                "label": "loop"
+                            },
+                            "item_loop": {
+                                "type": "mixed",
+                                "label": "item"
+                            },
+                            "key_loop": {
+                                "type": "mixed",
+                                "label": "key"
+                            }
+                        }
+                    },
+                    "179fb70203701bfde448e1f905068c72": {
+                        "name": "tocs_data",
+                        "x": -290,
+                        "y": -760,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "f1f4468eb08f6b3177d14d12ad25f67b"
+                    },
+                    "b86e436f92834d90fad6b4a24c5e012d": {
+                        "x": -660,
+                        "y": -495,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "6a202332f10c7073bb9c99a2b68a46c1": {
+                        "name": "set_variable",
+                        "x": -410,
+                        "y": -390,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "mixed"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "bool",
+                                "types": [
+                                    "mixed",
+                                    "int",
+                                    "float",
+                                    "string",
+                                    "bool",
+                                    "array",
+                                    "object"
+                                ],
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "2c460e85296567cc0e811d60f186f99c": {
+                        "name": "classname",
+                        "x": -290,
+                        "y": -585,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "29c505e626e5a4f1321150aacf9d7600"
+                    },
+                    "7446fbe06de621ee21e79deb50705baf": {
+                        "x": 565,
+                        "y": -370,
+                        "name": "apply_filters",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "var,...": {
+                                "label": "var,...",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ],
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "eba7a2ff9a7cfd9f84d41ce1d90f63f7": {
+                        "name": "gutenberg_heading_info",
+                        "x": 160,
+                        "y": -250,
+                        "type": "filter",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "f5b1b1df8daec5601371c025af4bb968"
+                    },
+                    "0a290f06c0e5e4f71856be96cfb5160d": {
+                        "name": "tocs_data",
+                        "x": 565,
+                        "y": -175,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "f1f4468eb08f6b3177d14d12ad25f67b"
+                    },
+                    "8230242bc70c11f54bcd9a1d990606f0": {
+                        "x": 935,
+                        "y": -370,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "3830743e05c841cd7761ac5fc6d7f4d4": {
+                        "name": "array_push",
+                        "x": 1240,
+                        "y": -195,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "label": "count",
+                                "type": "int"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "d2f133f73d106d5db3eecc0fd6a117a6": {
+                        "fromComponent": "dab11532ac76592e9b86be0725bab1ce",
+                        "fromConnector": "return",
+                        "toComponent": "3e3da08c1751c3281c2ede48f7e2e30e",
+                        "toConnector": "content"
+                    },
+                    "1491b0a5c715a6f44d54c1ace9b96ad8": {
+                        "fromComponent": "fbbb17df207ac2acac1483eb21b75de3",
+                        "fromConnector": "content",
+                        "toComponent": "b7168fe216d9bb772804860e100a8eb5",
+                        "toConnector": "value"
+                    },
+                    "433cbefa0d9559f078652f48662e3a95": {
+                        "fromComponent": "89c7c283ce4a22ffb2279939dffc4b50",
+                        "fromConnector": "output_array",
+                        "toComponent": "fbbb17df207ac2acac1483eb21b75de3",
+                        "toConnector": "args"
+                    },
+                    "74aab3052deab19819f2fa0c73064c2e": {
+                        "fromComponent": "371bb009e15f18363f3ffeae6a4a556e",
+                        "fromConnector": "content",
+                        "toComponent": "89c7c283ce4a22ffb2279939dffc4b50",
+                        "toConnector": "d4428e97bd0cc44f8fd6ded237170e08"
+                    },
+                    "91cdb507fdb7a646ddf8e139bdfc5dbc": {
+                        "fromComponent": "3e3da08c1751c3281c2ede48f7e2e30e",
+                        "fromConnector": "return",
+                        "toComponent": "cd5c363859bc7531b2e47e8ca967c1e6",
+                        "toConnector": "array"
+                    },
+                    "7a44b7d6e1c75f5bc6e0988a91c59421": {
+                        "fromComponent": "3e3da08c1751c3281c2ede48f7e2e30e",
+                        "fromConnector": "ofct",
+                        "toComponent": "cd5c363859bc7531b2e47e8ca967c1e6",
+                        "toConnector": "ifct"
+                    },
+                    "bb21690d49c005a20ed3f78b701ca2a5": {
+                        "fromComponent": "179fb70203701bfde448e1f905068c72",
+                        "fromConnector": "content",
+                        "toComponent": "89c7c283ce4a22ffb2279939dffc4b50",
+                        "toConnector": "07d6b73ee3b83c35efcacaed8197f8a6"
+                    },
+                    "ed23a097568d965fa44f37984f92a182": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "b86e436f92834d90fad6b4a24c5e012d",
+                        "toConnector": "ifct"
+                    },
+                    "55d3b8585724c2c3131a1a79fd38fb9c": {
+                        "fromComponent": "87fb03fc71acb497c3a2f4ea8224ee0c",
+                        "fromConnector": "content",
+                        "toComponent": "b86e436f92834d90fad6b4a24c5e012d",
+                        "toConnector": "condition"
+                    },
+                    "ff73635ce23df560fbf4c65cd2fb2bb1": {
+                        "fromComponent": "b86e436f92834d90fad6b4a24c5e012d",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "b7168fe216d9bb772804860e100a8eb5",
+                        "toConnector": "ifct"
+                    },
+                    "3bc6ba6d5dd0a4ce716b19c61b438d6f": {
+                        "fromComponent": "87fb03fc71acb497c3a2f4ea8224ee0c",
+                        "fromConnector": "content",
+                        "toComponent": "6a202332f10c7073bb9c99a2b68a46c1",
+                        "toConnector": "variable"
+                    },
+                    "b00caa8f4a3b46a1c81d182620ca9ebf": {
+                        "fromComponent": "b86e436f92834d90fad6b4a24c5e012d",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "6a202332f10c7073bb9c99a2b68a46c1",
+                        "toConnector": "ifct"
+                    },
+                    "5dc4fb8da6a547286310a1c939fd8cec": {
+                        "fromComponent": "6a202332f10c7073bb9c99a2b68a46c1",
+                        "fromConnector": "ofct",
+                        "toComponent": "3e3da08c1751c3281c2ede48f7e2e30e",
+                        "toConnector": "ifct"
+                    },
+                    "52a616c659b1c38a2471cd9744d3bafc": {
+                        "fromComponent": "2c460e85296567cc0e811d60f186f99c",
+                        "fromConnector": "content",
+                        "toComponent": "89c7c283ce4a22ffb2279939dffc4b50",
+                        "toConnector": "dabe080ee0e3a15dda0e2c01247df902"
+                    },
+                    "31c5603c00dc9364e572743835d54bf8": {
+                        "fromComponent": "cd5c363859bc7531b2e47e8ca967c1e6",
+                        "fromConnector": "ofct",
+                        "toComponent": "b7168fe216d9bb772804860e100a8eb5",
+                        "toConnector": "ifct"
+                    },
+                    "81b6167d2d01a42500d1ec2fd83fcfa1": {
+                        "fromComponent": "eba7a2ff9a7cfd9f84d41ce1d90f63f7",
+                        "fromConnector": "name",
+                        "toComponent": "7446fbe06de621ee21e79deb50705baf",
+                        "toConnector": "tag"
+                    },
+                    "5b8179026d0b1650d5d397f00ba7c5b4": {
+                        "fromComponent": "cd5c363859bc7531b2e47e8ca967c1e6",
+                        "fromConnector": "item_loop",
+                        "toComponent": "7446fbe06de621ee21e79deb50705baf",
+                        "toConnector": "value"
+                    },
+                    "660feedc034ef077b0c69a9e3068a386": {
+                        "fromComponent": "7446fbe06de621ee21e79deb50705baf",
+                        "fromConnector": "ofct",
+                        "toComponent": "8230242bc70c11f54bcd9a1d990606f0",
+                        "toConnector": "ifct"
+                    },
+                    "a10dbbba860fbde19cb5c241bed89a76": {
+                        "fromComponent": "cd5c363859bc7531b2e47e8ca967c1e6",
+                        "fromConnector": "ofct_loop",
+                        "toComponent": "7446fbe06de621ee21e79deb50705baf",
+                        "toConnector": "ifct"
+                    },
+                    "f00d7a3611bc32c9af9d64d4436a93dc": {
+                        "fromComponent": "7446fbe06de621ee21e79deb50705baf",
+                        "fromConnector": "return",
+                        "toComponent": "8230242bc70c11f54bcd9a1d990606f0",
+                        "toConnector": "condition"
+                    },
+                    "a1089ab7933417b6cc94a41551fec221": {
+                        "fromComponent": "0a290f06c0e5e4f71856be96cfb5160d",
+                        "fromConnector": "content",
+                        "toComponent": "3830743e05c841cd7761ac5fc6d7f4d4",
+                        "toConnector": "array"
+                    },
+                    "82d26053fd016eccb217677884b7f671": {
+                        "fromComponent": "7446fbe06de621ee21e79deb50705baf",
+                        "fromConnector": "return",
+                        "toComponent": "3830743e05c841cd7761ac5fc6d7f4d4",
+                        "toConnector": "value"
+                    },
+                    "57dbbf5099777a42fde175b307a872fa": {
+                        "fromComponent": "8230242bc70c11f54bcd9a1d990606f0",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "3830743e05c841cd7761ac5fc6d7f4d4",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "29c505e626e5a4f1321150aacf9d7600": {
+            "title": "classname",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "CSS class name",
+                "description": "Set the classname of the ul element",
+                "value": "toc_menu"
+            }
+        },
+        "a828dd510f459d3386eaa9bbf3a51f80": {
+            "title": "is_shortcode",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ]
+            }
+        },
+        "15d19471b28f26a0d1b572263f232a12": {
+            "title": "scripts",
+            "type": "template",
+            "content": "<script>\n    jQuery('.{{classname}} li a').click(function() {\n        var offset = -{{offset}};\n        \/* toto *\/\n        if(this.hash){\n            if (location.pathname.replace(\/^\\\/\/,'') == this.pathname.replace(\/^\\\/\/,'') && location.hostname == this.hostname) {\n                var target = jQuery(this.hash);\n                target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');\n                if (target.length) {\n                    jQuery('html, body').animate({\n                        scrollTop: target.offset().top + offset\n                    }, {{duration}});\n                    return false;\n                }\n            }\n        }\n    });\n<\/script>"
+        },
+        "fa6167198cf212be641c16c33f77e573": {
+            "title": "scroll_offset",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 150,
+                "is_settings": true,
+                "title": "Offset"
+            }
+        },
+        "f1f4468eb08f6b3177d14d12ad25f67b": {
+            "title": "tocs_data",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "array"
+                ]
+            }
+        },
+        "acab2ca5958de9ed6ffd9b657edb90e8": {
+            "title": "duration",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 500,
+                "is_settings": true,
+                "title": "Duration",
+                "description": "(ms)"
+            }
+        },
+        "05cc91752a3d51d02993fdd7b1c4f908": {
+            "title": "wp_enqueue_scripts",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_enqueue_scripts",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -45,
+                        "y": 0
+                    },
+                    "407e21f6652873615450d66add62a3b4": {
+                        "x": 275,
+                        "y": 0,
+                        "name": "wp_enqueue_script",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "jquery"
+                            },
+                            "src": {
+                                "label": "src",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "deps": {
+                                "label": "deps",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            },
+                            "ver": {
+                                "label": "ver",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool",
+                                    "null"
+                                ],
+                                "default": "false",
+                                "required": false
+                            },
+                            "in_footer": {
+                                "label": "in_footer",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "5093b96f9a23f49f3af2f9daa2c60ef2": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "407e21f6652873615450d66add62a3b4",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "f5b1b1df8daec5601371c025af4bb968": {
+            "title": "gutenberg_heading_info",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "gutenberg_heading_info",
+                        "type": "hook-shortcode",
+                        "x": 620,
+                        "y": -85,
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "item",
+                                "type": "array"
+                            }
+                        }
+                    },
+                    "135d431267adf191cb8f24fa93ddd080": {
+                        "x": 1045,
+                        "y": 300,
+                        "name": "get_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "attrs"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "ff01cc5741471ceba25ef01b47b00f7b": {
+                        "x": 1725,
+                        "y": 485,
+                        "name": "get_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "level"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "603814ba2936bdb2d5c41592db4bb43a": {
+                        "x": 1725,
+                        "y": -90,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "7c893c9f459e22748ee3aeb0882c790d": {
+                        "x": 1050,
+                        "y": -10,
+                        "name": "get_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "blockName"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "5eebedb95f0fba1851f4ae1076e22bb7": {
+                        "name": "array",
+                        "x": 2940,
+                        "y": 345,
+                        "type": "variable",
+                        "inputs": {
+                            "8e252dbb765645e85764d19e574a0357": {
+                                "label": "title",
+                                "type": "mixed"
+                            },
+                            "4dac9c403f242316f1579e144d4cf672": {
+                                "label": "slug",
+                                "type": "mixed",
+                                "value": ""
+                            },
+                            "4e6ead7d051aa7b190a5e79646cffeb4": {
+                                "label": "level",
+                                "type": "mixed",
+                                "value": "2"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "ae11298a985bca1a63d1d78702a25e9c": {
+                        "x": 1045,
+                        "y": 105,
+                        "name": "get_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "innerHTML"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "19405e172d2912e76708f13d33d843c5": {
+                        "x": 2940,
+                        "y": 115,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "53e98277bad65245abb102d7573f1237": {
+                        "name": "array",
+                        "x": 2940,
+                        "y": 220,
+                        "type": "variable",
+                        "inputs": {
+                            "8e252dbb765645e85764d19e574a0357": {
+                                "label": "title",
+                                "type": "mixed"
+                            },
+                            "4dac9c403f242316f1579e144d4cf672": {
+                                "label": "slug",
+                                "type": "mixed",
+                                "value": ""
+                            },
+                            "4e6ead7d051aa7b190a5e79646cffeb4": {
+                                "label": "level",
+                                "type": "mixed",
+                                "value": "2"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "3b93d714d4e9fdfa29ea30114ac5c97d": {
+                        "name": "preg_match",
+                        "x": 2530,
+                        "y": 60,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "pattern": {
+                                "label": "pattern",
+                                "type": "string",
+                                "value": "\/id=\"([^\"]*)\"\/"
+                            },
+                            "subject": {
+                                "label": "subject",
+                                "type": "string"
+                            },
+                            "matches": {
+                                "label": "matches",
+                                "type": "array"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "66709a8b360e7db4f0d548b83430de37": {
+                        "name": "array",
+                        "x": 1725,
+                        "y": 195,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "adec9c4e5eea7b90b7b1f756a1c1a192": {
+                        "x": 2115,
+                        "y": 30,
+                        "name": "init_variable",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "dcd8b4973c79f3dbc8de9ab2e168e909": {
+                        "name": "equals",
+                        "x": 1365,
+                        "y": -10,
+                        "type": "comparison",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed",
+                                    "int",
+                                    "string"
+                                ]
+                            },
+                            "item2": {
+                                "label": "item2",
+                                "type": "string",
+                                "types": [
+                                    "mixed",
+                                    "int",
+                                    "string"
+                                ],
+                                "value": "core\/heading"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "764b872c17c1d937c3b2fb6d25ae3f42": {
+                        "name": "array_key_exists",
+                        "x": 1725,
+                        "y": 385,
+                        "type": "fct",
+                        "inputs": {
+                            "key": {
+                                "label": "key",
+                                "type": "string",
+                                "types": [
+                                    "mixed",
+                                    "int",
+                                    "string"
+                                ],
+                                "value": "level"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "value": null
+                            }
+                        },
+                        "outputs": {
+                            "exists": {
+                                "label": "exists",
+                                "type": "bool"
+                            }
+                        }
+                    },
+                    "3d3971fb7c838162962fd4fe8f235b7d": {
+                        "x": 3235,
+                        "y": 165,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "4886a70dbd5d797cb788c983455ded3a": {
+                        "x": 3235,
+                        "y": 270,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "f70c32647400407bb5bdbc6dff2779c2": {
+                        "x": 2115,
+                        "y": -70,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "07c8b71acc9a616173647a5e34c211e5": {
+                        "name": "strip_tags",
+                        "x": 1725,
+                        "y": 280,
+                        "type": "fct",
+                        "inputs": {
+                            "str": {
+                                "label": "str",
+                                "type": "string"
+                            },
+                            "allowable_tags": {
+                                "label": "allowable_tags",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "a86b3ef267b75c2546119824806ba73e": {
+                        "fromComponent": "135d431267adf191cb8f24fa93ddd080",
+                        "fromConnector": "return",
+                        "toComponent": "ff01cc5741471ceba25ef01b47b00f7b",
+                        "toConnector": "array"
+                    },
+                    "1cfc625a2c7089fc94e7f3495eb0065f": {
+                        "fromComponent": "ff01cc5741471ceba25ef01b47b00f7b",
+                        "fromConnector": "return",
+                        "toComponent": "53e98277bad65245abb102d7573f1237",
+                        "toConnector": "4e6ead7d051aa7b190a5e79646cffeb4"
+                    },
+                    "abf9c140cc5a68581dfd8697429e904f": {
+                        "fromComponent": "3b93d714d4e9fdfa29ea30114ac5c97d",
+                        "fromConnector": "ofct",
+                        "toComponent": "19405e172d2912e76708f13d33d843c5",
+                        "toConnector": "ifct"
+                    },
+                    "9b32e82c34efa8015b5e0beda3ef1adc": {
+                        "fromComponent": "ae11298a985bca1a63d1d78702a25e9c",
+                        "fromConnector": "return",
+                        "toComponent": "3b93d714d4e9fdfa29ea30114ac5c97d",
+                        "toConnector": "subject"
+                    },
+                    "5487a1caf3db17dba19a357379888a41": {
+                        "fromComponent": "66709a8b360e7db4f0d548b83430de37",
+                        "fromConnector": "output_array",
+                        "toComponent": "3b93d714d4e9fdfa29ea30114ac5c97d",
+                        "toConnector": "matches"
+                    },
+                    "300cc23494dd906a6a043c6efd5f7893": {
+                        "fromComponent": "66709a8b360e7db4f0d548b83430de37",
+                        "fromConnector": "output_array",
+                        "toComponent": "53e98277bad65245abb102d7573f1237",
+                        "toConnector": "4dac9c403f242316f1579e144d4cf672"
+                    },
+                    "c58131bd7ccb3cc974076ddd33762185": {
+                        "fromComponent": "66709a8b360e7db4f0d548b83430de37",
+                        "fromConnector": "output_array",
+                        "toComponent": "5eebedb95f0fba1851f4ae1076e22bb7",
+                        "toConnector": "4dac9c403f242316f1579e144d4cf672"
+                    },
+                    "ae23fcfb9bee3cd3410536cc70fba8aa": {
+                        "fromComponent": "66709a8b360e7db4f0d548b83430de37",
+                        "fromConnector": "output_array",
+                        "toComponent": "adec9c4e5eea7b90b7b1f756a1c1a192",
+                        "toConnector": "variable"
+                    },
+                    "2ebed891d705786cb5378a2ac2a3d64f": {
+                        "fromComponent": "7c893c9f459e22748ee3aeb0882c790d",
+                        "fromConnector": "return",
+                        "toComponent": "dcd8b4973c79f3dbc8de9ab2e168e909",
+                        "toConnector": "item1"
+                    },
+                    "5c630a102623c61c95f8e21dab06bf96": {
+                        "fromComponent": "dcd8b4973c79f3dbc8de9ab2e168e909",
+                        "fromConnector": "return",
+                        "toComponent": "603814ba2936bdb2d5c41592db4bb43a",
+                        "toConnector": "condition"
+                    },
+                    "936a15a528538a01ec4346888a4778f2": {
+                        "fromComponent": "764b872c17c1d937c3b2fb6d25ae3f42",
+                        "fromConnector": "exists",
+                        "toComponent": "19405e172d2912e76708f13d33d843c5",
+                        "toConnector": "condition"
+                    },
+                    "23b287521518d982e7e0acbe8e83d565": {
+                        "fromComponent": "135d431267adf191cb8f24fa93ddd080",
+                        "fromConnector": "return",
+                        "toComponent": "764b872c17c1d937c3b2fb6d25ae3f42",
+                        "toConnector": "array"
+                    },
+                    "056050a9103e2a3822ee568a12d74e14": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "603814ba2936bdb2d5c41592db4bb43a",
+                        "toConnector": "ifct"
+                    },
+                    "e4680e0c4cf85d726b0888592b3f5c1f": {
+                        "fromComponent": "19405e172d2912e76708f13d33d843c5",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "3d3971fb7c838162962fd4fe8f235b7d",
+                        "toConnector": "ifct"
+                    },
+                    "b297f7b82cfb0ff3683c8949143a980d": {
+                        "fromComponent": "19405e172d2912e76708f13d33d843c5",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "4886a70dbd5d797cb788c983455ded3a",
+                        "toConnector": "ifct"
+                    },
+                    "81e8c3f5360338a1530d86a58df64e8e": {
+                        "fromComponent": "5eebedb95f0fba1851f4ae1076e22bb7",
+                        "fromConnector": "output_array",
+                        "toComponent": "4886a70dbd5d797cb788c983455ded3a",
+                        "toConnector": "value"
+                    },
+                    "bb71d9fde8539475c364d21ad53e0071": {
+                        "fromComponent": "53e98277bad65245abb102d7573f1237",
+                        "fromConnector": "output_array",
+                        "toComponent": "3d3971fb7c838162962fd4fe8f235b7d",
+                        "toConnector": "value"
+                    },
+                    "06bf04c68a4fc43ad28a1b000807cabb": {
+                        "fromComponent": "603814ba2936bdb2d5c41592db4bb43a",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "f70c32647400407bb5bdbc6dff2779c2",
+                        "toConnector": "ifct"
+                    },
+                    "8b27aeaa78126b454f870ebea5adc34b": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "args",
+                        "toComponent": "7c893c9f459e22748ee3aeb0882c790d",
+                        "toConnector": "array"
+                    },
+                    "ec71c0d0d2ab19239295928ddb0cf7de": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "args",
+                        "toComponent": "ae11298a985bca1a63d1d78702a25e9c",
+                        "toConnector": "array"
+                    },
+                    "5e4259acaa659ac7709c00ea7bce0683": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "args",
+                        "toComponent": "135d431267adf191cb8f24fa93ddd080",
+                        "toConnector": "array"
+                    },
+                    "d8f2bbaff5ccdd52a618d79854d25345": {
+                        "fromComponent": "603814ba2936bdb2d5c41592db4bb43a",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "adec9c4e5eea7b90b7b1f756a1c1a192",
+                        "toConnector": "ifct"
+                    },
+                    "3e8fa6914791f262006aa3812f06ab10": {
+                        "fromComponent": "adec9c4e5eea7b90b7b1f756a1c1a192",
+                        "fromConnector": "ofct",
+                        "toComponent": "3b93d714d4e9fdfa29ea30114ac5c97d",
+                        "toConnector": "ifct"
+                    },
+                    "d74ed42df51d5ef2147eee38ce044d1d": {
+                        "fromComponent": "ae11298a985bca1a63d1d78702a25e9c",
+                        "fromConnector": "return",
+                        "toComponent": "07c8b71acc9a616173647a5e34c211e5",
+                        "toConnector": "str"
+                    },
+                    "32e05ee5aeaf646b702f0666e0b1dde2": {
+                        "fromComponent": "07c8b71acc9a616173647a5e34c211e5",
+                        "fromConnector": "return",
+                        "toComponent": "53e98277bad65245abb102d7573f1237",
+                        "toConnector": "8e252dbb765645e85764d19e574a0357"
+                    },
+                    "ab0e40c2ab28751e022cc7d113358de9": {
+                        "fromComponent": "07c8b71acc9a616173647a5e34c211e5",
+                        "fromConnector": "return",
+                        "toComponent": "5eebedb95f0fba1851f4ae1076e22bb7",
+                        "toConnector": "8e252dbb765645e85764d19e574a0357"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

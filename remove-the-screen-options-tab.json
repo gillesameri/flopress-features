@@ -1,0 +1,88 @@
+{
+    "title": "Remove the screen options tab",
+    "category": "Admin",
+    "description": "Remove the screen options tab completely.",
+    "content": {
+        "a75e53ddf42e222125e49f261fe6bc3d": {
+            "title": "screen_options_show_screen",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "screen_options_show_screen",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "show_screen": {
+                                "label": "show_screen",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ]
+                            },
+                            "this": {
+                                "label": "this",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "663ac3ab7d148eea0efd71ac0ec7bb47": {
+                        "x": 280,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "8a632d3ffe663d56d43e93afee1eed2e": {
+                        "name": "__return_false",
+                        "x": 0,
+                        "y": 115,
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "false",
+                                "label": "false"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "1cb6fe69892bf78d6092cef795d85927": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "663ac3ab7d148eea0efd71ac0ec7bb47",
+                        "toConnector": "ifct"
+                    },
+                    "b20bb1d008d46a0e9a104ee43c0a7f24": {
+                        "fromComponent": "8a632d3ffe663d56d43e93afee1eed2e",
+                        "fromConnector": "return",
+                        "toComponent": "663ac3ab7d148eea0efd71ac0ec7bb47",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

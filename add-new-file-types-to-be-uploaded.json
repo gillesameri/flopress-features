@@ -1,0 +1,238 @@
+{
+    "title": "Add new file types to be uploaded",
+    "category": "Media",
+    "description": "Security is the main reason behind the limitation on file types that users can upload. Using this feature, you can allow new file types and extensions to the WordPress.",
+    "content": {
+        "d4532da974d306852fd3090cef6b138d": {
+            "title": "upload_mimes",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "upload_mimes",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "t": {
+                                "label": "t",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ]
+                            },
+                            "user": {
+                                "label": "user",
+                                "type": "int",
+                                "types": [
+                                    "int",
+                                    "mixed",
+                                    "null"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 80,
+                        "y": -80
+                    },
+                    "a782bc9f3e2cc5ab592658cd7031425d": {
+                        "name": "upload_mimes_list",
+                        "x": 80,
+                        "y": 50,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "8382a99aff2f0941c3c6b531c1d7978d"
+                    },
+                    "b849350fdc32b9f27ce76042c454df10": {
+                        "x": 855,
+                        "y": -30,
+                        "name": "foreach",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "default": "array()"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "label": "finish"
+                            },
+                            "ofct_loop": {
+                                "type": "efct",
+                                "label": "loop"
+                            },
+                            "item_loop": {
+                                "type": "mixed",
+                                "label": "item"
+                            },
+                            "key_loop": {
+                                "type": "mixed",
+                                "label": "key"
+                            }
+                        }
+                    },
+                    "495d1c9fb9a7222df724c1e4fc9173d3": {
+                        "name": "set_array_value",
+                        "x": 1255,
+                        "y": 105,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "array"
+                            },
+                            "key": {
+                                "label": "key",
+                                "type": "string"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "173ae9855d46b082be0a47f0f1db0cc4": {
+                        "x": 1260,
+                        "y": -145,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "9aa5ed50ab348f6e57a796f46addd9f1": {
+                        "name": "init_variable",
+                        "x": 465,
+                        "y": -140,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "68bc076cf35fb86ac2d0aabdf009aed2": {
+                        "fromComponent": "a782bc9f3e2cc5ab592658cd7031425d",
+                        "fromConnector": "content",
+                        "toComponent": "b849350fdc32b9f27ce76042c454df10",
+                        "toConnector": "array"
+                    },
+                    "51fc2d64838104d83799dfa557b93bf7": {
+                        "fromComponent": "b849350fdc32b9f27ce76042c454df10",
+                        "fromConnector": "ofct_loop",
+                        "toComponent": "495d1c9fb9a7222df724c1e4fc9173d3",
+                        "toConnector": "ifct"
+                    },
+                    "2f5cbab86fe4a31f2a788a30e3a4200c": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "t",
+                        "toComponent": "495d1c9fb9a7222df724c1e4fc9173d3",
+                        "toConnector": "variable"
+                    },
+                    "7bb5a05c0a6ab1646e71bb7d807c9682": {
+                        "fromComponent": "b849350fdc32b9f27ce76042c454df10",
+                        "fromConnector": "ofct",
+                        "toComponent": "173ae9855d46b082be0a47f0f1db0cc4",
+                        "toConnector": "ifct"
+                    },
+                    "400a5bc15c6783755f9922276caaa9b8": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "t",
+                        "toComponent": "173ae9855d46b082be0a47f0f1db0cc4",
+                        "toConnector": "value"
+                    },
+                    "1be3c634887e4600de660edb91bd6dad": {
+                        "fromComponent": "b849350fdc32b9f27ce76042c454df10",
+                        "fromConnector": "item_loop",
+                        "toComponent": "495d1c9fb9a7222df724c1e4fc9173d3",
+                        "toConnector": "value"
+                    },
+                    "a26eadf2930bccf2601afc2adca9bde7": {
+                        "fromComponent": "b849350fdc32b9f27ce76042c454df10",
+                        "fromConnector": "key_loop",
+                        "toComponent": "495d1c9fb9a7222df724c1e4fc9173d3",
+                        "toConnector": "key"
+                    },
+                    "8acbecd4a319980ada18b565324df38e": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "9aa5ed50ab348f6e57a796f46addd9f1",
+                        "toConnector": "ifct"
+                    },
+                    "fafc3c67f8c38eb720ffb45482e6767c": {
+                        "fromComponent": "9aa5ed50ab348f6e57a796f46addd9f1",
+                        "fromConnector": "ofct",
+                        "toComponent": "b849350fdc32b9f27ce76042c454df10",
+                        "toConnector": "ifct"
+                    },
+                    "21acc385a1b807002cf92bbea10d7411": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "t",
+                        "toComponent": "9aa5ed50ab348f6e57a796f46addd9f1",
+                        "toConnector": "variable"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "8382a99aff2f0941c3c6b531c1d7978d": {
+            "title": "upload_mimes_list",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "array"
+                ],
+                "is_settings": true,
+                "title": "Upload mimes list",
+                "description": "List of extension | mime type. Ex.: svg | image\/svg+xml"
+            }
+        }
+    }
+}

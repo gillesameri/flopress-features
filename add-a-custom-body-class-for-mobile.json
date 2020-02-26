@@ -1,0 +1,234 @@
+{
+    "title": "Add a custom body class for mobile",
+    "category": "Theme",
+    "description": "Add a custom CSS body class using wp_is_mobile",
+    "content": {
+        "211a256b717c7b657a50e0a2bb38580d": {
+            "title": "body_class",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "body_class",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "classes": {
+                                "label": "classes",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            },
+                            "class": {
+                                "label": "class",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": -5,
+                        "y": 15
+                    },
+                    "eda9d58d79d0357e7aaa09092b079c13": {
+                        "x": 300,
+                        "y": -55,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "dd04d3b6b19598975aebbced7c5d0757": {
+                        "x": -5,
+                        "y": 135,
+                        "name": "wp_is_mobile",
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "163f20878ef84311034cbbec7b38563b": {
+                        "name": "cssclass",
+                        "x": 300,
+                        "y": -140,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "9530f2ca25017e62341cd3cb910412ad"
+                    },
+                    "64e2890a7b0aff65e203c9903c12b49c": {
+                        "name": "array_push",
+                        "x": 680,
+                        "y": -55,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "label": "count",
+                                "type": "int"
+                            }
+                        }
+                    },
+                    "ffe4af1f1bfbfb4fae0793b8c66a8368": {
+                        "x": 1000,
+                        "y": 80,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "09a647ebfd2ccb5ce8b9eafd192b619a": {
+                        "x": 1000,
+                        "y": 180,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "a579e753e2d029463ef842c289c92096": {
+                        "fromComponent": "dd04d3b6b19598975aebbced7c5d0757",
+                        "fromConnector": "return",
+                        "toComponent": "eda9d58d79d0357e7aaa09092b079c13",
+                        "toConnector": "condition"
+                    },
+                    "a2888d61e467537ddd88ecc17d13adce": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "classes",
+                        "toComponent": "64e2890a7b0aff65e203c9903c12b49c",
+                        "toConnector": "array"
+                    },
+                    "fe1b035e8046ccd63efd351ea7cf6abc": {
+                        "fromComponent": "163f20878ef84311034cbbec7b38563b",
+                        "fromConnector": "content",
+                        "toComponent": "64e2890a7b0aff65e203c9903c12b49c",
+                        "toConnector": "value"
+                    },
+                    "16e1d85f438900b89e3982265f0293e2": {
+                        "fromComponent": "64e2890a7b0aff65e203c9903c12b49c",
+                        "fromConnector": "ofct",
+                        "toComponent": "ffe4af1f1bfbfb4fae0793b8c66a8368",
+                        "toConnector": "ifct"
+                    },
+                    "97cbb05b1f97d1f4039d26e16cb3f040": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "eda9d58d79d0357e7aaa09092b079c13",
+                        "toConnector": "ifct"
+                    },
+                    "0448b0e0073e2ee0b03075c5eea33d5f": {
+                        "fromComponent": "eda9d58d79d0357e7aaa09092b079c13",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "64e2890a7b0aff65e203c9903c12b49c",
+                        "toConnector": "ifct"
+                    },
+                    "fb5bd11727ebd1a0a1065c7700724c95": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "classes",
+                        "toComponent": "ffe4af1f1bfbfb4fae0793b8c66a8368",
+                        "toConnector": "value"
+                    },
+                    "624192982dcce352f235d2fe139ee455": {
+                        "fromComponent": "eda9d58d79d0357e7aaa09092b079c13",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "09a647ebfd2ccb5ce8b9eafd192b619a",
+                        "toConnector": "ifct"
+                    },
+                    "2a6383357851902e680e9e85a873865f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "classes",
+                        "toComponent": "09a647ebfd2ccb5ce8b9eafd192b619a",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "9530f2ca25017e62341cd3cb910412ad": {
+            "title": "cssclass",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "is-mobile",
+                "is_settings": true,
+                "title": "CSS class name"
+            }
+        }
+    }
+}

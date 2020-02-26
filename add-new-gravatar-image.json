@@ -1,0 +1,257 @@
+{
+    "title": "Add new Gravatar image",
+    "category": "Admin,User",
+    "description": "Easily add a new avatar image.",
+    "content": {
+        "2370a3465f25051ace1cd0f9a8bb9b85": {
+            "title": "image",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "object",
+                    "media"
+                ],
+                "is_settings": true,
+                "title": "Logo",
+                "description": "Select the image"
+            }
+        },
+        "38115b62e0afd608866a495b026cddc0": {
+            "title": "avatar_defaults",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "avatar_defaults",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "avatar_defaults": {
+                                "label": "avatar_defaults",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "e5e3fe6c9ac36c155f0d0744d647c6ff": {
+                        "x": 795,
+                        "y": 0,
+                        "name": "set_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "array"
+                            },
+                            "key": {
+                                "label": "key",
+                                "type": "string"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "31e043d776902b271488aadd21d4e6c0": {
+                        "x": 1150,
+                        "y": 180,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "7004061c6a7d1b18d0e90e3ce15ba057": {
+                        "name": "image",
+                        "x": -250,
+                        "y": -130,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "2370a3465f25051ace1cd0f9a8bb9b85"
+                    },
+                    "dd901e14b863e7aa231b6fe12596cfb6": {
+                        "name": "wp_get_attachment_image_src",
+                        "x": 0,
+                        "y": -130,
+                        "type": "fct",
+                        "inputs": {
+                            "attachment_id": {
+                                "label": "attachment_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "size": {
+                                "label": "size",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "array"
+                                ],
+                                "default": "'thumbnail'",
+                                "required": false
+                            },
+                            "icon": {
+                                "label": "icon",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false,
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "ee4028e208f88c3b0edf0c867d383301": {
+                        "x": 280,
+                        "y": -130,
+                        "name": "get_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "0"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "2685d223db7c93fc23a724b25e3e2df1": {
+                        "name": "avatar_name",
+                        "x": 0,
+                        "y": 110,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "f297d88c18174803983c90381377244c"
+                    }
+                },
+                "links": {
+                    "ecc074524475e66d1a0b85895d2d71a3": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "e5e3fe6c9ac36c155f0d0744d647c6ff",
+                        "toConnector": "ifct"
+                    },
+                    "2aad1b71e1ed3ef0aa38601fb6b5bee7": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "avatar_defaults",
+                        "toComponent": "31e043d776902b271488aadd21d4e6c0",
+                        "toConnector": "value"
+                    },
+                    "9301cf52cfbf0269b8b7ebcbc538054c": {
+                        "fromComponent": "7004061c6a7d1b18d0e90e3ce15ba057",
+                        "fromConnector": "content",
+                        "toComponent": "dd901e14b863e7aa231b6fe12596cfb6",
+                        "toConnector": "attachment_id"
+                    },
+                    "8c9b02d2704cdb104957a19c4543aabb": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "avatar_defaults",
+                        "toComponent": "e5e3fe6c9ac36c155f0d0744d647c6ff",
+                        "toConnector": "variable"
+                    },
+                    "db59859ffcbfc92c0188e781750c9913": {
+                        "fromComponent": "dd901e14b863e7aa231b6fe12596cfb6",
+                        "fromConnector": "return",
+                        "toComponent": "ee4028e208f88c3b0edf0c867d383301",
+                        "toConnector": "array"
+                    },
+                    "37533558b57e1567f1c85f52f7f586df": {
+                        "fromComponent": "ee4028e208f88c3b0edf0c867d383301",
+                        "fromConnector": "return",
+                        "toComponent": "e5e3fe6c9ac36c155f0d0744d647c6ff",
+                        "toConnector": "key"
+                    },
+                    "e95adf41b0d8babac625e2a53d233610": {
+                        "fromComponent": "e5e3fe6c9ac36c155f0d0744d647c6ff",
+                        "fromConnector": "ofct",
+                        "toComponent": "31e043d776902b271488aadd21d4e6c0",
+                        "toConnector": "ifct"
+                    },
+                    "593ccff816ca059c32b8e27c8f83efc4": {
+                        "fromComponent": "2685d223db7c93fc23a724b25e3e2df1",
+                        "fromConnector": "content",
+                        "toComponent": "e5e3fe6c9ac36c155f0d0744d647c6ff",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "f297d88c18174803983c90381377244c": {
+            "title": "avatar_name",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Avatar name",
+                "description": "The avatar name",
+                "value": "Default Gravatar"
+            }
+        }
+    }
+}

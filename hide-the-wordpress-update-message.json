@@ -1,0 +1,96 @@
+{
+    "title": "Hide the WordPress Update Message",
+    "category": "Admin",
+    "description": "Sometimes you want to delay updating to the latest version of WordPress until you\u2019ve had a chance to create a new backup. This feature will hide the tempting update message that shows up in the header.",
+    "content": {
+        "70a60e0d46ebf80ac6c1e65917629118": {
+            "title": "admin_menu",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "admin_menu",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "context": {
+                                "label": "context",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "c6882dd186157525daa7ea13403b9cc6": {
+                        "x": 325,
+                        "y": 0,
+                        "name": "remove_action",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "admin_notices"
+                            },
+                            "function_to_remove": {
+                                "label": "function_to_remove",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "update_nag"
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false,
+                                "value": 3
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "b205504ecce381c86f496bc64a7d19f4": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "c6882dd186157525daa7ea13403b9cc6",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

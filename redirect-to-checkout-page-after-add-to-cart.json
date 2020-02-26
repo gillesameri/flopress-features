@@ -1,0 +1,137 @@
+{
+    "title": "Redirect to checkout page after add to cart",
+    "category": "WooCommerce,Third-party",
+    "description": "Automatically redirect to checkout page after adding product to cart.",
+    "content": {
+        "8ceb53c85febb8b22e219bc6324cbdf6": {
+            "title": "woocommerce_add_to_cart_redirect",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_add_to_cart_redirect",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "36bb9be98beaf8417e35479636f4210d": {
+                                "label": "url",
+                                "type": "string"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "1c9db0928e25c0e591da3168a17e2313": {
+                        "x": 590,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "23d0075c65734d3a5a7d5493a5a8a6cc": {
+                        "x": 300,
+                        "y": 95,
+                        "name": "get_permalink",
+                        "type": "fct",
+                        "inputs": {
+                            "post": {
+                                "label": "post",
+                                "type": "int",
+                                "types": [
+                                    "int",
+                                    "mixed"
+                                ],
+                                "default": "0",
+                                "required": false
+                            },
+                            "leavename": {
+                                "label": "leavename",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "f04293fdc49eb37633d4994f4dce0dc3": {
+                        "x": 0,
+                        "y": 95,
+                        "name": "get_option",
+                        "type": "fct",
+                        "inputs": {
+                            "option": {
+                                "label": "option",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "woocommerce_checkout_page_id"
+                            },
+                            "default": {
+                                "label": "default",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "1a36d8df6e1b3f402bb4d8b59c6c7937": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "1c9db0928e25c0e591da3168a17e2313",
+                        "toConnector": "ifct"
+                    },
+                    "d4019e19a2b61c6dccbb3de9c72aeaa4": {
+                        "fromComponent": "23d0075c65734d3a5a7d5493a5a8a6cc",
+                        "fromConnector": "return",
+                        "toComponent": "1c9db0928e25c0e591da3168a17e2313",
+                        "toConnector": "value"
+                    },
+                    "f0dad43984e3453a244fbbc61b96322b": {
+                        "fromComponent": "f04293fdc49eb37633d4994f4dce0dc3",
+                        "fromConnector": "return",
+                        "toComponent": "23d0075c65734d3a5a7d5493a5a8a6cc",
+                        "toConnector": "post"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

@@ -1,0 +1,141 @@
+{
+    "title": "Register new menu",
+    "category": "Theme",
+    "description": "Registers a custom menu in the custom menu editor (in WordPress 3.0 and above). This allows administration users to create custom menus for use in a theme.",
+    "content": {
+        "754cb4c4da31cbaae7f372cfaafc484d": {
+            "title": "after_setup_theme",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "after_setup_theme",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "99902e8c901679ac790751f2adee0ec5": {
+                        "x": 375,
+                        "y": 65,
+                        "name": "register_nav_menu",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "location": {
+                                "label": "location",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "description": {
+                                "label": "description",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "1d640b5539324b42756f5ea3df1b00c0": {
+                        "name": "menu_description",
+                        "x": 0,
+                        "y": 175,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a4871c7d77168d1f07297bc776b4b003"
+                    },
+                    "afa8ab86ddcf3401bbbb2a38de366913": {
+                        "name": "menu_location",
+                        "x": 0,
+                        "y": 85,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "db6a2dfb1023c6247b14bfeaf022124a"
+                    }
+                },
+                "links": {
+                    "37261ed177f7c75e12b809b93329bfd0": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "99902e8c901679ac790751f2adee0ec5",
+                        "toConnector": "ifct"
+                    },
+                    "3cbf29de1d328c425a9c66f394255931": {
+                        "fromComponent": "1d640b5539324b42756f5ea3df1b00c0",
+                        "fromConnector": "content",
+                        "toComponent": "99902e8c901679ac790751f2adee0ec5",
+                        "toConnector": "description"
+                    },
+                    "b2ac63731d782baec90b73eaeefd58f0": {
+                        "fromComponent": "afa8ab86ddcf3401bbbb2a38de366913",
+                        "fromConnector": "content",
+                        "toComponent": "99902e8c901679ac790751f2adee0ec5",
+                        "toConnector": "location"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "a4871c7d77168d1f07297bc776b4b003": {
+            "title": "menu_description",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Menu description",
+                "description": "Description of the mneu"
+            }
+        },
+        "db6a2dfb1023c6247b14bfeaf022124a": {
+            "title": "menu_location",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Menu location",
+                "description": "Slug used to call menu for render in themes and templates"
+            }
+        }
+    }
+}

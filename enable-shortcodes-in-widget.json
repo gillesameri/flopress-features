@@ -1,0 +1,97 @@
+{
+    "title": "Enable shortcodes in widget",
+    "category": "Tools",
+    "description": "By default, WordPress does not execute shortcodes inside text widgets. To fix this you need to simply add this feature.",
+    "content": {
+        "e69fd8f32d9078fd4c7864f5e572e6ec": {
+            "title": "add_filter",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "x": -331,
+                        "y": -173,
+                        "type": "hook-action",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        }
+                    },
+                    "2cee423ae814faf8c3820b1dfaa2df60": {
+                        "name": "add_filter",
+                        "x": -25,
+                        "y": -168,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "widget_text"
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "do_shortcode"
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "c85308117b0d7b0497143c24bc6e2115": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "2cee423ae814faf8c3820b1dfaa2df60",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

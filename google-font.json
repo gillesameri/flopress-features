@@ -1,0 +1,312 @@
+{
+    "title": "Google font",
+    "category": "Third-party,Theme",
+    "description": "Change the base font of your website. See https:\/\/fonts.google.com\/ for more informations.",
+    "content": {
+        "a9ebc6e0bf48793d38c37ae0a5f2a792": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -520,
+                        "y": -5
+                    },
+                    "954938efa161d29756b44be57a8cf94e": {
+                        "x": 375,
+                        "y": -5,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "cd957fa715461ff780d39fdc8b555d78": {
+                        "name": "header_styles",
+                        "x": 45,
+                        "y": 85,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "84fcb9eb50d741593d081f85833b247d"
+                    },
+                    "31ef54ccbf56a4e1ecc961e1e509e64a": {
+                        "x": -225,
+                        "y": 85,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "5f2f94eba97e7278ceae37c9cf593d24": {
+                                "label": "google_font_url",
+                                "type": "mixed"
+                            },
+                            "a28d1d4615a9f2bd28f49fad334f2947": {
+                                "label": "google_font_name",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "a55fcc2d2ba61c9e277377920fc90316": {
+                        "name": "google_font_url",
+                        "x": -520,
+                        "y": 85,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "60a24c005bc6d2eb67da68f1ac0f1fdb"
+                    },
+                    "c6192a878b36bdbd37c0f20d6a9a15b5": {
+                        "name": "google_font_name",
+                        "x": -520,
+                        "y": 175,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "743634fe265a4a07717d862243ae5a92"
+                    }
+                },
+                "links": {
+                    "cdd50364003a3495cf2653ad641d0a5c": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "954938efa161d29756b44be57a8cf94e",
+                        "toConnector": "ifct"
+                    },
+                    "e46d2170ad15138930a41e7989439902": {
+                        "fromComponent": "cd957fa715461ff780d39fdc8b555d78",
+                        "fromConnector": "content",
+                        "toComponent": "954938efa161d29756b44be57a8cf94e",
+                        "toConnector": "string"
+                    },
+                    "fd91039758f961ab875846c400fc385c": {
+                        "fromComponent": "31ef54ccbf56a4e1ecc961e1e509e64a",
+                        "fromConnector": "output_array",
+                        "toComponent": "cd957fa715461ff780d39fdc8b555d78",
+                        "toConnector": "args"
+                    },
+                    "c7091309b74ac14c3082c4341a0f81a2": {
+                        "fromComponent": "a55fcc2d2ba61c9e277377920fc90316",
+                        "fromConnector": "content",
+                        "toComponent": "31ef54ccbf56a4e1ecc961e1e509e64a",
+                        "toConnector": "5f2f94eba97e7278ceae37c9cf593d24"
+                    },
+                    "d7d27240158dd263839249e182b8a4ec": {
+                        "fromComponent": "c6192a878b36bdbd37c0f20d6a9a15b5",
+                        "fromConnector": "content",
+                        "toComponent": "31ef54ccbf56a4e1ecc961e1e509e64a",
+                        "toConnector": "a28d1d4615a9f2bd28f49fad334f2947"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "84fcb9eb50d741593d081f85833b247d": {
+            "title": "header_styles",
+            "type": "template",
+            "content": "<link href=\"{{google_font_url}}\" rel=\"stylesheet\">"
+        },
+        "1f1be1e60a888b44f7025bd9ebb67071": {
+            "title": "wp_footer",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_footer",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -470,
+                        "y": 0
+                    },
+                    "e83b890cf8fd468339710b151a6707db": {
+                        "name": "footer_styles",
+                        "x": 0,
+                        "y": 100,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "009f708535045bcf9eb22d500e8e6bb9"
+                    },
+                    "2e460e2aec47297aa94a22c0dac4eca1": {
+                        "x": 280,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "a093f2a1cbaefc4698dfcca21e2d7400": {
+                        "x": -235,
+                        "y": 100,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "f2cad1698afaac01f0efd42d8a9822c5": {
+                                "label": "google_font_name",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "13dd75631d5a0caab36aed6d1297df3d": {
+                        "name": "google_font_name",
+                        "x": -470,
+                        "y": 100,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "743634fe265a4a07717d862243ae5a92"
+                    }
+                },
+                "links": {
+                    "bc8b029d1c064713749bf0796fbe6c04": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "2e460e2aec47297aa94a22c0dac4eca1",
+                        "toConnector": "ifct"
+                    },
+                    "a794a08ced6ab0596ee6ca188dedd8b2": {
+                        "fromComponent": "e83b890cf8fd468339710b151a6707db",
+                        "fromConnector": "content",
+                        "toComponent": "2e460e2aec47297aa94a22c0dac4eca1",
+                        "toConnector": "string"
+                    },
+                    "b4d4c0588bf4136409b3d17ee6b1e001": {
+                        "fromComponent": "13dd75631d5a0caab36aed6d1297df3d",
+                        "fromConnector": "content",
+                        "toComponent": "a093f2a1cbaefc4698dfcca21e2d7400",
+                        "toConnector": "f2cad1698afaac01f0efd42d8a9822c5"
+                    },
+                    "c02a26db355a3cafc6ce1f994238509e": {
+                        "fromComponent": "a093f2a1cbaefc4698dfcca21e2d7400",
+                        "fromConnector": "output_array",
+                        "toComponent": "e83b890cf8fd468339710b151a6707db",
+                        "toConnector": "args"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "009f708535045bcf9eb22d500e8e6bb9": {
+            "title": "footer_styles",
+            "type": "template",
+            "content": "<style>\n    body{\n        font-family: '{{google_font_name}}', sans-serif;\n    }\n<\/style>"
+        },
+        "60a24c005bc6d2eb67da68f1ac0f1fdb": {
+            "title": "google_font_url",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "",
+                "is_settings": true,
+                "description": "ex.: https:\/\/fonts.googleapis.com\/css?family=Roboto:300,400,500,700",
+                "title": "Google font url"
+            }
+        },
+        "743634fe265a4a07717d862243ae5a92": {
+            "title": "google_font_name",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Font name",
+                "description": "ex.: Roboto"
+            }
+        }
+    }
+}

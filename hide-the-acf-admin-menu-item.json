@@ -1,0 +1,87 @@
+{
+    "title": "Hide the ACF admin menu item",
+    "category": "Third-party,ACF",
+    "description": "Hide the Advanced Custom Fields menu item called \u2018Custom Fields\u2019 on your staging or production sites.",
+    "content": {
+        "4dfd0386b04a9f00df9a86a15888186d": {
+            "title": "acf\/settings\/show_admin",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "acf\/settings\/{$name}",
+                        "inputs": {
+                            "name": {
+                                "label": "name",
+                                "type": "string",
+                                "required": true,
+                                "value": "show_admin"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "settings": {
+                                "label": "settings",
+                                "type": "mixed",
+                                "required": false
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "4ef492c4d98a68ef958b23c6098d48a0": {
+                        "x": 250,
+                        "y": 30,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "93826ce30eeaa58ab87faffb3d2b44d5": {
+                        "name": "__return_false",
+                        "x": 0,
+                        "y": 95,
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "false",
+                                "label": "false"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "621f87de15978f70dd3e85fdb9643b18": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "4ef492c4d98a68ef958b23c6098d48a0",
+                        "toConnector": "ifct"
+                    },
+                    "e0ff85a635bb7978c3771ae4d617609d": {
+                        "fromComponent": "93826ce30eeaa58ab87faffb3d2b44d5",
+                        "fromConnector": "return",
+                        "toComponent": "4ef492c4d98a68ef958b23c6098d48a0",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

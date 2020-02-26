@@ -1,0 +1,211 @@
+{
+    "title": "Disable the default widgets of WordPress",
+    "category": "Tools",
+    "description": "If you do not need the default WordPress widgets, you can simply disable them to prevent them from being loaded by WordPress",
+    "content": {
+        "93b30cab9dc614d8f3789299adb5616c": {
+            "title": "widgets_init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "widgets_init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "73bae136db1f7381a4fee37e416e14a4": {
+                        "x": 270,
+                        "y": 0,
+                        "name": "foreach",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "default": "array()"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "label": "finish"
+                            },
+                            "ofct_loop": {
+                                "type": "efct",
+                                "label": "loop"
+                            },
+                            "item_loop": {
+                                "type": "mixed",
+                                "label": "item"
+                            },
+                            "key_loop": {
+                                "type": "mixed",
+                                "label": "key"
+                            }
+                        }
+                    },
+                    "714c4e12a4b85ccdf39e798691e7a970": {
+                        "name": "array",
+                        "x": 0,
+                        "y": 85,
+                        "type": "variable",
+                        "inputs": {
+                            "00584c8cad646f36261e34f4791fc725": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Pages"
+                            },
+                            "dfd77c79a1a01344a1d5f5da5132ab55": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Calendar"
+                            },
+                            "e3a3f4d7fd0a8e0b0060de2755c94574": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Archives"
+                            },
+                            "d67a1d80852bfaaee8a8d687e8154a06": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Meta"
+                            },
+                            "c173ade15a85b083b3637edd0db5ee4a": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Search"
+                            },
+                            "c70d03b9f1a24afe9359b55ebbd98abf": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Text"
+                            },
+                            "884ecc44169bfaa0497a42eba1adbc8b": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Media_Audio"
+                            },
+                            "075a2a3467296acc5b9bc44797456277": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Media_Image"
+                            },
+                            "8299cb8a8f38b8f768db05d15fdf83d8": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Media_Video"
+                            },
+                            "e4d148b35796c6b96b12d3a3620eccae": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Custom_HTML"
+                            },
+                            "70310aa3225bc0960d52eef9d79cd723": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Categories"
+                            },
+                            "27785930ce7ead590f6958eb07023d5e": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Recent_Posts"
+                            },
+                            "19f27707bc23e75e5f06802d1c448541": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Recent_Comments"
+                            },
+                            "eaffdebaa9c512e115b52eee4fba22c4": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_RSS"
+                            },
+                            "4e2ac11ab705bb0af9c8b52289ddb6ab": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Widget_Tag_Cloud"
+                            },
+                            "29da5a4b65cb082b46c7ff9a40442f97": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "WP_Nav_Menu_Widget"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "a995deadd150cbde21e3d4ca4b506d01": {
+                        "x": 535,
+                        "y": 20,
+                        "name": "unregister_widget",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "widget": {
+                                "label": "widget",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "mixed"
+                                ],
+                                "default": null,
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "971517cbe2b262bfbd3546bb3d0a8084": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "73bae136db1f7381a4fee37e416e14a4",
+                        "toConnector": "ifct"
+                    },
+                    "f2141b5bd21c5ef05e84c6758ca11813": {
+                        "fromComponent": "714c4e12a4b85ccdf39e798691e7a970",
+                        "fromConnector": "output_array",
+                        "toComponent": "73bae136db1f7381a4fee37e416e14a4",
+                        "toConnector": "array"
+                    },
+                    "0b8f1b34dc3b11ed9f15a854c2dfe1ec": {
+                        "fromComponent": "73bae136db1f7381a4fee37e416e14a4",
+                        "fromConnector": "ofct_loop",
+                        "toComponent": "a995deadd150cbde21e3d4ca4b506d01",
+                        "toConnector": "ifct"
+                    },
+                    "84cb93332cafcf3c01191699a19fa87c": {
+                        "fromComponent": "73bae136db1f7381a4fee37e416e14a4",
+                        "fromConnector": "item_loop",
+                        "toComponent": "a995deadd150cbde21e3d4ca4b506d01",
+                        "toConnector": "widget"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

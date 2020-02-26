@@ -1,0 +1,225 @@
+{
+    "title": "Custom dashboard logo",
+    "category": "Admin",
+    "description": "Want to white label your WordPress admin area? Adding a custom dashboard logo is the first step in the process.",
+    "content": {
+        "55fd8eb4e5e84153ac0b2fd123f55bc7": {
+            "title": "wp_before_admin_bar_render",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_before_admin_bar_render",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -815,
+                        "y": 0
+                    },
+                    "a74d4eca643a329a5606f032a0cc17a7": {
+                        "x": 440,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "7a6967ff7beac1925ac224469f639189": {
+                        "name": "styles",
+                        "x": 200,
+                        "y": 130,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "264446b95bb19c36308a4a133e9f261d"
+                    },
+                    "1d965c67347ece4345566eaf8d505f72": {
+                        "name": "array",
+                        "x": -40,
+                        "y": 130,
+                        "type": "variable",
+                        "inputs": {
+                            "5568214787ffdc40e1540d899ca79325": {
+                                "label": "logo",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "30a39496d60e86dbe6d06a20348a935c": {
+                        "name": "image",
+                        "x": -815,
+                        "y": 130,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "2370a3465f25051ace1cd0f9a8bb9b85"
+                    },
+                    "c786bdc3318738c0f4524fde314ce142": {
+                        "name": "wp_get_attachment_image_src",
+                        "x": -570,
+                        "y": 130,
+                        "type": "fct",
+                        "inputs": {
+                            "attachment_id": {
+                                "label": "attachment_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "size": {
+                                "label": "size",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "array"
+                                ],
+                                "default": "'thumbnail'",
+                                "required": false
+                            },
+                            "icon": {
+                                "label": "icon",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false,
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "0a5c5cb3b52ff361fecb399b19d87896": {
+                        "name": "get_array_value",
+                        "x": -310,
+                        "y": 130,
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "0"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "5e6ba4d4a84d11c074eb6acf14410960": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "a74d4eca643a329a5606f032a0cc17a7",
+                        "toConnector": "ifct"
+                    },
+                    "e7b20710786d6abadfa85f35c6f2962b": {
+                        "fromComponent": "7a6967ff7beac1925ac224469f639189",
+                        "fromConnector": "content",
+                        "toComponent": "a74d4eca643a329a5606f032a0cc17a7",
+                        "toConnector": "string"
+                    },
+                    "d65d1dfd29edb7c818d94a1cbba0ed1c": {
+                        "fromComponent": "1d965c67347ece4345566eaf8d505f72",
+                        "fromConnector": "output_array",
+                        "toComponent": "7a6967ff7beac1925ac224469f639189",
+                        "toConnector": "args"
+                    },
+                    "21370aa4f656317e41a09ea78d1f1a7f": {
+                        "fromComponent": "30a39496d60e86dbe6d06a20348a935c",
+                        "fromConnector": "content",
+                        "toComponent": "c786bdc3318738c0f4524fde314ce142",
+                        "toConnector": "attachment_id"
+                    },
+                    "662538484bd60938dc1425d661453e62": {
+                        "fromComponent": "c786bdc3318738c0f4524fde314ce142",
+                        "fromConnector": "return",
+                        "toComponent": "0a5c5cb3b52ff361fecb399b19d87896",
+                        "toConnector": "array"
+                    },
+                    "dd6332ae3a358bee29e3a82da86d0e7e": {
+                        "fromComponent": "0a5c5cb3b52ff361fecb399b19d87896",
+                        "fromConnector": "return",
+                        "toComponent": "1d965c67347ece4345566eaf8d505f72",
+                        "toConnector": "5568214787ffdc40e1540d899ca79325"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "264446b95bb19c36308a4a133e9f261d": {
+            "title": "styles",
+            "type": "template",
+            "content": "<style type=\"text\/css\">\n#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {\nbackground-image: url({{logo}}) !important;\nbackground-position: 0 0;\ncolor:rgba(0, 0, 0, 0);\nbackground-size:35px 32px;\n}\n#wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {\nbackground-position: 0 0;\n}\n<\/style>"
+        },
+        "2370a3465f25051ace1cd0f9a8bb9b85": {
+            "title": "image",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "object",
+                    "media"
+                ],
+                "is_settings": true,
+                "title": "Logo",
+                "description": "Select the image"
+            }
+        }
+    }
+}

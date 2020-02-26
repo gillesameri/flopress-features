@@ -1,0 +1,107 @@
+{
+    "title": "Remove the screen options tab except for admin",
+    "category": "Admin",
+    "description": "Remove the screen options tab for everyone except the admin or users with the manage_options capability. ",
+    "content": {
+        "a75e53ddf42e222125e49f261fe6bc3d": {
+            "title": "screen_options_show_screen",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "screen_options_show_screen",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "show_screen": {
+                                "label": "show_screen",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ]
+                            },
+                            "this": {
+                                "label": "this",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "663ac3ab7d148eea0efd71ac0ec7bb47": {
+                        "x": 280,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "8b1d8ca0b69fce70c7f5c0dcfe9178b1": {
+                        "x": 0,
+                        "y": 115,
+                        "name": "current_user_can",
+                        "type": "fct",
+                        "inputs": {
+                            "capability": {
+                                "label": "capability",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "manage_options"
+                            },
+                            "object_id": {
+                                "label": "object_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "1cb6fe69892bf78d6092cef795d85927": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "663ac3ab7d148eea0efd71ac0ec7bb47",
+                        "toConnector": "ifct"
+                    },
+                    "9cb2c2d413416f3d1f6e2c9d830a0417": {
+                        "fromComponent": "8b1d8ca0b69fce70c7f5c0dcfe9178b1",
+                        "fromConnector": "return",
+                        "toComponent": "663ac3ab7d148eea0efd71ac0ec7bb47",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

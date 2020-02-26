@@ -1,0 +1,301 @@
+{
+    "title": "Register an ACF options page",
+    "category": "ACF,Third-party",
+    "description": "Register an Advanced Custom Fields options page with custom page title, menu title and slug  .",
+    "content": {
+        "2118f348f981491470f2ea675bf5afe0": {
+            "title": "acf\/init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "acf\/init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "6a5c4161876962af266288ed291a6c85": {
+                        "x": 305,
+                        "y": 0,
+                        "name": "acf_add_options_page",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "mixed",
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "type": "array",
+                                "label": "settings",
+                                "required": false
+                            }
+                        }
+                    },
+                    "002278d8793d91f7d424b8d2620d4eae": {
+                        "name": "array",
+                        "x": 0,
+                        "y": 80,
+                        "type": "variable",
+                        "inputs": {
+                            "72e1ff00bbf66a08209005f34f1baa44": {
+                                "label": "page_title",
+                                "type": "mixed"
+                            },
+                            "28e0f4c7e1600f28d0b2a904a603675b": {
+                                "label": "menu_title",
+                                "type": "mixed"
+                            },
+                            "648f6b6e48f28733ad505ea258d044e5": {
+                                "label": "menu_slug",
+                                "type": "mixed"
+                            },
+                            "4ade936af5fcd6212b8abddce0a64a44": {
+                                "label": "capability",
+                                "type": "mixed"
+                            },
+                            "925cd53a3f4d1660abdcfcfc9f63c864": {
+                                "label": "icon_url",
+                                "type": "mixed"
+                            },
+                            "cc5e9c5b4682dbcd5e846d89d084a2df": {
+                                "label": "redirect",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "f30f622813afe2fc7ba7b5854a4a49e4": {
+                        "name": "page_title",
+                        "x": -300,
+                        "y": -60,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "c778bde491b9011e3c43371fb700a9a5"
+                    },
+                    "fbd26c9149175d6a4b072c555f844a4d": {
+                        "name": "menu_title",
+                        "x": -300,
+                        "y": 15,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "bda9df674709d0052711faba79b169b2"
+                    },
+                    "244550e441dd01b897606f3184a8b7b4": {
+                        "name": "menu_slug",
+                        "x": -300,
+                        "y": 90,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "74e36417ff515c304f2b51badd85eae7"
+                    },
+                    "1dcae9db8d85202448ab6da920d6f814": {
+                        "name": "capability",
+                        "x": -300,
+                        "y": 165,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "21d035d257f11d7900a11af995bcf00e"
+                    },
+                    "50ee214b610359784a0db6a501015044": {
+                        "name": "icon_url",
+                        "x": -300,
+                        "y": 240,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "03021375f812fd0941be0f90a169ccf9"
+                    },
+                    "c8394a48b90d7b85e56906d65d1f1506": {
+                        "name": "boolean",
+                        "x": -300,
+                        "y": 315,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": false
+                    }
+                },
+                "links": {
+                    "36bb5f91d9d4d3a48486ddcea629e4a4": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "6a5c4161876962af266288ed291a6c85",
+                        "toConnector": "ifct"
+                    },
+                    "fc7fa23ce6755d087d8520feadc43e9a": {
+                        "fromComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "fromConnector": "output_array",
+                        "toComponent": "6a5c4161876962af266288ed291a6c85",
+                        "toConnector": "args"
+                    },
+                    "7f7c2f0ce62a017c6639e79fc0f91886": {
+                        "fromComponent": "f30f622813afe2fc7ba7b5854a4a49e4",
+                        "fromConnector": "content",
+                        "toComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "toConnector": "72e1ff00bbf66a08209005f34f1baa44"
+                    },
+                    "41de092c7b67cc5819502ea9e70d586d": {
+                        "fromComponent": "fbd26c9149175d6a4b072c555f844a4d",
+                        "fromConnector": "content",
+                        "toComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "toConnector": "28e0f4c7e1600f28d0b2a904a603675b"
+                    },
+                    "81b2737c9dac0e31e890254769f63cde": {
+                        "fromComponent": "244550e441dd01b897606f3184a8b7b4",
+                        "fromConnector": "content",
+                        "toComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "toConnector": "648f6b6e48f28733ad505ea258d044e5"
+                    },
+                    "cebfa384ef956eebcfe54b62f29fffd9": {
+                        "fromComponent": "1dcae9db8d85202448ab6da920d6f814",
+                        "fromConnector": "content",
+                        "toComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "toConnector": "4ade936af5fcd6212b8abddce0a64a44"
+                    },
+                    "caf8b10606e481d499dc03c3e586dd1c": {
+                        "fromComponent": "50ee214b610359784a0db6a501015044",
+                        "fromConnector": "content",
+                        "toComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "toConnector": "925cd53a3f4d1660abdcfcfc9f63c864"
+                    },
+                    "046d76ebfeac6d7f5a0a34558d66051b": {
+                        "fromComponent": "c8394a48b90d7b85e56906d65d1f1506",
+                        "fromConnector": "output",
+                        "toComponent": "002278d8793d91f7d424b8d2620d4eae",
+                        "toConnector": "cc5e9c5b4682dbcd5e846d89d084a2df"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "c778bde491b9011e3c43371fb700a9a5": {
+            "title": "page_title",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "My option page",
+                "is_settings": true,
+                "title": "Page title"
+            }
+        },
+        "bda9df674709d0052711faba79b169b2": {
+            "title": "menu_title",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "My option page",
+                "is_settings": true,
+                "title": "Menu title"
+            }
+        },
+        "74e36417ff515c304f2b51badd85eae7": {
+            "title": "menu_slug",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "my-option-page",
+                "is_settings": true,
+                "title": "Slug name",
+                "description": "Without special characters and spaces"
+            }
+        },
+        "21d035d257f11d7900a11af995bcf00e": {
+            "title": "capability",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "edit_posts",
+                "is_settings": true,
+                "title": "Capability"
+            }
+        },
+        "03021375f812fd0941be0f90a169ccf9": {
+            "title": "icon_url",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "dashicons-dashboard",
+                "is_settings": true,
+                "title": "Icon url"
+            }
+        }
+    }
+}

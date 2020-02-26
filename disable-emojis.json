@@ -1,0 +1,208 @@
+{
+    "title": "Disable emojis",
+    "category": "Tools",
+    "description": "Disable emojis from loading.",
+    "content": {
+        "82fcaefd47daf4f525769bd9dec35927": {
+            "title": "remove_actions",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "type": "hook-action",
+                        "custom": true,
+                        "x": -32,
+                        "y": 4,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "4b90ab02a5ca5ba47a0c0b8f0ef550b9": {
+                                "label": "test",
+                                "type": "mixed"
+                            }
+                        }
+                    },
+                    "9cb64ad39777bb2b392b1ee93c6a52d7": {
+                        "name": "foreach",
+                        "x": 482,
+                        "y": 5,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "value": {
+                                    "admin_print_scripts": "print_emoji_detection_script",
+                                    "wp_print_styles": "print_emoji_styles",
+                                    "admin_print_styles": "print_emoji_styles",
+                                    "the_content_feed": "wp_staticize_emoji",
+                                    "comment_text_rss": "wp_staticize_emoji",
+                                    "wp_mail": "wp_staticize_emoji_for_email"
+                                }
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "label": "finish"
+                            },
+                            "ofct_loop": {
+                                "type": "efct",
+                                "label": "loop"
+                            },
+                            "item_loop": {
+                                "type": "mixed",
+                                "label": "item"
+                            },
+                            "key_loop": {
+                                "type": "mixed",
+                                "label": "key"
+                            }
+                        }
+                    },
+                    "49dd03122d5d37fa58877713f28e1924": {
+                        "name": "remove_action",
+                        "x": 220.65493769079944,
+                        "y": 5.589436523556003,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "wp_head"
+                            },
+                            "function_to_remove": {
+                                "label": "function_to_remove",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "print_emoji_detection_script"
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false,
+                                "value": 7
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "90a147863c856b4a3c3e963c27d8be67": {
+                        "name": "remove_action",
+                        "x": 797,
+                        "y": 24,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "function_to_remove": {
+                                "label": "function_to_remove",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "01af7c9788f3d26dd7461ee6ba40c699": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "49dd03122d5d37fa58877713f28e1924",
+                        "toConnector": "ifct"
+                    },
+                    "07ec2192068842d4e971ec9fda3e9c13": {
+                        "fromComponent": "9cb64ad39777bb2b392b1ee93c6a52d7",
+                        "fromConnector": "ofct_loop",
+                        "toComponent": "90a147863c856b4a3c3e963c27d8be67",
+                        "toConnector": "ifct"
+                    },
+                    "96afedb4bb59bd46c2331ad9e3f9fce2": {
+                        "fromComponent": "9cb64ad39777bb2b392b1ee93c6a52d7",
+                        "fromConnector": "key_loop",
+                        "toComponent": "90a147863c856b4a3c3e963c27d8be67",
+                        "toConnector": "tag"
+                    },
+                    "73a76a8eb82f715d13af513dd0164034": {
+                        "fromComponent": "9cb64ad39777bb2b392b1ee93c6a52d7",
+                        "fromConnector": "item_loop",
+                        "toComponent": "90a147863c856b4a3c3e963c27d8be67",
+                        "toConnector": "function_to_remove"
+                    },
+                    "f77a07776f9b94139ac1371df9049395": {
+                        "fromComponent": "49dd03122d5d37fa58877713f28e1924",
+                        "fromConnector": "ofct",
+                        "toComponent": "9cb64ad39777bb2b392b1ee93c6a52d7",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

@@ -1,0 +1,208 @@
+{
+    "title": "Change background color",
+    "category": "Theme",
+    "description": "Change the background color of your website.",
+    "content": {
+        "d51041e8dd173a4ef17f3bbad32e2b1d": {
+            "title": "bgcolor",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "picker",
+                    "colorpicker"
+                ],
+                "is_settings": true,
+                "title": "Background color",
+                "description": "The background color"
+            }
+        },
+        "fd2e3731423ffe380b46c909a33fa138": {
+            "title": "wp_footer",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_footer",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 40,
+                        "y": 0
+                    },
+                    "47bf240605f487cfe6eb68de3c376a6e": {
+                        "x": -190,
+                        "y": 95,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "3eefa961fb25bbb06afadd57605c49e5": {
+                                "label": "bgcolor",
+                                "type": "mixed"
+                            },
+                            "a8b0dd9575c78962839c2af2c7511c9e": {
+                                "label": "textcolor",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "0ae033785f3185bdf9cd4e81ebc123dc": {
+                        "name": "bgcolor",
+                        "x": -420,
+                        "y": 95,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "d51041e8dd173a4ef17f3bbad32e2b1d"
+                    },
+                    "349ba4d51d892cf98d0c82cbdf8ac034": {
+                        "x": 275,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "a002fa43e8245095aa9042f5c6c72baf": {
+                        "name": "css_style",
+                        "x": 40,
+                        "y": 95,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "42bcadd98e1992082ed1008483289313"
+                    },
+                    "4e2ac4ebf49b3f838667f9049550eabf": {
+                        "name": "textcolor",
+                        "x": -420,
+                        "y": 180,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "12a9e05ac0f0c318e03833a1a11b05bd"
+                    }
+                },
+                "links": {
+                    "5656fdf4808fc730b4f8ade79d81b520": {
+                        "fromComponent": "0ae033785f3185bdf9cd4e81ebc123dc",
+                        "fromConnector": "content",
+                        "toComponent": "47bf240605f487cfe6eb68de3c376a6e",
+                        "toConnector": "3eefa961fb25bbb06afadd57605c49e5"
+                    },
+                    "1e9f0643fc9371fba14ab54c1f81261b": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "349ba4d51d892cf98d0c82cbdf8ac034",
+                        "toConnector": "ifct"
+                    },
+                    "ee5051d5e5ef06f94c376de1fb2c855f": {
+                        "fromComponent": "47bf240605f487cfe6eb68de3c376a6e",
+                        "fromConnector": "output_array",
+                        "toComponent": "a002fa43e8245095aa9042f5c6c72baf",
+                        "toConnector": "args"
+                    },
+                    "54729ad5d8d572378e6db9461cd01d28": {
+                        "fromComponent": "a002fa43e8245095aa9042f5c6c72baf",
+                        "fromConnector": "content",
+                        "toComponent": "349ba4d51d892cf98d0c82cbdf8ac034",
+                        "toConnector": "string"
+                    },
+                    "6bc279283e5483e4360ab00ee841885a": {
+                        "fromComponent": "4e2ac4ebf49b3f838667f9049550eabf",
+                        "fromConnector": "content",
+                        "toComponent": "47bf240605f487cfe6eb68de3c376a6e",
+                        "toConnector": "a8b0dd9575c78962839c2af2c7511c9e"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "d4cb1916982789d2689a65e1d5b0c1dc": {
+            "title": "css_callback",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "css_callback",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    }
+                },
+                "links": {},
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "42bcadd98e1992082ed1008483289313": {
+            "title": "css_style",
+            "type": "template",
+            "content": "<style>\n    body{\n        background-color:{{bgcolor}};\n        color:{{textcolor}};\n    }\n<\/style>"
+        },
+        "12a9e05ac0f0c318e03833a1a11b05bd": {
+            "title": "textcolor",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "picker",
+                    "colorpicker"
+                ],
+                "is_settings": true,
+                "title": "Text color",
+                "description": "The text color"
+            }
+        }
+    }
+}

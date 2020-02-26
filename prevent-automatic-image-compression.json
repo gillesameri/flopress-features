@@ -1,0 +1,89 @@
+{
+    "title": "Prevent automatic image compression",
+    "category": "Media",
+    "description": "By default, WordPress compress jpg images when they are uploaded. It saves bandwidth and loading time, but sometimes you may prefer to have full quality images.",
+    "content": {
+        "54a166bfe4d55548478279d6dff20f91": {
+            "title": "jpeg_quality",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "jpeg_quality",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "quality": {
+                                "label": "quality",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ]
+                            },
+                            "context": {
+                                "label": "context",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "c33719492682261c19ee5d8ac14bfc6b": {
+                        "x": 345,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "4a60ab22275ea2d8ccd0390da7c8d162": {
+                        "x": 0,
+                        "y": 130,
+                        "name": "integer",
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": 100
+                    }
+                },
+                "links": {
+                    "d17f42ed20e7ffe9a577df39af119b87": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "c33719492682261c19ee5d8ac14bfc6b",
+                        "toConnector": "ifct"
+                    },
+                    "9c18941f451f959c9299796defdef5f9": {
+                        "fromComponent": "4a60ab22275ea2d8ccd0390da7c8d162",
+                        "fromConnector": "output",
+                        "toComponent": "c33719492682261c19ee5d8ac14bfc6b",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

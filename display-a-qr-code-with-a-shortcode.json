@@ -1,0 +1,201 @@
+{
+    "title": "Display a QR code with a shortcode",
+    "category": "Tools,Post,Shortcode",
+    "description": "Generate any QR code with a simple shortcode.\r\n[qrcode width=\"500\" height=\"500\"]https:\/\/mywebsite.com[\/qrcode]",
+    "content": {
+        "9e09126a93fd598909f73706061ad664": {
+            "title": "qrcode",
+            "type": "shortcode",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "qrcode",
+                        "type": "hook-shortcode",
+                        "x": -375,
+                        "y": 0,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "array"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "c1cc45f569444ff1ee925cc17dd49e6c": {
+                        "x": 770,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "bf3de5dbea51255cb8d160d2aaec0215": {
+                        "name": "array",
+                        "x": 230,
+                        "y": 100,
+                        "type": "variable",
+                        "inputs": {
+                            "5c8480d7cb22a70b1950bfc2e800d169": {
+                                "label": "width",
+                                "type": "mixed"
+                            },
+                            "a71b0b0988b1502d86b065feaca69057": {
+                                "label": "height",
+                                "type": "mixed"
+                            },
+                            "5ad5790d57bb62fe8354246fa22c0102": {
+                                "label": "url",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "65f41340c88779c96c97fcab7ffc8acf": {
+                        "name": "img",
+                        "x": 480,
+                        "y": 100,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "8940dd2ee1990fcb27c603c5a533ea58"
+                    },
+                    "5da2d7273696dcc15f272682f3ed6dc8": {
+                        "name": "get_array_value",
+                        "x": -50,
+                        "y": -155,
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "width"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "aedd8a7f1e5884374530e79fd594ff5a": {
+                        "name": "get_array_value",
+                        "x": -50,
+                        "y": -55,
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "height"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "248206b01ba61e2861f6e8f1dd9bfa75": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "c1cc45f569444ff1ee925cc17dd49e6c",
+                        "toConnector": "ifct"
+                    },
+                    "c73f62ea9c2a37f7354550c1740c2ffb": {
+                        "fromComponent": "65f41340c88779c96c97fcab7ffc8acf",
+                        "fromConnector": "content",
+                        "toComponent": "c1cc45f569444ff1ee925cc17dd49e6c",
+                        "toConnector": "value"
+                    },
+                    "f75c0ad745c84713cc4f14cd6d15893b": {
+                        "fromComponent": "bf3de5dbea51255cb8d160d2aaec0215",
+                        "fromConnector": "output_array",
+                        "toComponent": "65f41340c88779c96c97fcab7ffc8acf",
+                        "toConnector": "args"
+                    },
+                    "5acdaeacda0b555908936498fd402a2a": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "args",
+                        "toComponent": "5da2d7273696dcc15f272682f3ed6dc8",
+                        "toConnector": "array"
+                    },
+                    "3f9593555afda26cbac92ed24af00766": {
+                        "fromComponent": "5da2d7273696dcc15f272682f3ed6dc8",
+                        "fromConnector": "return",
+                        "toComponent": "bf3de5dbea51255cb8d160d2aaec0215",
+                        "toConnector": "5c8480d7cb22a70b1950bfc2e800d169"
+                    },
+                    "952262c503132de9a694f32106fc5089": {
+                        "fromComponent": "aedd8a7f1e5884374530e79fd594ff5a",
+                        "fromConnector": "return",
+                        "toComponent": "bf3de5dbea51255cb8d160d2aaec0215",
+                        "toConnector": "a71b0b0988b1502d86b065feaca69057"
+                    },
+                    "2219ae8cd7bf17f89e44cc7be469eadb": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "args",
+                        "toComponent": "aedd8a7f1e5884374530e79fd594ff5a",
+                        "toConnector": "array"
+                    },
+                    "e1b0903103042dc73a96ba2e9df62b7d": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "bf3de5dbea51255cb8d160d2aaec0215",
+                        "toConnector": "5ad5790d57bb62fe8354246fa22c0102"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "8940dd2ee1990fcb27c603c5a533ea58": {
+            "title": "img",
+            "type": "template",
+            "content": "{% if not width %} \n    {% set w = 500 %} \n{% else %} \n    {% set w = width %} \n{% endif %}\n{% if not height %} \n    {% set h = 500 %} \n{% else %} \n    {% set h = height %} \n{% endif %}\n\n<img src=\"http:\/\/api.qrserver.com\/v1\/create-qr-code\/?size={{w}}x{{h}}&data={{url}}\" \/>\n"
+        }
+    }
+}

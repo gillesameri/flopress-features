@@ -1,0 +1,97 @@
+{
+    "title": "Hide login errors",
+    "category": "Security",
+    "description": "Login errors in WordPress can be used by hackers to guess whether they entered wrong username or password. Make your login area more secure by hiding login errors in WordPress.",
+    "content": {
+        "8286771e4d90e50dd4adb9f68a18c144": {
+            "title": "login_errors",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "login_errors",
+                        "x": -334,
+                        "y": -242,
+                        "type": "hook-filter",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "errors": {
+                                "label": "errors",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "23d6c0ec8899a466833b34f55a896711": {
+                        "name": "return",
+                        "x": -91,
+                        "y": -197,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "b21e0e2b8b6ec5199c062d12208b39ad": {
+                        "name": "error_msg",
+                        "x": -331,
+                        "y": -123,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "8acf8b8832f98166d7b5810605d93814"
+                    }
+                },
+                "links": {
+                    "5d32d4fbba063775101d7eb6c7392ef4": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "23d6c0ec8899a466833b34f55a896711",
+                        "toConnector": "ifct"
+                    },
+                    "b6895c944f8a147f87669ccb0fe8f343": {
+                        "fromComponent": "b21e0e2b8b6ec5199c062d12208b39ad",
+                        "fromConnector": "content",
+                        "toComponent": "23d6c0ec8899a466833b34f55a896711",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "8acf8b8832f98166d7b5810605d93814": {
+            "title": "error_msg",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "value": "Something is wrong!",
+                "title": "Errors message",
+                "description": "Set the new error message"
+            }
+        }
+    }
+}

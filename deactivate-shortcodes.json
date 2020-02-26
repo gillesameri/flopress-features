@@ -1,0 +1,224 @@
+{
+    "title": "Deactivate shortcodes",
+    "category": "Shortcode",
+    "description": "If you no longer need certains WordPress shortcodes, this feature help you to disable them.",
+    "content": {
+        "540012f52424af279f1da8f0deaa2587": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "766b2cb49c1738567f523f579bbdc603": {
+                        "x": 279,
+                        "y": 25,
+                        "name": "foreach",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct"
+                            },
+                            "array": {
+                                "label": "array",
+                                "type": "array",
+                                "default": "array()"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "label": "finish"
+                            },
+                            "ofct_loop": {
+                                "type": "efct",
+                                "label": "loop"
+                            },
+                            "item_loop": {
+                                "type": "mixed",
+                                "label": "item"
+                            },
+                            "key_loop": {
+                                "type": "mixed",
+                                "label": "key"
+                            }
+                        }
+                    },
+                    "1cca22703f1492a03ca0d1803a542d03": {
+                        "name": "shortcodes_list",
+                        "x": 0,
+                        "y": 90,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "e8d9e4b10d67e4dc4f7ff6943dc3070f"
+                    },
+                    "4b01b913bf47a0e5a3938fce5d29eb90": {
+                        "x": 575,
+                        "y": 45,
+                        "name": "add_shortcode",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "callback": {
+                                "label": "callback",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "b95b589bd1cb975163f4e69e8ca60c6e": {
+                        "name": "clbk",
+                        "x": 280,
+                        "y": 170,
+                        "type": "action",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "4ad08d354f743d206178b5b71f2d25fd"
+                    }
+                },
+                "links": {
+                    "4cdc2d29f932426c0fb5b7721ac05e3a": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "766b2cb49c1738567f523f579bbdc603",
+                        "toConnector": "ifct"
+                    },
+                    "443606245618a6199305125a9e708f3d": {
+                        "fromComponent": "1cca22703f1492a03ca0d1803a542d03",
+                        "fromConnector": "content",
+                        "toComponent": "766b2cb49c1738567f523f579bbdc603",
+                        "toConnector": "array"
+                    },
+                    "fb14594363b3d9ddfa6a4582fef0e846": {
+                        "fromComponent": "766b2cb49c1738567f523f579bbdc603",
+                        "fromConnector": "ofct_loop",
+                        "toComponent": "4b01b913bf47a0e5a3938fce5d29eb90",
+                        "toConnector": "ifct"
+                    },
+                    "5a4c146d3deb9ddc062bce5e91b290be": {
+                        "fromComponent": "766b2cb49c1738567f523f579bbdc603",
+                        "fromConnector": "key_loop",
+                        "toComponent": "4b01b913bf47a0e5a3938fce5d29eb90",
+                        "toConnector": "tag"
+                    },
+                    "aa60e62c74490173281b38346f03527e": {
+                        "fromComponent": "b95b589bd1cb975163f4e69e8ca60c6e",
+                        "fromConnector": "callable",
+                        "toComponent": "4b01b913bf47a0e5a3938fce5d29eb90",
+                        "toConnector": "callback"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "e8d9e4b10d67e4dc4f7ff6943dc3070f": {
+            "title": "shortcodes_list",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "array"
+                ],
+                "is_settings": true,
+                "title": "Shortcodes lists",
+                "description": "name | <keep empty>"
+            }
+        },
+        "4ad08d354f743d206178b5b71f2d25fd": {
+            "title": "clbk",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "clbk",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "9e7204810f449843c1313e26e41fde70": {
+                        "x": 270,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "b082a0542cd8e50d4b40ec34183c3836": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "9e7204810f449843c1313e26e41fde70",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        }
+    }
+}

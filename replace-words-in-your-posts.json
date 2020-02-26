@@ -1,0 +1,429 @@
+{
+    "title": "Replace words in your posts",
+    "category": "Post",
+    "description": "Automatically search and replace words in content and excerpt.",
+    "content": {
+        "c57fa7299257d47ba7f1697195218272": {
+            "title": "search_replace_list",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "array"
+                ],
+                "is_settings": true,
+                "title": "Word list",
+                "description": "Search\/Replace by row"
+            }
+        },
+        "50d80b05bafa1cd12881c1eda2905228": {
+            "title": "custom_search_replace",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "custom_search_replace",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "2ba4af50eccd228f593cb49a524f08b6": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 20,
+                        "y": -10
+                    },
+                    "8ad9103b3fcda69cff6b02e762b16294": {
+                        "name": "call_user_func_array",
+                        "x": 1075,
+                        "y": -115,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "callable": {
+                                "label": "callable",
+                                "type": "callable",
+                                "value": "str_replace"
+                            },
+                            "param_arr": {
+                                "label": "param_arr",
+                                "type": "array"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "e46dbb52d1bb4e0cdd2639bf95f25426": {
+                        "x": 840,
+                        "y": -30,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "a07f4f640495ad2542f817c78e05b842": {
+                                "label": "",
+                                "type": "mixed"
+                            },
+                            "f9cfa61718e2606cb8a6aba2210b722b": {
+                                "label": "",
+                                "type": "mixed"
+                            },
+                            "b691f2c6112b1a418bc4778301b94887": {
+                                "label": "",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "43efdb8ac799c17a24c32751e826e523": {
+                        "name": "search_replace_list",
+                        "x": 20,
+                        "y": -95,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "c57fa7299257d47ba7f1697195218272"
+                    },
+                    "070c0ffd3e9d3b09d2f6cce7a309d4f3": {
+                        "name": "call_user_func_array",
+                        "x": 585,
+                        "y": -115,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "callable": {
+                                "label": "callable",
+                                "type": "callable",
+                                "value": "array_keys"
+                            },
+                            "param_arr": {
+                                "label": "param_arr",
+                                "type": "array"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "9738302a25bf4a24ab928e121d4d5a45": {
+                        "x": 290,
+                        "y": -170,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "418b140f61b35a9f3aba09fee3a0195e": {
+                                "label": "",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "9467241cd9f9dfbc7b7df9b16fc36e9e": {
+                        "x": 1325,
+                        "y": -115,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "f4fd26e3a9f9b8b5f3ada049a95bf11d": {
+                        "fromComponent": "e46dbb52d1bb4e0cdd2639bf95f25426",
+                        "fromConnector": "output_array",
+                        "toComponent": "8ad9103b3fcda69cff6b02e762b16294",
+                        "toConnector": "param_arr"
+                    },
+                    "9cda28a75d4568d6da302717b098a0ff": {
+                        "fromComponent": "43efdb8ac799c17a24c32751e826e523",
+                        "fromConnector": "content",
+                        "toComponent": "e46dbb52d1bb4e0cdd2639bf95f25426",
+                        "toConnector": "f9cfa61718e2606cb8a6aba2210b722b"
+                    },
+                    "de0e14bbedbfd312bdd743a74665d962": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "070c0ffd3e9d3b09d2f6cce7a309d4f3",
+                        "toConnector": "ifct"
+                    },
+                    "fbbd3cd3aecbcb6c9ecf5898db10e30f": {
+                        "fromComponent": "070c0ffd3e9d3b09d2f6cce7a309d4f3",
+                        "fromConnector": "ofct",
+                        "toComponent": "8ad9103b3fcda69cff6b02e762b16294",
+                        "toConnector": "ifct"
+                    },
+                    "bdca9d4c09a38c3f63721db5443ead6b": {
+                        "fromComponent": "070c0ffd3e9d3b09d2f6cce7a309d4f3",
+                        "fromConnector": "return",
+                        "toComponent": "e46dbb52d1bb4e0cdd2639bf95f25426",
+                        "toConnector": "a07f4f640495ad2542f817c78e05b842"
+                    },
+                    "44b2c1e9d7e7af9e194e56effc14e5dd": {
+                        "fromComponent": "43efdb8ac799c17a24c32751e826e523",
+                        "fromConnector": "content",
+                        "toComponent": "9738302a25bf4a24ab928e121d4d5a45",
+                        "toConnector": "418b140f61b35a9f3aba09fee3a0195e"
+                    },
+                    "96d14c10b7f49075159cc5d4a5f0cb62": {
+                        "fromComponent": "9738302a25bf4a24ab928e121d4d5a45",
+                        "fromConnector": "output_array",
+                        "toComponent": "070c0ffd3e9d3b09d2f6cce7a309d4f3",
+                        "toConnector": "param_arr"
+                    },
+                    "39958991e9456c34914f71ea32a49563": {
+                        "fromComponent": "8ad9103b3fcda69cff6b02e762b16294",
+                        "fromConnector": "ofct",
+                        "toComponent": "9467241cd9f9dfbc7b7df9b16fc36e9e",
+                        "toConnector": "ifct"
+                    },
+                    "3f6dcf338c6c48b95ef747c9e053915f": {
+                        "fromComponent": "8ad9103b3fcda69cff6b02e762b16294",
+                        "fromConnector": "return",
+                        "toComponent": "9467241cd9f9dfbc7b7df9b16fc36e9e",
+                        "toConnector": "value"
+                    },
+                    "cde9dca28e7832a97d53d26edf5d3a2f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "2ba4af50eccd228f593cb49a524f08b6",
+                        "toComponent": "e46dbb52d1bb4e0cdd2639bf95f25426",
+                        "toConnector": "b691f2c6112b1a418bc4778301b94887"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "b70247a679dcca4fd39c8bc376229ef4": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "498484ef5bf2a87a9fa8f90385a61109": {
+                        "x": 365,
+                        "y": 0,
+                        "name": "add_filter",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "the_content"
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    },
+                    "fd51954acb46daa8e8928af19bba00f3": {
+                        "x": 680,
+                        "y": 140,
+                        "name": "add_filter",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "the_content"
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": ""
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    },
+                    "51df92163244f35dd935b3102c0ebceb": {
+                        "name": "custom_search_replace",
+                        "x": 10,
+                        "y": 165,
+                        "type": "filter",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "50d80b05bafa1cd12881c1eda2905228"
+                    }
+                },
+                "links": {
+                    "a90c2024392cc6aca9297389e6801ab9": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "498484ef5bf2a87a9fa8f90385a61109",
+                        "toConnector": "ifct"
+                    },
+                    "e503efc3bdd3126548f0ab8f4491f2c2": {
+                        "fromComponent": "498484ef5bf2a87a9fa8f90385a61109",
+                        "fromConnector": "ofct",
+                        "toComponent": "fd51954acb46daa8e8928af19bba00f3",
+                        "toConnector": "ifct"
+                    },
+                    "5e62dcc3392e0925be4284300d921df7": {
+                        "fromComponent": "51df92163244f35dd935b3102c0ebceb",
+                        "fromConnector": "callable",
+                        "toComponent": "498484ef5bf2a87a9fa8f90385a61109",
+                        "toConnector": "function_to_add"
+                    },
+                    "d8203cced62568f81f463ad7170b97fb": {
+                        "fromComponent": "51df92163244f35dd935b3102c0ebceb",
+                        "fromConnector": "callable",
+                        "toComponent": "fd51954acb46daa8e8928af19bba00f3",
+                        "toConnector": "function_to_add"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

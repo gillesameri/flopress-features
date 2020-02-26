@@ -1,0 +1,275 @@
+{
+    "title": "Register a new image size.",
+    "category": "Media",
+    "description": "Add a new image size.",
+    "content": {
+        "89d627c0a33f95d1f2da683c18c0e19f": {
+            "title": "image_size_name",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "my-new-size",
+                "is_settings": true,
+                "title": "Image size name",
+                "description": ""
+            }
+        },
+        "753aedaf5804629e0a085b8e832e0c2c": {
+            "title": "after_setup_theme",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "after_setup_theme",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -300,
+                        "y": -95
+                    },
+                    "d7e08277ef0364511144e6cce38eeb37": {
+                        "x": 570,
+                        "y": 35,
+                        "name": "add_image_size",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "name": {
+                                "label": "name",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "width": {
+                                "label": "width",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "0",
+                                "required": true
+                            },
+                            "height": {
+                                "label": "height",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "0",
+                                "required": true
+                            },
+                            "crop": {
+                                "label": "crop",
+                                "type": "bool",
+                                "types": [
+                                    "bool",
+                                    "array"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "75dcbea32417ce95e9efdc466dafcee0": {
+                        "name": "image_size_name",
+                        "x": -300,
+                        "y": 0,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "89d627c0a33f95d1f2da683c18c0e19f"
+                    },
+                    "0fad39c729e25a5ae2eee6394f5a5639": {
+                        "name": "image_size_width",
+                        "x": -300,
+                        "y": 85,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "ff7b0ee3215b4ccda4d8c962195d2644"
+                    },
+                    "5c481165197ba88c5f8c0d664ecc44d6": {
+                        "name": "image_size_height",
+                        "x": -300,
+                        "y": 170,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a03758185b2cb1c6a49d2906ff8e2492"
+                    },
+                    "284bfc298818e79cc1f8b1513aac6410": {
+                        "name": "image_size_crop",
+                        "x": -300,
+                        "y": 250,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "82f0777f6aef0c7ea49616fef7e11122"
+                    },
+                    "667daf4acb19517a38af59ba33d0f03f": {
+                        "x": 105,
+                        "y": -95,
+                        "name": "add_theme_support",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "feature": {
+                                "label": "feature",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "post-thumbnails"
+                            },
+                            "args,...": {
+                                "label": "args,...",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ],
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "3e4ff1a74f6579bd27a278f8cbda47f6": {
+                        "fromComponent": "75dcbea32417ce95e9efdc466dafcee0",
+                        "fromConnector": "content",
+                        "toComponent": "d7e08277ef0364511144e6cce38eeb37",
+                        "toConnector": "name"
+                    },
+                    "64291b8aeb2810ad0061fef4bad72d94": {
+                        "fromComponent": "0fad39c729e25a5ae2eee6394f5a5639",
+                        "fromConnector": "content",
+                        "toComponent": "d7e08277ef0364511144e6cce38eeb37",
+                        "toConnector": "width"
+                    },
+                    "7e241c122a0d79332492007ef58932cc": {
+                        "fromComponent": "5c481165197ba88c5f8c0d664ecc44d6",
+                        "fromConnector": "content",
+                        "toComponent": "d7e08277ef0364511144e6cce38eeb37",
+                        "toConnector": "height"
+                    },
+                    "5e4de9a3d8b3e1a42562655e9b5ef8de": {
+                        "fromComponent": "284bfc298818e79cc1f8b1513aac6410",
+                        "fromConnector": "content",
+                        "toComponent": "d7e08277ef0364511144e6cce38eeb37",
+                        "toConnector": "crop"
+                    },
+                    "6a8563eeddd29aac4cc3529bd1a2b3cd": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "667daf4acb19517a38af59ba33d0f03f",
+                        "toConnector": "ifct"
+                    },
+                    "cfc311aa87fc77825b3e1bf70d457a30": {
+                        "fromComponent": "667daf4acb19517a38af59ba33d0f03f",
+                        "fromConnector": "ofct",
+                        "toComponent": "d7e08277ef0364511144e6cce38eeb37",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "ff7b0ee3215b4ccda4d8c962195d2644": {
+            "title": "image_size_width",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 200,
+                "is_settings": true,
+                "title": "Width"
+            }
+        },
+        "a03758185b2cb1c6a49d2906ff8e2492": {
+            "title": "image_size_height",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 200,
+                "is_settings": true,
+                "title": "Height"
+            }
+        },
+        "82f0777f6aef0c7ea49616fef7e11122": {
+            "title": "image_size_crop",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Crop",
+                "description": "If true, images will be cropped to the specified dimensions using center positions."
+            }
+        }
+    }
+}

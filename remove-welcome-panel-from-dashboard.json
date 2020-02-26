@@ -1,0 +1,88 @@
+{
+    "title": "Remove Welcome panel from dashboard",
+    "category": "Admin",
+    "description": "Welcome panel is a meta box added to the dashboard screen of WordPress admin area. It provides useful shortcuts for beginners to do things on their new WordPress site.",
+    "content": {
+        "52f3053b5f4d5f40ee974222dc09b92b": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "1da5aa9613111195e9c175c27b3af125": {
+                        "x": 310,
+                        "y": 0,
+                        "name": "remove_action",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "welcome_panel"
+                            },
+                            "function_to_remove": {
+                                "label": "function_to_remove",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "wp_welcome_panel"
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "82f17051113e5eae00d710bdf6238631": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "1da5aa9613111195e9c175c27b3af125",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

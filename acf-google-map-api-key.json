@@ -1,0 +1,141 @@
+{
+    "title": "ACF Google Map API key",
+    "category": "ACF,Third-party",
+    "description": "This feature allows a Google API key to be set",
+    "content": {
+        "422096c9b46dd931c579da85207edd26": {
+            "title": "acf\/fields\/google_map\/api",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "acf\/fields\/google_map\/api",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "f6a0fa30f1674b7334f1d2778afc205f": {
+                                "label": "api",
+                                "type": "array"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "f1ab13b5c3c70f11c2d0acbf9c9a0669": {
+                        "x": 425,
+                        "y": 0,
+                        "name": "set_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "array"
+                            },
+                            "key": {
+                                "label": "key",
+                                "type": "string",
+                                "value": "key"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "3dac40bbb4c3c400d3ec8d0e9c5241ad": {
+                        "name": "return",
+                        "x": 765,
+                        "y": 200,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "94929833b03e4086aea7f68f582e8834": {
+                        "name": "google_key",
+                        "x": -5,
+                        "y": 170,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "1f2494e3cc102c6bcc7700473b9ee07c"
+                    }
+                },
+                "links": {
+                    "e8a802846cc2eb0f1471dd8feabefb84": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "f1ab13b5c3c70f11c2d0acbf9c9a0669",
+                        "toConnector": "ifct"
+                    },
+                    "099fab60cc2725edf6ef8ce5da56ca2f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "f6a0fa30f1674b7334f1d2778afc205f",
+                        "toComponent": "f1ab13b5c3c70f11c2d0acbf9c9a0669",
+                        "toConnector": "variable"
+                    },
+                    "bee6909d81e5ad1038bc0d6a9257f958": {
+                        "fromComponent": "f1ab13b5c3c70f11c2d0acbf9c9a0669",
+                        "fromConnector": "ofct",
+                        "toComponent": "3dac40bbb4c3c400d3ec8d0e9c5241ad",
+                        "toConnector": "ifct"
+                    },
+                    "ab17aff3fb0f94b34472f3c15f9b270c": {
+                        "fromComponent": "94929833b03e4086aea7f68f582e8834",
+                        "fromConnector": "content",
+                        "toComponent": "f1ab13b5c3c70f11c2d0acbf9c9a0669",
+                        "toConnector": "value"
+                    },
+                    "6e5d1f4d05d48f57c4fe5e1fcff613bf": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "f6a0fa30f1674b7334f1d2778afc205f",
+                        "toComponent": "3dac40bbb4c3c400d3ec8d0e9c5241ad",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "1f2494e3cc102c6bcc7700473b9ee07c": {
+            "title": "google_key",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Google API key"
+            }
+        }
+    }
+}

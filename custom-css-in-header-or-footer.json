@@ -1,0 +1,487 @@
+{
+    "title": "Custom css in header or footer",
+    "category": "Developer",
+    "description": "Add a custom css in header or footer. Simply edit the css template inside.",
+    "content": {
+        "89415ee6052506e55cfffe425d0318c3": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "fe84a0757828c22feadbb7e11ee9bea6": {
+                        "x": 335,
+                        "y": 0,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "e4e887c70c08aa747df94442dc6ac496": {
+                        "name": "inheader",
+                        "x": 0,
+                        "y": 85,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "e73d03993530c3551c1b74efd5e33291"
+                    },
+                    "0f86262c717e93c95549229e97368662": {
+                        "x": 835,
+                        "y": -150,
+                        "name": "add_action",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    },
+                    "67071ed9970f786a39f8f29ccec4085b": {
+                        "x": 840,
+                        "y": 110,
+                        "name": "add_action",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    },
+                    "2c2c1603b467787415f1508950e1c11e": {
+                        "name": "wp_footer",
+                        "x": 335,
+                        "y": 130,
+                        "type": "action",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "09e0cb514b0e6889297a2be3afdd1d5d"
+                    },
+                    "65bb8731703e402c98c5f49ca4e0cf9b": {
+                        "name": "wp_head",
+                        "x": 335,
+                        "y": -130,
+                        "type": "action",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "b0051fb2f3926fd0ebd7a73bdf40bf0b"
+                    },
+                    "5518c477d6d87dcef3bed5b90d6092c4": {
+                        "name": "priority",
+                        "x": 585,
+                        "y": 15,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "6f4577fbe532f8d3a3ed3eaad0f282c9"
+                    }
+                },
+                "links": {
+                    "d4ea475325319bb0fe460a5b0d9316e4": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "fe84a0757828c22feadbb7e11ee9bea6",
+                        "toConnector": "ifct"
+                    },
+                    "2eab83b4bf68732279e9531fbc528d0d": {
+                        "fromComponent": "e4e887c70c08aa747df94442dc6ac496",
+                        "fromConnector": "content",
+                        "toComponent": "fe84a0757828c22feadbb7e11ee9bea6",
+                        "toConnector": "condition"
+                    },
+                    "de08dbca71a94c5d0b92428879167cca": {
+                        "fromComponent": "fe84a0757828c22feadbb7e11ee9bea6",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "0f86262c717e93c95549229e97368662",
+                        "toConnector": "ifct"
+                    },
+                    "aad4a70faa4f5d5f7f3813b8a8d3c2ad": {
+                        "fromComponent": "fe84a0757828c22feadbb7e11ee9bea6",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "67071ed9970f786a39f8f29ccec4085b",
+                        "toConnector": "ifct"
+                    },
+                    "067605a88bdafcb8c0e445ed8f41bcdd": {
+                        "fromComponent": "2c2c1603b467787415f1508950e1c11e",
+                        "fromConnector": "name",
+                        "toComponent": "67071ed9970f786a39f8f29ccec4085b",
+                        "toConnector": "tag"
+                    },
+                    "a28d0eec8a6820d93e341d92b713aacd": {
+                        "fromComponent": "2c2c1603b467787415f1508950e1c11e",
+                        "fromConnector": "callable",
+                        "toComponent": "67071ed9970f786a39f8f29ccec4085b",
+                        "toConnector": "function_to_add"
+                    },
+                    "af11ab53f70841097074de4350560b4f": {
+                        "fromComponent": "65bb8731703e402c98c5f49ca4e0cf9b",
+                        "fromConnector": "name",
+                        "toComponent": "0f86262c717e93c95549229e97368662",
+                        "toConnector": "tag"
+                    },
+                    "6dce5f5aa7a3c96f035b370599c1a244": {
+                        "fromComponent": "65bb8731703e402c98c5f49ca4e0cf9b",
+                        "fromConnector": "callable",
+                        "toComponent": "0f86262c717e93c95549229e97368662",
+                        "toConnector": "function_to_add"
+                    },
+                    "514af93dba5abf6c67a086f91c7df4c0": {
+                        "fromComponent": "5518c477d6d87dcef3bed5b90d6092c4",
+                        "fromConnector": "content",
+                        "toComponent": "0f86262c717e93c95549229e97368662",
+                        "toConnector": "priority"
+                    },
+                    "6044c03d82a1415cf89dba4c3b338f3e": {
+                        "fromComponent": "5518c477d6d87dcef3bed5b90d6092c4",
+                        "fromConnector": "content",
+                        "toComponent": "67071ed9970f786a39f8f29ccec4085b",
+                        "toConnector": "priority"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "b55cd06f925ad2a21a1c07facb24ebb0": {
+            "title": "css",
+            "type": "template",
+            "content": "<style type=\"text\/css\">\n    \/* your css code *\/\n<\/style>"
+        },
+        "e73d03993530c3551c1b74efd5e33291": {
+            "title": "inheader",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Header placement",
+                "description": "Display code in header"
+            }
+        },
+        "b0051fb2f3926fd0ebd7a73bdf40bf0b": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "ecebf607a1f95f2838d42fde71c30a88": {
+                        "x": 265,
+                        "y": 25,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "01b8d1a00fe5700a91985c4d69ab6cc6": {
+                        "name": "css",
+                        "x": 0,
+                        "y": 85,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "b55cd06f925ad2a21a1c07facb24ebb0"
+                    }
+                },
+                "links": {
+                    "97f78b7eb957cf852c8d4e3ad804a624": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "ecebf607a1f95f2838d42fde71c30a88",
+                        "toConnector": "ifct"
+                    },
+                    "3fc13aae530a86dff76631067807b962": {
+                        "fromComponent": "01b8d1a00fe5700a91985c4d69ab6cc6",
+                        "fromConnector": "content",
+                        "toComponent": "ecebf607a1f95f2838d42fde71c30a88",
+                        "toConnector": "string"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "09e0cb514b0e6889297a2be3afdd1d5d": {
+            "title": "wp_footer",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_footer",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "a62dde3e4554e4cc5be059b19150e9ac": {
+                        "x": 280,
+                        "y": 30,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "a8a10651dee62aec12014345f640257e": {
+                        "name": "css",
+                        "x": 0,
+                        "y": 80,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "b55cd06f925ad2a21a1c07facb24ebb0"
+                    }
+                },
+                "links": {
+                    "3fbcef2033cdcddd791c25a7ca31d7ce": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "a62dde3e4554e4cc5be059b19150e9ac",
+                        "toConnector": "ifct"
+                    },
+                    "e4003f318c9aa44e6e9a3188c0518350": {
+                        "fromComponent": "a8a10651dee62aec12014345f640257e",
+                        "fromConnector": "content",
+                        "toComponent": "a62dde3e4554e4cc5be059b19150e9ac",
+                        "toConnector": "string"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "6f4577fbe532f8d3a3ed3eaad0f282c9": {
+            "title": "priority",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 10,
+                "is_settings": true,
+                "title": "Priority",
+                "description": "The priority of the script"
+            }
+        }
+    }
+}

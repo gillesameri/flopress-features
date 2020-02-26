@@ -1,0 +1,142 @@
+{
+    "title": "Change add to cart text",
+    "category": "WooCommerce,Third-party",
+    "description": "Change the default \u201cadd to cart\u201d button text in WooCommerce",
+    "content": {
+        "bacb476520efa8ab6d26f67449e60f76": {
+            "title": "woocommerce_product_single_add_to_cart_text",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_product_single_add_to_cart_text",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": -210,
+                        "y": -5
+                    },
+                    "4c4195721740294f3fad36b5457ffa3d": {
+                        "name": "return",
+                        "x": 420,
+                        "y": -5,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "14914b2f86f125dc5bfeecb2e6d76edd": {
+                        "name": "__",
+                        "x": 110,
+                        "y": -5,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "text": {
+                                "label": "text",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "domain": {
+                                "label": "domain",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'default'",
+                                "required": false,
+                                "value": "woocommerce"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "4538cfd617e6be0c12eec22ced2c54bc": {
+                        "name": "btntxt",
+                        "x": -210,
+                        "y": 75,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "8d3b0008d1e38e0d6f8f65b78cadae11"
+                    }
+                },
+                "links": {
+                    "ad60cc66e2c57bc4c273bd2768467d9c": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "14914b2f86f125dc5bfeecb2e6d76edd",
+                        "toConnector": "ifct"
+                    },
+                    "6d764e89cf3caabae681531e18f2a8fb": {
+                        "fromComponent": "14914b2f86f125dc5bfeecb2e6d76edd",
+                        "fromConnector": "ofct",
+                        "toComponent": "4c4195721740294f3fad36b5457ffa3d",
+                        "toConnector": "ifct"
+                    },
+                    "cd07ba575aa64ec3e68c9629c29f5e8d": {
+                        "fromComponent": "4538cfd617e6be0c12eec22ced2c54bc",
+                        "fromConnector": "content",
+                        "toComponent": "14914b2f86f125dc5bfeecb2e6d76edd",
+                        "toConnector": "text"
+                    },
+                    "b86dae6257ea011fffabfb5fd8ec280b": {
+                        "fromComponent": "14914b2f86f125dc5bfeecb2e6d76edd",
+                        "fromConnector": "return",
+                        "toComponent": "4c4195721740294f3fad36b5457ffa3d",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "8d3b0008d1e38e0d6f8f65b78cadae11": {
+            "title": "btntxt",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "Add to cart",
+                "is_settings": true,
+                "title": "Button text"
+            }
+        }
+    }
+}

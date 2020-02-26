@@ -1,0 +1,97 @@
+{
+    "title": "Disable XML-RPC",
+    "category": "Tools",
+    "description": "In WordPress 3.5, XML-RPC will be enabled by default. Import this feature to disable XML-RPC.",
+    "content": {
+        "b1b72e92a50e679f7e62bb490f792966": {
+            "title": "remove_xmlrpc",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "xmlrpc_enabled",
+                        "x": -344,
+                        "y": -172,
+                        "type": "hook-filter",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "enabled": {
+                                "label": "enabled",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ]
+                            }
+                        }
+                    },
+                    "7046f797309c7d28748d3cb6dd83a903": {
+                        "name": "return",
+                        "x": -32,
+                        "y": -173,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "2b077dc2a31de12a4a1f76c203486042": {
+                        "name": "xmlrpc_enabled",
+                        "x": -344,
+                        "y": -47,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "8ba01846646bbaa3dd189f38e93072ed"
+                    }
+                },
+                "links": {
+                    "e3229357443c7a3d8626bd8d1373757f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "7046f797309c7d28748d3cb6dd83a903",
+                        "toConnector": "ifct"
+                    },
+                    "7e97002c294ecd394ae9b2d5345c60c8": {
+                        "fromComponent": "2b077dc2a31de12a4a1f76c203486042",
+                        "fromConnector": "content",
+                        "toComponent": "7046f797309c7d28748d3cb6dd83a903",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "8ba01846646bbaa3dd189f38e93072ed": {
+            "title": "xmlrpc_enabled",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "value": false,
+                "is_settings": true,
+                "title": "XMLRPC Enabled",
+                "description": "Enable or disable xml-rpc"
+            }
+        }
+    }
+}

@@ -1,0 +1,275 @@
+{
+    "title": "Add custom dashboard widget",
+    "category": "Admin",
+    "description": "Display a custom widget in the WordPress dashboard. Edit the Content template inside to change the widget content.",
+    "content": {
+        "4bbf58897c7afd51ffd7380f337b1b45": {
+            "title": "wp_dashboard_setup",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_dashboard_setup",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 130,
+                        "y": -15
+                    },
+                    "58fac13aec2c0c922077edf971d77b16": {
+                        "name": "call_user_func_array",
+                        "x": 420,
+                        "y": 15,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "callable": {
+                                "label": "callable",
+                                "type": "callable",
+                                "value": "wp_add_dashboard_widget"
+                            },
+                            "param_arr": {
+                                "label": "param_arr",
+                                "type": "array"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "26214e182a4157c4be225bfead6b2523": {
+                        "name": "array",
+                        "x": 130,
+                        "y": 75,
+                        "type": "variable",
+                        "inputs": {
+                            "d79ebbd8ebec9573deef3c7e7728c65e": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": ""
+                            },
+                            "9e7788a70f5a1e1b2d097418c2989bf1": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": ""
+                            },
+                            "5af71f30b78c222dc70e7fbbfcc770da": {
+                                "label": "",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "ef37b15eba3c4a9bb189dbf14a81e971": {
+                        "name": "widget_content",
+                        "x": -125,
+                        "y": 170,
+                        "type": "action",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "71f4afbdb1aa19f5a17662e506cc5f20"
+                    },
+                    "8b8653421fa5de3e2fd3a438957fc576": {
+                        "name": "widget_name",
+                        "x": -125,
+                        "y": -15,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "483126714e096376ab6f5cd377f99caa"
+                    },
+                    "95c204d4b1b5c85382fe2e780c5a3039": {
+                        "name": "widget_title",
+                        "x": -125,
+                        "y": 75,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "5ee591228c2e86a19e5b274e42776bc4"
+                    }
+                },
+                "links": {
+                    "533e5a0a1daa1e96ff5a196d1ecc4dcb": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "58fac13aec2c0c922077edf971d77b16",
+                        "toConnector": "ifct"
+                    },
+                    "0d7014fa9c165fc6b2fff5f957c710ee": {
+                        "fromComponent": "26214e182a4157c4be225bfead6b2523",
+                        "fromConnector": "output_array",
+                        "toComponent": "58fac13aec2c0c922077edf971d77b16",
+                        "toConnector": "param_arr"
+                    },
+                    "e307c619d1472011655a2bccdf078038": {
+                        "fromComponent": "ef37b15eba3c4a9bb189dbf14a81e971",
+                        "fromConnector": "callable",
+                        "toComponent": "26214e182a4157c4be225bfead6b2523",
+                        "toConnector": "5af71f30b78c222dc70e7fbbfcc770da"
+                    },
+                    "3a3288a53917da982be8d31a2041e34c": {
+                        "fromComponent": "8b8653421fa5de3e2fd3a438957fc576",
+                        "fromConnector": "content",
+                        "toComponent": "26214e182a4157c4be225bfead6b2523",
+                        "toConnector": "d79ebbd8ebec9573deef3c7e7728c65e"
+                    },
+                    "1e18d4feaea7784f9c48e09f4c2f41d4": {
+                        "fromComponent": "95c204d4b1b5c85382fe2e780c5a3039",
+                        "fromConnector": "content",
+                        "toComponent": "26214e182a4157c4be225bfead6b2523",
+                        "toConnector": "9e7788a70f5a1e1b2d097418c2989bf1"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "71f4afbdb1aa19f5a17662e506cc5f20": {
+            "title": "widget_content",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "widget_content",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "a19b5d4cafc9d2d5412aeb283f8678de": {
+                        "name": "content",
+                        "x": 0,
+                        "y": 95,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "aad9e22dc5424ac7c75c1479403b693d"
+                    },
+                    "6d086bebb296c1aaa8cca1b15d58b0c1": {
+                        "x": 296,
+                        "y": 41,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "1fb020f2b2cf740f9adc8f9ad74bbbef": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "6d086bebb296c1aaa8cca1b15d58b0c1",
+                        "toConnector": "ifct"
+                    },
+                    "4847719b1573a04004dbddc4dd9361f4": {
+                        "fromComponent": "a19b5d4cafc9d2d5412aeb283f8678de",
+                        "fromConnector": "content",
+                        "toComponent": "6d086bebb296c1aaa8cca1b15d58b0c1",
+                        "toConnector": "string"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "aad9e22dc5424ac7c75c1479403b693d": {
+            "title": "content",
+            "type": "template",
+            "content": "My widget content"
+        },
+        "483126714e096376ab6f5cd377f99caa": {
+            "title": "widget_name",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Widget name",
+                "description": "alphanumeric characters only"
+            }
+        },
+        "5ee591228c2e86a19e5b274e42776bc4": {
+            "title": "widget_title",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Widget title",
+                "description": "Widget title"
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+{
+    "title": "Strip HTML tags from the title",
+    "category": "Post,Tools",
+    "description": "If you don\u2019t need HTML tags in title and only want the plain text.",
+    "content": {
+        "5b57b8ef75c2a94f6e006727e27d555c": {
+            "title": "the_title",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "the_title",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "title": {
+                                "label": "title",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            },
+                            "id": {
+                                "label": "id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "e2868fbffb8e32b85237003f5269a3ea": {
+                        "x": 560,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "49c54f9b1ae0ec99664a3af111cf66cc": {
+                        "x": 275,
+                        "y": 60,
+                        "name": "strip_tags",
+                        "type": "fct",
+                        "inputs": {
+                            "str": {
+                                "label": "str",
+                                "type": "string"
+                            },
+                            "allowable_tags": {
+                                "label": "allowable_tags",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "ea71e47a8d9fe0a1a1a08e7133cfea89": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "e2868fbffb8e32b85237003f5269a3ea",
+                        "toConnector": "ifct"
+                    },
+                    "d931e27abe92d225c03d6ca299636e4e": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "title",
+                        "toComponent": "49c54f9b1ae0ec99664a3af111cf66cc",
+                        "toConnector": "str"
+                    },
+                    "1863840464b538c0323ca9f51b7e1981": {
+                        "fromComponent": "49c54f9b1ae0ec99664a3af111cf66cc",
+                        "fromConnector": "return",
+                        "toComponent": "e2868fbffb8e32b85237003f5269a3ea",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

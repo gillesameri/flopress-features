@@ -1,0 +1,506 @@
+{
+    "title": "Display the social sharing buttons",
+    "category": "Social",
+    "description": "Display the social sharing buttons (Facebook, Twitter, Linkedin, Reddit) after content",
+    "content": {
+        "4bd4dc4d606a5a3fc4fd411a28fa61a6": {
+            "title": "sociallinks",
+            "type": "template",
+            "content": "<div class=\"credit-cards\">\n    {% set url = fp_function('get_permalink') %}\n    {{message}}\n    {% if is_facebook %}<a href=\"http:\/\/www.facebook.com\/sharer.php?u={{url}}\" target=\"_blank\"><i class=\"fab fa-facebook-square\"><\/i><\/a>{% endif %}\n    {% if is_twitter %}<a href=\"https:\/\/twitter.com\/share?url={{url}}\" target=\"_blank\"><i class=\"fab fa-twitter-square\"><\/i><\/a>{% endif %}\n    {% if is_linkedin %}<a href=\"http:\/\/www.linkedin.com\/shareArticle?url={{url}}\" target=\"_blank\"><i class=\"fab fa-linkedin\"><\/i><\/a>{% endif %}\n    {% if is_reddit %}<a href=\"http:\/\/reddit.com\/submit?url={{url}}\" target=\"_blank\"><i class=\"fab fa-reddit-square\"><\/i><\/a>{% endif %}\n<\/div>"
+        },
+        "9733319914e7df1ad675cde607f47700": {
+            "title": "load_font_awesome",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "value": true,
+                "is_settings": true,
+                "title": "Load FontAwesome",
+                "description": "Disable this option if font-awesome is already loaded"
+            }
+        },
+        "40de1008cb5bbbe1079adb1d80603a0e": {
+            "title": "is_facebook",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Facebook",
+                "description": "Display the Facebook share icon"
+            }
+        },
+        "a6b7a019f59809b80903a9a70be3744e": {
+            "title": "is_linkedin",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Linkedin",
+                "description": "Display the Linkedin share icon"
+            }
+        },
+        "822935ed620f327ec9f0ea6aa308daff": {
+            "title": "is_twitter",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Twitter",
+                "description": "Display the Twitter share icon"
+            }
+        },
+        "e7787749d46f933f232a9e6fdc3cb885": {
+            "title": "is_reddit",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Reddit",
+                "description": "Display the Reddit share icon"
+            }
+        },
+        "e169ee55cfadde2b9b05e59800f3cef9": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "e9cdb7f53ef771214c40622fcfcf2d2f": {
+                        "name": "load_font_awesome",
+                        "x": 0,
+                        "y": 75,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "9733319914e7df1ad675cde607f47700"
+                    },
+                    "0b40ae2c9ee03d213244c66d49957419": {
+                        "x": 270,
+                        "y": 0,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "4b916ea9c5771b72e91c2c39fccd0ad5": {
+                        "x": 570,
+                        "y": 0,
+                        "name": "wp_enqueue_style",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "fontawesome"
+                            },
+                            "src": {
+                                "label": "src",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "''",
+                                "required": false,
+                                "value": "https:\/\/use.fontawesome.com\/releases\/v5.7.2\/css\/all.css"
+                            },
+                            "deps": {
+                                "label": "deps",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            },
+                            "ver": {
+                                "label": "ver",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool",
+                                    "null"
+                                ],
+                                "default": "false",
+                                "required": false
+                            },
+                            "media": {
+                                "label": "media",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'all'",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "3b220cb79c11a562b843b38b646749dc": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "toConnector": "ifct"
+                    },
+                    "89fd8a0145191254dfdea96b2b280b8b": {
+                        "fromComponent": "e9cdb7f53ef771214c40622fcfcf2d2f",
+                        "fromConnector": "content",
+                        "toComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "toConnector": "condition"
+                    },
+                    "5895b7e6626d74997af3c10c6f4aaec6": {
+                        "fromComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "4b916ea9c5771b72e91c2c39fccd0ad5",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "cf3c17628984ddc94cd6cf63374b203b": {
+            "title": "the_content",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "the_content",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 15,
+                        "y": 95
+                    },
+                    "af2a31bdb740eaa218464ce1a165b0d2": {
+                        "x": 535,
+                        "y": 95,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "7b8648d8719edd692839da5cd48b5620": {
+                        "name": "array",
+                        "x": -220,
+                        "y": 105,
+                        "type": "variable",
+                        "inputs": {
+                            "2673420ddd96a32d801cdbb751c8b5cc": {
+                                "label": "is_facebook",
+                                "type": "mixed"
+                            },
+                            "195cf10b6b8b6fe13248dcf4be5c8166": {
+                                "label": "is_twitter",
+                                "type": "mixed"
+                            },
+                            "ea494d01061085459c09ec092bc321e3": {
+                                "label": "is_linkedin",
+                                "type": "mixed"
+                            },
+                            "15acb5f0b32f108ae6cadc47b9d70cc1": {
+                                "label": "is_reddit",
+                                "type": "mixed"
+                            },
+                            "9da0f6dcf2f8db6bc8926d5884a1ad15": {
+                                "label": "message",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "ededfd55a292339939c75198d67e51d3": {
+                        "name": "is_facebook",
+                        "x": -495,
+                        "y": -5,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "40de1008cb5bbbe1079adb1d80603a0e"
+                    },
+                    "3c6ec884d054bb5ef548021dfb34f615": {
+                        "name": "is_linkedin",
+                        "x": -495,
+                        "y": 155,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a6b7a019f59809b80903a9a70be3744e"
+                    },
+                    "78f0d79415bad80463f24dac26d68244": {
+                        "name": "is_linkedin",
+                        "x": -495,
+                        "y": 75,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a6b7a019f59809b80903a9a70be3744e"
+                    },
+                    "1ac96da769e19a6689033a46d3496a44": {
+                        "name": "is_reddit",
+                        "x": -495,
+                        "y": 235,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "e7787749d46f933f232a9e6fdc3cb885"
+                    },
+                    "eaa602ac85bbfb800f2d9f6d5794aef2": {
+                        "name": "sociallinks",
+                        "x": 15,
+                        "y": 195,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "4bd4dc4d606a5a3fc4fd411a28fa61a6"
+                    },
+                    "325bdd3c56d1dd1e544be69a5ede44f6": {
+                        "name": "message",
+                        "x": -495,
+                        "y": 315,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a392f7cd7683970c75c7940ec9e59191"
+                    },
+                    "179ea883f233e0a3bd3414323d61d5dc": {
+                        "x": 280,
+                        "y": 175,
+                        "name": "concat",
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "7f562d2909e180e63021a574206059e1": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "af2a31bdb740eaa218464ce1a165b0d2",
+                        "toConnector": "ifct"
+                    },
+                    "7081b7a5d51b92bef4441356bfa76c2e": {
+                        "fromComponent": "ededfd55a292339939c75198d67e51d3",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "2673420ddd96a32d801cdbb751c8b5cc"
+                    },
+                    "a9202485fc6decdeb54a4e4430d5e72a": {
+                        "fromComponent": "3c6ec884d054bb5ef548021dfb34f615",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "ea494d01061085459c09ec092bc321e3"
+                    },
+                    "929a601ce95e323d8cbbb47eac9a5453": {
+                        "fromComponent": "78f0d79415bad80463f24dac26d68244",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "195cf10b6b8b6fe13248dcf4be5c8166"
+                    },
+                    "5ecae80594d87a521c76c842d80173b3": {
+                        "fromComponent": "1ac96da769e19a6689033a46d3496a44",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "15acb5f0b32f108ae6cadc47b9d70cc1"
+                    },
+                    "4344e108c3c0b2b664f3a8560ed2b367": {
+                        "fromComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "fromConnector": "output_array",
+                        "toComponent": "eaa602ac85bbfb800f2d9f6d5794aef2",
+                        "toConnector": "args"
+                    },
+                    "4821fedd1b8e73ceb8b84e9a7760b067": {
+                        "fromComponent": "325bdd3c56d1dd1e544be69a5ede44f6",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "9da0f6dcf2f8db6bc8926d5884a1ad15"
+                    },
+                    "eba15978a39425358b9cc510d8781fab": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "179ea883f233e0a3bd3414323d61d5dc",
+                        "toConnector": "string1"
+                    },
+                    "a16deabad4c961c14e171866511ffc8c": {
+                        "fromComponent": "eaa602ac85bbfb800f2d9f6d5794aef2",
+                        "fromConnector": "content",
+                        "toComponent": "179ea883f233e0a3bd3414323d61d5dc",
+                        "toConnector": "string2"
+                    },
+                    "04df2642e7ba1777fbd1075d295ebf56": {
+                        "fromComponent": "179ea883f233e0a3bd3414323d61d5dc",
+                        "fromConnector": "string",
+                        "toComponent": "af2a31bdb740eaa218464ce1a165b0d2",
+                        "toConnector": "string"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "a392f7cd7683970c75c7940ec9e59191": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": "-1",
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "Share on",
+                "is_settings": true,
+                "title": "Share text"
+            }
+        }
+    }
+}

@@ -1,0 +1,303 @@
+{
+    "title": "Load jQuery from an external source or CDN.",
+    "category": "Tools,Theme",
+    "description": "Load jQuery from an external source to increase the loading speed (default value : Google CDN).",
+    "content": {
+        "f2f7430b8dc921a89c0fde1f16b25234": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -125,
+                        "y": 0
+                    },
+                    "c3ff27428e67693990d1f897b01cf64b": {
+                        "x": 395,
+                        "y": 0,
+                        "name": "wp_deregister_script",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "jquery"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "d7468c47977f4727bb39519dd1b8a0f1": {
+                        "x": 655,
+                        "y": 0,
+                        "name": "wp_register_script",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "jquery"
+                            },
+                            "src": {
+                                "label": "src",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": ""
+                            },
+                            "deps": {
+                                "label": "deps",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            },
+                            "ver": {
+                                "label": "ver",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool",
+                                    "null"
+                                ],
+                                "default": "false",
+                                "required": false
+                            },
+                            "in_footer": {
+                                "label": "in_footer",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false,
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "6964caec1083d7aedc3aa77205aa7aa6": {
+                        "x": 915,
+                        "y": 0,
+                        "name": "wp_enqueue_script",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "jquery"
+                            },
+                            "src": {
+                                "label": "src",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "''",
+                                "required": false
+                            },
+                            "deps": {
+                                "label": "deps",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            },
+                            "ver": {
+                                "label": "ver",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool",
+                                    "null"
+                                ],
+                                "default": "false",
+                                "required": false
+                            },
+                            "in_footer": {
+                                "label": "in_footer",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "03a63f8c827041adf2dbf90da093c01b": {
+                        "x": 130,
+                        "y": 0,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "c8658e6281bdd384e48a31637682bdd3": {
+                        "x": -125,
+                        "y": 80,
+                        "name": "is_admin",
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "42085347529b4d608a17b7c23bdc681f": {
+                        "name": "url",
+                        "x": 395,
+                        "y": 100,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "0967a11b4d392b51e1441923c658a5bb"
+                    }
+                },
+                "links": {
+                    "db83289e9f5052ee731b60f6f23eec46": {
+                        "fromComponent": "c3ff27428e67693990d1f897b01cf64b",
+                        "fromConnector": "ofct",
+                        "toComponent": "d7468c47977f4727bb39519dd1b8a0f1",
+                        "toConnector": "ifct"
+                    },
+                    "b3ff222fd40a05f699da6c637781dc53": {
+                        "fromComponent": "d7468c47977f4727bb39519dd1b8a0f1",
+                        "fromConnector": "ofct",
+                        "toComponent": "6964caec1083d7aedc3aa77205aa7aa6",
+                        "toConnector": "ifct"
+                    },
+                    "90eadd91eec0b468130ea8dd5d801241": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "03a63f8c827041adf2dbf90da093c01b",
+                        "toConnector": "ifct"
+                    },
+                    "a7bc16f888b75addc5a47b9cec0b83f6": {
+                        "fromComponent": "03a63f8c827041adf2dbf90da093c01b",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "c3ff27428e67693990d1f897b01cf64b",
+                        "toConnector": "ifct"
+                    },
+                    "ecfa9525db74fbc27b970b4d34845edc": {
+                        "fromComponent": "c8658e6281bdd384e48a31637682bdd3",
+                        "fromConnector": "return",
+                        "toComponent": "03a63f8c827041adf2dbf90da093c01b",
+                        "toConnector": "condition"
+                    },
+                    "5cd66a2c8ef2a06ef72e925317e8cbc3": {
+                        "fromComponent": "42085347529b4d608a17b7c23bdc681f",
+                        "fromConnector": "content",
+                        "toComponent": "d7468c47977f4727bb39519dd1b8a0f1",
+                        "toConnector": "src"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "0967a11b4d392b51e1441923c658a5bb": {
+            "title": "url",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "https:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/3.2.1\/jquery.min.js",
+                "is_settings": true,
+                "title": "The remote URL"
+            }
+        }
+    }
+}

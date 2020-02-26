@@ -1,0 +1,449 @@
+{
+    "title": "ACF block template",
+    "category": "ACF,Gutenberg",
+    "description": "Register an ACF Block for Gutenberg with a twig rendering. Customize it to fit your needs.",
+    "content": {
+        "8f173efc6447386d7da45fbec43eead3": {
+            "title": "acf\/init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "acf\/init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -15,
+                        "y": -85
+                    },
+                    "8bf23ca224247456d7fc8d7fa44b06b7": {
+                        "name": "array",
+                        "x": 250,
+                        "y": 35,
+                        "type": "variable",
+                        "inputs": {
+                            "5dcba75638f64b5e8b4ea79a7ff6694d": {
+                                "label": "name",
+                                "type": "mixed",
+                                "value": "team"
+                            },
+                            "98dc3ae0632b69f66e70436e983afe98": {
+                                "label": "title",
+                                "type": "mixed",
+                                "value": "Team"
+                            },
+                            "8cfac7a1c4fa0d3f5e8ce1e1f7e2f177": {
+                                "label": "description",
+                                "type": "mixed",
+                                "value": "A team list"
+                            },
+                            "0c5c0c245ba0bf5cebd2a0fa2722ac2d": {
+                                "label": "render_callback",
+                                "type": "mixed"
+                            },
+                            "c0ea18b44f64091d37fa670647ae8f24": {
+                                "label": "category",
+                                "type": "mixed",
+                                "value": "layout"
+                            },
+                            "be5d5f6c484f93ead35846a55f0d05ad": {
+                                "label": "mode",
+                                "type": "mixed",
+                                "value": "auto"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "1c7c38baaeed71c44b0303165b0e5b8a": {
+                        "x": 250,
+                        "y": -85,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "68e36beb1f44f81b88a58ef49654c426": {
+                        "name": "block_callback",
+                        "x": -15,
+                        "y": 75,
+                        "type": "action",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "4a9bef45544ac90992b3a51f93a64b8a"
+                    },
+                    "757b6e95bb51e5abeb805458176406c7": {
+                        "name": "fields",
+                        "x": -15,
+                        "y": 180,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "f89867ee34d81d47c9c32ff3741fcbb7"
+                    },
+                    "19f9cff405fba7c749caea1c11b11ec4": {
+                        "name": "function_exists",
+                        "x": -15,
+                        "y": -5,
+                        "type": "fct",
+                        "inputs": {
+                            "function_name": {
+                                "label": "function_name",
+                                "type": "string",
+                                "value": "acf_register_block"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "label": "exists",
+                                "type": "bool"
+                            }
+                        }
+                    },
+                    "c04683ec46408e855bbaab18ee865494": {
+                        "name": "json_decode",
+                        "x": 490,
+                        "y": 180,
+                        "type": "fct",
+                        "inputs": {
+                            "string": {
+                                "label": "string",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "assoc_array": {
+                                "label": "assoc_array",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false,
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "6b00d7de466df17c9b73e0c962520200": {
+                        "x": 760,
+                        "y": -85,
+                        "name": "acf_add_local_field_group",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "field_group": {
+                                "label": "field_group",
+                                "type": "array",
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "9bc954a05c82723cb18b27f0b74857ec": {
+                        "name": "acf_register_block_type",
+                        "x": 490,
+                        "y": -85,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "settings": {
+                                "label": "settings",
+                                "type": "array",
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "09d2bf934d206f24bf0b39eb25422035": {
+                        "fromComponent": "68e36beb1f44f81b88a58ef49654c426",
+                        "fromConnector": "callable",
+                        "toComponent": "8bf23ca224247456d7fc8d7fa44b06b7",
+                        "toConnector": "0c5c0c245ba0bf5cebd2a0fa2722ac2d"
+                    },
+                    "88aeb13b1f8085abeb2adfcf4e65bb22": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "1c7c38baaeed71c44b0303165b0e5b8a",
+                        "toConnector": "ifct"
+                    },
+                    "e73bf4fb4f1f838c8790be485a331910": {
+                        "fromComponent": "19f9cff405fba7c749caea1c11b11ec4",
+                        "fromConnector": "return",
+                        "toComponent": "1c7c38baaeed71c44b0303165b0e5b8a",
+                        "toConnector": "condition"
+                    },
+                    "007483a41d794d1fd9573d92b6700381": {
+                        "fromComponent": "757b6e95bb51e5abeb805458176406c7",
+                        "fromConnector": "content",
+                        "toComponent": "c04683ec46408e855bbaab18ee865494",
+                        "toConnector": "string"
+                    },
+                    "628b50a66c42786be36ac2f89cca4abc": {
+                        "fromComponent": "c04683ec46408e855bbaab18ee865494",
+                        "fromConnector": "return",
+                        "toComponent": "6b00d7de466df17c9b73e0c962520200",
+                        "toConnector": "field_group"
+                    },
+                    "040712b6a5baea7c20395dac59240807": {
+                        "fromComponent": "1c7c38baaeed71c44b0303165b0e5b8a",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "9bc954a05c82723cb18b27f0b74857ec",
+                        "toConnector": "ifct"
+                    },
+                    "01320526106de8d1b8dfce220c924082": {
+                        "fromComponent": "9bc954a05c82723cb18b27f0b74857ec",
+                        "fromConnector": "ofct",
+                        "toComponent": "6b00d7de466df17c9b73e0c962520200",
+                        "toConnector": "ifct"
+                    },
+                    "5dd80f1db8f0facd32e05914555504c6": {
+                        "fromComponent": "8bf23ca224247456d7fc8d7fa44b06b7",
+                        "fromConnector": "output_array",
+                        "toComponent": "9bc954a05c82723cb18b27f0b74857ec",
+                        "toConnector": "settings"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "4a9bef45544ac90992b3a51f93a64b8a": {
+            "title": "block_callback",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "block_callback",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "aef8617033ae525f53604d058c2554b7": {
+                                "label": "block",
+                                "type": "array"
+                            },
+                            "f9c45d2fd8ebfb3c8afc15264903ef56": {
+                                "label": "content",
+                                "type": "string"
+                            },
+                            "81aa02e9c4efa60df64c6fde32d9a4f9": {
+                                "label": "is_preview",
+                                "type": "bool"
+                            },
+                            "39f221034ab40366a2b854e9628c1c46": {
+                                "label": "post_id",
+                                "type": "int"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -680,
+                        "y": 0
+                    },
+                    "29767b96699610c1ca4b979b150ba496": {
+                        "x": 140,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "e0fe0cc10573934724a627609fa9c480": {
+                        "name": "array",
+                        "x": -370,
+                        "y": 55,
+                        "type": "variable",
+                        "inputs": {
+                            "6c25f0adf266ab7dcbd420e1e874d847": {
+                                "label": "block",
+                                "type": "mixed"
+                            },
+                            "5c586592871d8e06fc23afd00a36f4eb": {
+                                "label": "content",
+                                "type": "mixed"
+                            },
+                            "4075eeb67cb37b733263ebc9071df9a4": {
+                                "label": "is_preview",
+                                "type": "mixed"
+                            },
+                            "8c4423b029af1d24e4a9b2c3e65f82e6": {
+                                "label": "post_id",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "e9230340179e1ae07945744cd7493b89": {
+                        "name": "render",
+                        "x": -130,
+                        "y": 65,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "fd537b96cdd918bcc57715bffd1e489e"
+                    }
+                },
+                "links": {
+                    "1085bfb7aff0e5aed00cfd63e8887d6d": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "29767b96699610c1ca4b979b150ba496",
+                        "toConnector": "ifct"
+                    },
+                    "e56746a250c37979ba994a1e59132023": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "aef8617033ae525f53604d058c2554b7",
+                        "toComponent": "e0fe0cc10573934724a627609fa9c480",
+                        "toConnector": "6c25f0adf266ab7dcbd420e1e874d847"
+                    },
+                    "456ccdf391553f92f3c1d5fc8c02b11f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "f9c45d2fd8ebfb3c8afc15264903ef56",
+                        "toComponent": "e0fe0cc10573934724a627609fa9c480",
+                        "toConnector": "5c586592871d8e06fc23afd00a36f4eb"
+                    },
+                    "a528222e37e2c0860d5452a4d32c7f37": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "81aa02e9c4efa60df64c6fde32d9a4f9",
+                        "toComponent": "e0fe0cc10573934724a627609fa9c480",
+                        "toConnector": "4075eeb67cb37b733263ebc9071df9a4"
+                    },
+                    "d1c86d62cdb52359242b844a62267519": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "39f221034ab40366a2b854e9628c1c46",
+                        "toComponent": "e0fe0cc10573934724a627609fa9c480",
+                        "toConnector": "8c4423b029af1d24e4a9b2c3e65f82e6"
+                    },
+                    "166229fe324d2e3f5dff8fff20d900f0": {
+                        "fromComponent": "e9230340179e1ae07945744cd7493b89",
+                        "fromConnector": "content",
+                        "toComponent": "29767b96699610c1ca4b979b150ba496",
+                        "toConnector": "string"
+                    },
+                    "ce621c5e01e9c20019e546872f7997fd": {
+                        "fromComponent": "e0fe0cc10573934724a627609fa9c480",
+                        "fromConnector": "output_array",
+                        "toComponent": "e9230340179e1ae07945744cd7493b89",
+                        "toConnector": "args"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "fd537b96cdd918bcc57715bffd1e489e": {
+            "title": "render",
+            "type": "template",
+            "content": "{% if is_preview %}\n{# <p>This is the preview<\/p> #}\n{% endif %}\n\n{% for row in get_field('acfgtfl_teams') %}\n<div style=\"margin:0 0 10px 0;\">\n    <div style=\"width:30%;padding:0 10px 0 0;float:left;\">\n        <img style=\"max-width:100%;\" src=\"{{ row.acfgtfl_teams_image.url }}\" \/>\n    <\/div>\n    <div style=\"width:70%;padding:0 10px 0 0;float:right;font-size:0.9em;\">\n        <div><strong>{{ row.acfgtfl_teams_name }}<\/strong><\/div>\n        <p>{{ row.acfgtfl_teams_bio }}<\/p>\n    <\/div>\n    <div style=\"clear:both;\"><\/div>\n<\/div>\n{% endfor %}\n\n"
+        },
+        "f89867ee34d81d47c9c32ff3741fcbb7": {
+            "title": "fields",
+            "type": "template",
+            "content": "{\n    \"_comment\": \"Paste your fields definitions from the ACF export menu\",\n    \"key\": \"group_5ccd7ed258031\",\n    \"title\": \"ACF Gutenberg Teams\",\n    \"fields\": [\n        {\n            \"key\": \"field_5ccd844fbf49b\",\n            \"label\": \"Team\",\n            \"name\": \"acfgtfl_teams\",\n            \"type\": \"repeater\",\n            \"instructions\": \"\",\n            \"required\": 0,\n            \"conditional_logic\": 0,\n            \"wrapper\": {\n                \"width\": \"\",\n                \"class\": \"\",\n                \"id\": \"\"\n            },\n            \"collapsed\": \"\",\n            \"min\": 0,\n            \"max\": 0,\n            \"layout\": \"row\",\n            \"button_label\": \"Add team member\",\n            \"sub_fields\": [\n                {\n                    \"key\": \"field_5ccd86efbf49c\",\n                    \"label\": \"Image\",\n                    \"name\": \"acfgtfl_teams_image\",\n                    \"type\": \"image\",\n                    \"instructions\": \"\",\n                    \"required\": 0,\n                    \"conditional_logic\": 0,\n                    \"wrapper\": {\n                        \"width\": \"\",\n                        \"class\": \"\",\n                        \"id\": \"\"\n                    },\n                    \"return_format\": \"array\",\n                    \"preview_size\": \"thumbnail\",\n                    \"library\": \"all\",\n                    \"min_width\": \"\",\n                    \"min_height\": \"\",\n                    \"min_size\": \"\",\n                    \"max_width\": \"\",\n                    \"max_height\": \"\",\n                    \"max_size\": \"\",\n                    \"mime_types\": \"\"\n                },\n                {\n                    \"key\": \"field_5ccd8702bf49d\",\n                    \"label\": \"Name\",\n                    \"name\": \"acfgtfl_teams_name\",\n                    \"type\": \"text\",\n                    \"instructions\": \"\",\n                    \"required\": 0,\n                    \"conditional_logic\": 0,\n                    \"wrapper\": {\n                        \"width\": \"\",\n                        \"class\": \"\",\n                        \"id\": \"\"\n                    },\n                    \"default_value\": \"\",\n                    \"placeholder\": \"\",\n                    \"prepend\": \"\",\n                    \"append\": \"\",\n                    \"maxlength\": \"\"\n                },\n                {\n                    \"key\": \"field_5ccd870abf49e\",\n                    \"label\": \"Bio\",\n                    \"name\": \"acfgtfl_teams_bio\",\n                    \"type\": \"textarea\",\n                    \"instructions\": \"\",\n                    \"required\": 0,\n                    \"conditional_logic\": 0,\n                    \"wrapper\": {\n                        \"width\": \"\",\n                        \"class\": \"\",\n                        \"id\": \"\"\n                    },\n                    \"default_value\": \"\",\n                    \"placeholder\": \"\",\n                    \"maxlength\": \"\",\n                    \"rows\": \"\",\n                    \"new_lines\": \"\"\n                }\n            ]\n        }\n    ],\n    \"location\": [\n        [\n            {\n                \"param\": \"block\",\n                \"operator\": \"==\",\n                \"value\": \"acf\\\/team\"\n            }\n        ]\n    ],\n    \"menu_order\": 0,\n    \"position\": \"normal\",\n    \"style\": \"default\",\n    \"label_placement\": \"top\",\n    \"instruction_placement\": \"label\",\n    \"hide_on_screen\": \"\",\n    \"active\": true,\n    \"description\": \"\"\n}"
+        }
+    }
+}

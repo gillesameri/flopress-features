@@ -1,0 +1,130 @@
+{
+    "title": "Remove URL field from WordPress comment form ",
+    "category": "Tools",
+    "description": "The perfect way to discourage spam is to remove the \"Website\" or \"URL\" field entirely from the WordPress website.",
+    "content": {
+        "55875bb639a57290d8312058cbfaabad": {
+            "title": "comment_form_default_fields",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "comment_form_default_fields",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "fields": {
+                                "label": "fields",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": -330,
+                        "y": 75
+                    },
+                    "c52a0a4fc38f217d35769257f6a07734": {
+                        "x": 370,
+                        "y": 75,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "87facb1f1f52eceb63d74e19a8609f35": {
+                        "name": "__return_null",
+                        "x": -330,
+                        "y": 175,
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "null",
+                                "label": "null"
+                            }
+                        }
+                    },
+                    "17fe4b44eee70c4665638019864d1635": {
+                        "name": "set_array_value",
+                        "x": 50,
+                        "y": 0,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "array"
+                            },
+                            "key": {
+                                "label": "key",
+                                "type": "string",
+                                "value": "url"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "f151025f351277612876a68aa4bd1910": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "fields",
+                        "toComponent": "c52a0a4fc38f217d35769257f6a07734",
+                        "toConnector": "value"
+                    },
+                    "3033a5fbfb8c326d4876010990c6f0a5": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "17fe4b44eee70c4665638019864d1635",
+                        "toConnector": "ifct"
+                    },
+                    "9096b563cf4a485faaad88c5c80b0836": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "fields",
+                        "toComponent": "17fe4b44eee70c4665638019864d1635",
+                        "toConnector": "variable"
+                    },
+                    "25881cff05a28a8ce1ac7ee76f33b197": {
+                        "fromComponent": "87facb1f1f52eceb63d74e19a8609f35",
+                        "fromConnector": "return",
+                        "toComponent": "17fe4b44eee70c4665638019864d1635",
+                        "toConnector": "value"
+                    },
+                    "e456e5a527d4aaf3079b6e5f49eb0737": {
+                        "fromComponent": "17fe4b44eee70c4665638019864d1635",
+                        "fromConnector": "ofct",
+                        "toComponent": "c52a0a4fc38f217d35769257f6a07734",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

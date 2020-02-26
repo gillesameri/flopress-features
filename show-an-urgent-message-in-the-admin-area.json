@@ -1,0 +1,186 @@
+{
+    "title": "Show an urgent message in the admin area",
+    "category": "Admin",
+    "description": "Add the following feature to show an urgent message in the admin dashboard.",
+    "content": {
+        "e053caa84b6b9bde2fc61af26821ee2e": {
+            "title": "content",
+            "type": "template",
+            "content": "<div class=\"notice {{type}}\">\n    <p><\/p>{{message}}<\/p>\n<\/div>"
+        },
+        "fe14b4f178224c42cd3d2eabbb7fbdb0": {
+            "title": "admin_notices",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "admin_notices",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": -35,
+                        "y": 20
+                    },
+                    "202bdd3f305ea37e4306e68fb18242e0": {
+                        "x": 695,
+                        "y": 20,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "7ee9e6a24281261758917139e6ec7ca7": {
+                        "name": "content",
+                        "x": 440,
+                        "y": 130,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "e053caa84b6b9bde2fc61af26821ee2e"
+                    },
+                    "bc5d07c720df4495a69a82c578e0f541": {
+                        "x": 220,
+                        "y": 130,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "3c8ae8da76520cf69a6c2df709d0b015": {
+                                "label": "message",
+                                "type": "mixed"
+                            },
+                            "1dacf5a991a7176df2a1b836fb643831": {
+                                "label": "type",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "71179eaf94cc9d4915fd80e8d32b05c7": {
+                        "name": "type",
+                        "x": -35,
+                        "y": 225,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "f7277da326d9362cdca5742a383d78a1"
+                    },
+                    "8aafc97ec0180b520fca8f20fa3f50b7": {
+                        "name": "message",
+                        "x": -35,
+                        "y": 130,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "3b6711d64c8af1ecf8c74ea4a0f119aa"
+                    }
+                },
+                "links": {
+                    "5a881f980442c5ccc75237cffeed0105": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "202bdd3f305ea37e4306e68fb18242e0",
+                        "toConnector": "ifct"
+                    },
+                    "65d5c88381382c8b6cf64f54c4a769a9": {
+                        "fromComponent": "7ee9e6a24281261758917139e6ec7ca7",
+                        "fromConnector": "content",
+                        "toComponent": "202bdd3f305ea37e4306e68fb18242e0",
+                        "toConnector": "string"
+                    },
+                    "05e745e13d635ef8dbeb7d682b9cf4d5": {
+                        "fromComponent": "bc5d07c720df4495a69a82c578e0f541",
+                        "fromConnector": "output_array",
+                        "toComponent": "7ee9e6a24281261758917139e6ec7ca7",
+                        "toConnector": "args"
+                    },
+                    "9dc1a5234789af5a5d1c8f7f1b882113": {
+                        "fromComponent": "71179eaf94cc9d4915fd80e8d32b05c7",
+                        "fromConnector": "content",
+                        "toComponent": "bc5d07c720df4495a69a82c578e0f541",
+                        "toConnector": "1dacf5a991a7176df2a1b836fb643831"
+                    },
+                    "1dadc37569eebdcf8c03cb095eb2b99b": {
+                        "fromComponent": "8aafc97ec0180b520fca8f20fa3f50b7",
+                        "fromConnector": "content",
+                        "toComponent": "bc5d07c720df4495a69a82c578e0f541",
+                        "toConnector": "3c8ae8da76520cf69a6c2df709d0b015"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "f7277da326d9362cdca5742a383d78a1": {
+            "title": "type",
+            "type": "data",
+            "content": {
+                "weight": "2",
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "notice-info",
+                "is_settings": true,
+                "description": "Value can be notice-error, notice-warning, notice-success, or notice-info",
+                "title": "The notice type"
+            }
+        },
+        "3b6711d64c8af1ecf8c74ea4a0f119aa": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textarea"
+                ],
+                "is_settings": true,
+                "title": "Message",
+                "description": "The message to display"
+            }
+        }
+    }
+}

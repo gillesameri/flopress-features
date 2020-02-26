@@ -1,0 +1,147 @@
+{
+    "title": "Shop description",
+    "category": "WooCommerce,Third-party",
+    "description": "Add a shop description underneath the Shop title",
+    "content": {
+        "e7aec24e845037a7861d610c70687799": {
+            "title": "woocommerce_archive_description",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_archive_description",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 130,
+                        "y": 10
+                    },
+                    "e5eef088ae84569e997a76046e83c6f3": {
+                        "x": 370,
+                        "y": 35,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "fc29b9cbc8dbf3ee235fdd799fe1ab90": {
+                        "name": "messagewrap",
+                        "x": 130,
+                        "y": 95,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "46c8d062431a399628006a83e6fc76bd"
+                    },
+                    "968fbcdbe1ca098aa6ee4ce36b7ef8c9": {
+                        "name": "message",
+                        "x": -310,
+                        "y": 95,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "76e5468f448d60145769919aef614b2e"
+                    },
+                    "b4e15f9b6df57b45eba4b30261821413": {
+                        "name": "array",
+                        "x": -90,
+                        "y": 95,
+                        "type": "variable",
+                        "inputs": {
+                            "1a6942a142e10032bc3a38254d4284db": {
+                                "label": "message",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "1ccbef1613226542ae9fcc9752482cc9": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "e5eef088ae84569e997a76046e83c6f3",
+                        "toConnector": "ifct"
+                    },
+                    "fb9c87b02cd790f30a4af74e80ff10d5": {
+                        "fromComponent": "fc29b9cbc8dbf3ee235fdd799fe1ab90",
+                        "fromConnector": "content",
+                        "toComponent": "e5eef088ae84569e997a76046e83c6f3",
+                        "toConnector": "string"
+                    },
+                    "7d63c728e7adb5e246f3bc563b2af3e3": {
+                        "fromComponent": "b4e15f9b6df57b45eba4b30261821413",
+                        "fromConnector": "output_array",
+                        "toComponent": "fc29b9cbc8dbf3ee235fdd799fe1ab90",
+                        "toConnector": "args"
+                    },
+                    "98415f6b9d469331c2b8c78c603d940c": {
+                        "fromComponent": "968fbcdbe1ca098aa6ee4ce36b7ef8c9",
+                        "fromConnector": "content",
+                        "toComponent": "b4e15f9b6df57b45eba4b30261821413",
+                        "toConnector": "1a6942a142e10032bc3a38254d4284db"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "46c8d062431a399628006a83e6fc76bd": {
+            "title": "messagewrap",
+            "type": "template",
+            "content": "<p>{{message}}<\/p>"
+        },
+        "76e5468f448d60145769919aef614b2e": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Shop description",
+                "description": ""
+            }
+        }
+    }
+}

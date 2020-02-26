@@ -1,0 +1,267 @@
+{
+    "title": "Add custom favicon",
+    "category": "Theme",
+    "description": "Add a custom favicon to your website",
+    "content": {
+        "3e22344d0e3567a979f4e9798f61df80": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 105,
+                        "y": 0
+                    },
+                    "d6af47a62205d308b5e1657528b609d0": {
+                        "x": 915,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "42f349b55dbb548d7374feac8430a05c": {
+                        "name": "string",
+                        "x": 105,
+                        "y": 85,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "string",
+                                "label": "value"
+                            }
+                        },
+                        "value": "<link rel=\"shortcut icon\" href=\""
+                    },
+                    "8ca9c3ed63b18253917ac25e3f155221": {
+                        "name": "string",
+                        "x": 105,
+                        "y": 265,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "string",
+                                "label": "value"
+                            }
+                        },
+                        "value": "\" \/>"
+                    },
+                    "23b062564fe041c14f8501de2175fd05": {
+                        "name": "concat",
+                        "x": 370,
+                        "y": 110,
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "0509d6447a3fc343b8f0b3fea520ff60": {
+                        "name": "logo",
+                        "x": -360,
+                        "y": 165,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "d60550a1f70bc10621a27c9fded5c488"
+                    },
+                    "a389d2818655e54d1a7fd65bed448546": {
+                        "name": "concat",
+                        "x": 650,
+                        "y": 245,
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "d8ed7604c3763f85f65cbae24b2c78fc": {
+                        "name": "wp_get_attachment_image_src",
+                        "x": -130,
+                        "y": 165,
+                        "type": "fct",
+                        "inputs": {
+                            "attachment_id": {
+                                "label": "attachment_id",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "size": {
+                                "label": "size",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "array"
+                                ],
+                                "default": "'thumbnail'",
+                                "required": false
+                            },
+                            "icon": {
+                                "label": "icon",
+                                "type": "bool",
+                                "types": [
+                                    "bool"
+                                ],
+                                "default": "false",
+                                "required": false,
+                                "value": true
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "mixed"
+                            }
+                        }
+                    },
+                    "1630792ee9818bf108d4fec39b8e4c1b": {
+                        "name": "get_array_value",
+                        "x": 105,
+                        "y": 165,
+                        "type": "instruction",
+                        "inputs": {
+                            "array": {
+                                "label": "array",
+                                "type": "array"
+                            },
+                            "param_arr": {
+                                "label": "value",
+                                "type": "string",
+                                "value": "0"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "b42e54b87f9107ea4e8fe0e57664d8ea": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "d6af47a62205d308b5e1657528b609d0",
+                        "toConnector": "ifct"
+                    },
+                    "a8ac4b7e434a639d437b4f669e6824ad": {
+                        "fromComponent": "42f349b55dbb548d7374feac8430a05c",
+                        "fromConnector": "output",
+                        "toComponent": "23b062564fe041c14f8501de2175fd05",
+                        "toConnector": "string1"
+                    },
+                    "13d65019db1e47b77d52017a6aa5ea2a": {
+                        "fromComponent": "23b062564fe041c14f8501de2175fd05",
+                        "fromConnector": "string",
+                        "toComponent": "a389d2818655e54d1a7fd65bed448546",
+                        "toConnector": "string1"
+                    },
+                    "17ff49b83e651258b62e35a81c624265": {
+                        "fromComponent": "8ca9c3ed63b18253917ac25e3f155221",
+                        "fromConnector": "output",
+                        "toComponent": "a389d2818655e54d1a7fd65bed448546",
+                        "toConnector": "string2"
+                    },
+                    "6c2b17545e5b01851479ca84af9049b5": {
+                        "fromComponent": "a389d2818655e54d1a7fd65bed448546",
+                        "fromConnector": "string",
+                        "toComponent": "d6af47a62205d308b5e1657528b609d0",
+                        "toConnector": "string"
+                    },
+                    "da5eba44b39e4cff2df73542823d5de7": {
+                        "fromComponent": "0509d6447a3fc343b8f0b3fea520ff60",
+                        "fromConnector": "content",
+                        "toComponent": "d8ed7604c3763f85f65cbae24b2c78fc",
+                        "toConnector": "attachment_id"
+                    },
+                    "16a488600f535fd335ffc84fa78e1ee0": {
+                        "fromComponent": "d8ed7604c3763f85f65cbae24b2c78fc",
+                        "fromConnector": "return",
+                        "toComponent": "1630792ee9818bf108d4fec39b8e4c1b",
+                        "toConnector": "array"
+                    },
+                    "6c3c6654119a06527966762007a15b2f": {
+                        "fromComponent": "1630792ee9818bf108d4fec39b8e4c1b",
+                        "fromConnector": "return",
+                        "toComponent": "23b062564fe041c14f8501de2175fd05",
+                        "toConnector": "string2"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "d60550a1f70bc10621a27c9fded5c488": {
+            "title": "logo",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "object",
+                    "media"
+                ],
+                "is_settings": true,
+                "title": "Favicon",
+                "description": "Select the favicon image"
+            }
+        }
+    }
+}

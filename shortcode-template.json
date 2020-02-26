@@ -1,0 +1,248 @@
+{
+    "title": "Shortcode template",
+    "category": "Post",
+    "description": "An empty feature to help you to start with shortcode creation. Dynamic shortcode name via settings. Simply edit the \"shortcode_template\".",
+    "content": {
+        "af50417b8a61ef768ef315a3dabb83ce": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "19148f91bd187a43d3e0a375d43d9a9e": {
+                        "x": 395,
+                        "y": 40,
+                        "name": "add_shortcode",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "callback": {
+                                "label": "callback",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "b4b91b621a31ce0ffe74eb33ad2e0aaa": {
+                        "name": "shortcode_name",
+                        "x": 5,
+                        "y": 95,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a9865584f44b11fb1b7020d26fbf7507"
+                    },
+                    "608ab5073795c6074ecc5b629b1f1a0e": {
+                        "name": "shortcode_script",
+                        "x": 5,
+                        "y": 190,
+                        "type": "shortcode",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "7811f65a5b85158014b259ca0892160c"
+                    }
+                },
+                "links": {
+                    "953191f9bcf442a1f2040b45c7821a76": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "19148f91bd187a43d3e0a375d43d9a9e",
+                        "toConnector": "ifct"
+                    },
+                    "8785d92ebf402ab51d1d447aa7aa2698": {
+                        "fromComponent": "b4b91b621a31ce0ffe74eb33ad2e0aaa",
+                        "fromConnector": "content",
+                        "toComponent": "19148f91bd187a43d3e0a375d43d9a9e",
+                        "toConnector": "tag"
+                    },
+                    "329a99f2744ac345d3baccfb948077c4": {
+                        "fromComponent": "608ab5073795c6074ecc5b629b1f1a0e",
+                        "fromConnector": "callable",
+                        "toComponent": "19148f91bd187a43d3e0a375d43d9a9e",
+                        "toConnector": "callback"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "a9865584f44b11fb1b7020d26fbf7507": {
+            "title": "shortcode_name",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "my_shortcode",
+                "is_settings": true,
+                "title": "Shortcode name",
+                "description": "Only alpha-numerics characters"
+            }
+        },
+        "7811f65a5b85158014b259ca0892160c": {
+            "title": "shortcode_script",
+            "type": "shortcode",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "shortcode_script",
+                        "type": "hook-shortcode",
+                        "x": -80,
+                        "y": 0,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "array"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "602ab4c7a3fbea37f749d9aa1c390c8a": {
+                        "name": "shortcode_template",
+                        "x": 535,
+                        "y": 125,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "e2e10f13de77b5001548b89069d112da"
+                    },
+                    "23e58a499ac0b971f89ac65d4da60c4a": {
+                        "x": 850,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "71ba3cd17853c29dae55dc32e8d8862f": {
+                        "name": "array",
+                        "x": 250,
+                        "y": 125,
+                        "type": "variable",
+                        "inputs": {
+                            "2a35b582145fb134f4aa0733a88c8b15": {
+                                "label": "content",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "3eebd093e0f95e1d72c44a2fb0a60ba9": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "23e58a499ac0b971f89ac65d4da60c4a",
+                        "toConnector": "ifct"
+                    },
+                    "124dbf3bb29b4fd9f8b8814244bda13f": {
+                        "fromComponent": "602ab4c7a3fbea37f749d9aa1c390c8a",
+                        "fromConnector": "content",
+                        "toComponent": "23e58a499ac0b971f89ac65d4da60c4a",
+                        "toConnector": "value"
+                    },
+                    "67b4e1b7206d28ebed972d572c7cbb78": {
+                        "fromComponent": "71ba3cd17853c29dae55dc32e8d8862f",
+                        "fromConnector": "output_array",
+                        "toComponent": "602ab4c7a3fbea37f749d9aa1c390c8a",
+                        "toConnector": "args"
+                    },
+                    "8a2e58442238321406839b3a5adfc5c2": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "71ba3cd17853c29dae55dc32e8d8862f",
+                        "toConnector": "2a35b582145fb134f4aa0733a88c8b15"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "e2e10f13de77b5001548b89069d112da": {
+            "title": "shortcode_template",
+            "type": "template",
+            "content": "{{content}}"
+        }
+    }
+}

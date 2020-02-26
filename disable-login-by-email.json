@@ -1,0 +1,89 @@
+{
+    "title": "Disable login by email",
+    "category": "Security",
+    "description": "Disable login by email in WordPress by adding this feature.",
+    "content": {
+        "625090859621a4897bcea989ab661a63": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "x": -490.5,
+                        "y": -88.5,
+                        "type": "hook-action",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        }
+                    },
+                    "b5061add9f6ae207c5a84f64eab8667e": {
+                        "name": "remove_filter",
+                        "x": -157,
+                        "y": -89,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "authenticate"
+                            },
+                            "function_to_remove": {
+                                "label": "function_to_remove",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "wp_authenticate_email_password"
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false,
+                                "value": 20
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "9905d179b0f7190b33c047608726364a": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "b5061add9f6ae207c5a84f64eab8667e",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

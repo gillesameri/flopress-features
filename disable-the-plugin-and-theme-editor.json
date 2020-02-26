@@ -1,0 +1,117 @@
+{
+    "title": "Disable the Plugin and Theme Editor",
+    "category": "Admin",
+    "description": "Disable WordPress file editor, it can be dangerous!",
+    "content": {
+        "e93b12d3a2ab26042f12ba8fbed1f3fb": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 35,
+                        "y": 0
+                    },
+                    "c56029717930e5c19060b0189238a739": {
+                        "x": 495,
+                        "y": 0,
+                        "name": "call_user_func_array",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "callable": {
+                                "label": "callable",
+                                "type": "callable",
+                                "value": "define"
+                            },
+                            "param_arr": {
+                                "label": "param_arr",
+                                "type": "array",
+                                "value": null
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "83891a57d438d31245ae097364e435cd": {
+                        "name": "array",
+                        "x": 260,
+                        "y": 100,
+                        "type": "variable",
+                        "inputs": {
+                            "30d7138954f711a77bd82617abb59cb9": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "DISALLOW_FILE_EDIT"
+                            },
+                            "b289707d530462a5f96917158715a911": {
+                                "label": "",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "70482eb20b342ccd5905b1e7aa9fc591": {
+                        "name": "boolean",
+                        "x": 35,
+                        "y": 120,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": true
+                    }
+                },
+                "links": {
+                    "4887fc9db08a9d361e788fac7e58658c": {
+                        "fromComponent": "70482eb20b342ccd5905b1e7aa9fc591",
+                        "fromConnector": "output",
+                        "toComponent": "83891a57d438d31245ae097364e435cd",
+                        "toConnector": "b289707d530462a5f96917158715a911"
+                    },
+                    "5f4eb734db94d78953f3a6f06175b9f1": {
+                        "fromComponent": "83891a57d438d31245ae097364e435cd",
+                        "fromConnector": "output_array",
+                        "toComponent": "c56029717930e5c19060b0189238a739",
+                        "toConnector": "param_arr"
+                    },
+                    "869b1aa4c90e2bb9d7df85f0679b6114": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "c56029717930e5c19060b0189238a739",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

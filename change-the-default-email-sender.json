@@ -1,0 +1,185 @@
+{
+    "title": "Change the default email sender",
+    "category": "Tools",
+    "description": "Customize the sender details by changing its from email address and name.",
+    "content": {
+        "fb2a316859a0e8aacd9832f5900da602": {
+            "title": "wp_mail_from",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_mail_from",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "from_email": {
+                                "label": "from_email",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "6b58560fa539c7c8f46edee2bbc90138": {
+                        "x": 285,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "bc4bd89cc522fc4270ddb1d5844c6cdd": {
+                        "name": "email",
+                        "x": 0,
+                        "y": 95,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "f9a0751e8d0959881959253bec00a9ce"
+                    }
+                },
+                "links": {
+                    "ec6dd62053a4d893bfe2128979270b46": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "6b58560fa539c7c8f46edee2bbc90138",
+                        "toConnector": "ifct"
+                    },
+                    "706b1074dea9b92da7dfb49627ece23e": {
+                        "fromComponent": "bc4bd89cc522fc4270ddb1d5844c6cdd",
+                        "fromConnector": "content",
+                        "toComponent": "6b58560fa539c7c8f46edee2bbc90138",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "6cb07655a0da7a45af52aa37f18beefc": {
+            "title": "wp_mail_from_name",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_mail_from_name",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "from_name": {
+                                "label": "from_name",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "09b8b4f5b7e489cb295440ba4cfb65a2": {
+                        "x": 330,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "3184efced8a43be651cdec99b00205a4": {
+                        "name": "name",
+                        "x": 0,
+                        "y": 95,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "f4b7dbd120c0fc9edbb3a035dd3aa975"
+                    }
+                },
+                "links": {
+                    "b56947537ef3907d26ddaa7bd355c203": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "09b8b4f5b7e489cb295440ba4cfb65a2",
+                        "toConnector": "ifct"
+                    },
+                    "e8152697b8195d34bf5002bff00dc7c1": {
+                        "fromComponent": "3184efced8a43be651cdec99b00205a4",
+                        "fromConnector": "content",
+                        "toComponent": "09b8b4f5b7e489cb295440ba4cfb65a2",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "f9a0751e8d0959881959253bec00a9ce": {
+            "title": "email",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "noreply@mywebsite.com",
+                "is_settings": true,
+                "title": "Email address"
+            }
+        },
+        "f4b7dbd120c0fc9edbb3a035dd3aa975": {
+            "title": "name",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "My name",
+                "is_settings": true,
+                "title": "Sender name"
+            }
+        }
+    }
+}

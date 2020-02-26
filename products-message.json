@@ -1,0 +1,147 @@
+{
+    "title": "Products message",
+    "category": "WooCommerce,Third-party",
+    "description": "Add a message above the main image on the single product",
+    "content": {
+        "f8259fb5a54a0fc7c1678e8b321b22f0": {
+            "title": "woocommerce_before_single_product",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_before_single_product",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "95bca74632342b40851f4b47e09d8759": {
+                        "x": 300,
+                        "y": 5,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "0732419809ad6212407c5c1374d3353d": {
+                        "name": "message",
+                        "x": -500,
+                        "y": 90,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "2efcb8d71dc8330cca70ca7134a29a0f"
+                    },
+                    "f027d445c7476d009f60d220514a255b": {
+                        "name": "messagewrap",
+                        "x": -5,
+                        "y": 90,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "2a7a8ff597dcb1eeeb0bc08538e72211"
+                    },
+                    "101708724251a465fded0ed55a2d7a66": {
+                        "name": "array",
+                        "x": -245,
+                        "y": 90,
+                        "type": "variable",
+                        "inputs": {
+                            "ad40f77a7043455248e6afd3c10e8d4a": {
+                                "label": "message",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "7c7a4d17508d2cdd9676763a2ec1b069": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "95bca74632342b40851f4b47e09d8759",
+                        "toConnector": "ifct"
+                    },
+                    "f67d867c95368c6c3054bb6a8617fe7e": {
+                        "fromComponent": "f027d445c7476d009f60d220514a255b",
+                        "fromConnector": "content",
+                        "toComponent": "95bca74632342b40851f4b47e09d8759",
+                        "toConnector": "string"
+                    },
+                    "37da9b63ab40272f58440e271de845ec": {
+                        "fromComponent": "101708724251a465fded0ed55a2d7a66",
+                        "fromConnector": "output_array",
+                        "toComponent": "f027d445c7476d009f60d220514a255b",
+                        "toConnector": "args"
+                    },
+                    "d61eebe9944cd3407d87917d6f2836b1": {
+                        "fromComponent": "0732419809ad6212407c5c1374d3353d",
+                        "fromConnector": "content",
+                        "toComponent": "101708724251a465fded0ed55a2d7a66",
+                        "toConnector": "ad40f77a7043455248e6afd3c10e8d4a"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "2a7a8ff597dcb1eeeb0bc08538e72211": {
+            "title": "messagewrap",
+            "type": "template",
+            "content": "<h2>{{message}}<\/h2>"
+        },
+        "2efcb8d71dc8330cca70ca7134a29a0f": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Message",
+                "description": "The message"
+            }
+        }
+    }
+}

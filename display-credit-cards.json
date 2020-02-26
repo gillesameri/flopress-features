@@ -1,0 +1,541 @@
+{
+    "title": "Display credit cards",
+    "category": "WooCommerce",
+    "description": "Add Credit Card Logos to the WooCommerce Cart Page.",
+    "content": {
+        "cee312e3af3298224a35dd48b23cfd14": {
+            "title": "woocommerce_after_cart_totals",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_after_cart_totals",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 15,
+                        "y": 120
+                    },
+                    "af2a31bdb740eaa218464ce1a165b0d2": {
+                        "x": 255,
+                        "y": 120,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "931454eea265fa953e66e617c2b22ee7": {
+                        "name": "cards",
+                        "x": 15,
+                        "y": 205,
+                        "type": "template",
+                        "inputs": {
+                            "args": {
+                                "type": "array",
+                                "label": "arguments"
+                            }
+                        },
+                        "outputs": {
+                            "content": {
+                                "type": "string",
+                                "label": "content"
+                            }
+                        },
+                        "ref": "4bd4dc4d606a5a3fc4fd411a28fa61a6"
+                    },
+                    "7b8648d8719edd692839da5cd48b5620": {
+                        "name": "array",
+                        "x": -230,
+                        "y": 125,
+                        "type": "variable",
+                        "inputs": {
+                            "c2d62fcf49f5b08c14d0fc15814cd0ab": {
+                                "label": "message",
+                                "type": "mixed"
+                            },
+                            "2673420ddd96a32d801cdbb751c8b5cc": {
+                                "label": "is_paypal",
+                                "type": "mixed"
+                            },
+                            "195cf10b6b8b6fe13248dcf4be5c8166": {
+                                "label": "is_stripe",
+                                "type": "mixed"
+                            },
+                            "ea494d01061085459c09ec092bc321e3": {
+                                "label": "is_mastercard",
+                                "type": "mixed"
+                            },
+                            "15acb5f0b32f108ae6cadc47b9d70cc1": {
+                                "label": "is_visa",
+                                "type": "mixed"
+                            },
+                            "45a23224ccfe86c13ebd03e59a19faf4": {
+                                "label": "is_discover",
+                                "type": "mixed"
+                            },
+                            "20834947f5eafa2a5154c59353bf98fb": {
+                                "label": "is_amex",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    },
+                    "ce4127db210ab2511e4b77b384cf798a": {
+                        "name": "is_paypal",
+                        "x": -625,
+                        "y": 35,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "40de1008cb5bbbe1079adb1d80603a0e"
+                    },
+                    "e7527ae73a4e5771cfbc6b5e4787738f": {
+                        "name": "message",
+                        "x": -625,
+                        "y": -40,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "6c050792e007ebebfe0f7717302fa110"
+                    },
+                    "f7f5f6f43cfe1841928a77302aab1210": {
+                        "name": "is_stripe",
+                        "x": -625,
+                        "y": 110,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "a6b7a019f59809b80903a9a70be3744e"
+                    },
+                    "1ddb7e3b1df2ddb87971f69aa9573782": {
+                        "name": "is_mastercard",
+                        "x": -625,
+                        "y": 185,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "822935ed620f327ec9f0ea6aa308daff"
+                    },
+                    "6a46a363a2fc8af0cad6d80937508a83": {
+                        "name": "is_visa",
+                        "x": -625,
+                        "y": 260,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "e7787749d46f933f232a9e6fdc3cb885"
+                    },
+                    "d3d4aa6b0f7710275a18680a442956fe": {
+                        "name": "is_discover",
+                        "x": -625,
+                        "y": 335,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "4fa96c95d9860f266cee33da26cee1a0"
+                    },
+                    "7b9adf4fc70dab39e4ffe34915bd0f41": {
+                        "name": "is_amex",
+                        "x": -625,
+                        "y": 410,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "14122c69fb43bcf2ff322f64bc5e596d"
+                    }
+                },
+                "links": {
+                    "7f562d2909e180e63021a574206059e1": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "af2a31bdb740eaa218464ce1a165b0d2",
+                        "toConnector": "ifct"
+                    },
+                    "4250ff2c77eda0e73a1339d156b1a2f6": {
+                        "fromComponent": "931454eea265fa953e66e617c2b22ee7",
+                        "fromConnector": "content",
+                        "toComponent": "af2a31bdb740eaa218464ce1a165b0d2",
+                        "toConnector": "string"
+                    },
+                    "0ad53810d7af8036cd392d987ef1fb58": {
+                        "fromComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "fromConnector": "output_array",
+                        "toComponent": "931454eea265fa953e66e617c2b22ee7",
+                        "toConnector": "args"
+                    },
+                    "3bd62947cd4845897cbfbe146735d6c9": {
+                        "fromComponent": "ce4127db210ab2511e4b77b384cf798a",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "2673420ddd96a32d801cdbb751c8b5cc"
+                    },
+                    "e994c6478369862f5db64b38155dd9df": {
+                        "fromComponent": "e7527ae73a4e5771cfbc6b5e4787738f",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "c2d62fcf49f5b08c14d0fc15814cd0ab"
+                    },
+                    "22280fc63587c674c524e8884a0d839d": {
+                        "fromComponent": "f7f5f6f43cfe1841928a77302aab1210",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "195cf10b6b8b6fe13248dcf4be5c8166"
+                    },
+                    "8e86e39bd9701393ec4d6c567f138b1f": {
+                        "fromComponent": "1ddb7e3b1df2ddb87971f69aa9573782",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "ea494d01061085459c09ec092bc321e3"
+                    },
+                    "dba08f8a2ac0c8cfe7c5734078f8fb11": {
+                        "fromComponent": "6a46a363a2fc8af0cad6d80937508a83",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "15acb5f0b32f108ae6cadc47b9d70cc1"
+                    },
+                    "994b0a498aa8e6c4a24be14036bbd593": {
+                        "fromComponent": "d3d4aa6b0f7710275a18680a442956fe",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "45a23224ccfe86c13ebd03e59a19faf4"
+                    },
+                    "0c584361bcc2fea0d9bd391dce944291": {
+                        "fromComponent": "7b9adf4fc70dab39e4ffe34915bd0f41",
+                        "fromConnector": "content",
+                        "toComponent": "7b8648d8719edd692839da5cd48b5620",
+                        "toConnector": "20834947f5eafa2a5154c59353bf98fb"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "4bd4dc4d606a5a3fc4fd411a28fa61a6": {
+            "title": "cards",
+            "type": "template",
+            "content": "<div class=\"credit-cards\" style=\"font-size:2em;text-align:center;\">\n    {% if is_paypal %}<i class=\"fab fa-cc-paypal\"><\/i>{% endif %}\n    {% if is_stripe %}<i class=\"fab fa-cc-stripe\"><\/i>{% endif %}\n    {% if is_mastercard %}<i class=\"fab fa-cc-mastercard\"><\/i>{% endif %}\n    {% if is_visa %}<i class=\"fab fa-cc-visa\"><\/i>{% endif %}\n    {% if is_discover %}<i class=\"fab fa-cc-discover\"><\/i>{% endif %}\n    {% if is_amex %}<i class=\"fab fa-cc-amex\"><\/i>{% endif %}\n<\/div>\n<div class=\"credit-cards-message\" style=\"text-align:center;\">\n    {{message}}\n<\/div>"
+        },
+        "9733319914e7df1ad675cde607f47700": {
+            "title": "load_font_awesome",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "value": true,
+                "is_settings": true,
+                "title": "Load FontAwesome",
+                "description": "Disable this option if font-awesome is already loaded"
+            }
+        },
+        "6c050792e007ebebfe0f7717302fa110": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "is_settings": true,
+                "title": "Message",
+                "description": "The message displayed after payment icons"
+            }
+        },
+        "40de1008cb5bbbe1079adb1d80603a0e": {
+            "title": "is_paypal",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Paypal",
+                "description": "Display the PayPal icon"
+            }
+        },
+        "a6b7a019f59809b80903a9a70be3744e": {
+            "title": "is_stripe",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Stripe",
+                "description": "Display the Stripe icon"
+            }
+        },
+        "822935ed620f327ec9f0ea6aa308daff": {
+            "title": "is_mastercard",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Mastercard",
+                "description": "Display the MasterCard icon"
+            }
+        },
+        "e7787749d46f933f232a9e6fdc3cb885": {
+            "title": "is_visa",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Visa",
+                "description": "Display the Visa icon"
+            }
+        },
+        "4fa96c95d9860f266cee33da26cee1a0": {
+            "title": "is_discover",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "Discover",
+                "description": "Display the Discover icon"
+            }
+        },
+        "14122c69fb43bcf2ff322f64bc5e596d": {
+            "title": "is_amex",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "boolean",
+                    "switch"
+                ],
+                "is_settings": true,
+                "title": "American Express",
+                "description": "Display the American Express icon"
+            }
+        },
+        "e169ee55cfadde2b9b05e59800f3cef9": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "e9cdb7f53ef771214c40622fcfcf2d2f": {
+                        "name": "load_font_awesome",
+                        "x": 0,
+                        "y": 75,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "9733319914e7df1ad675cde607f47700"
+                    },
+                    "0b40ae2c9ee03d213244c66d49957419": {
+                        "x": 270,
+                        "y": 0,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "adb45f947863540e22feaf9b50f48ee2": {
+                        "x": 555,
+                        "y": 0,
+                        "name": "wp_enqueue_style",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "src"
+                            },
+                            "src": {
+                                "label": "src",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "''",
+                                "required": false,
+                                "value": "https:\/\/use.fontawesome.com\/releases\/v5.7.2\/css\/all.css"
+                            },
+                            "deps": {
+                                "label": "deps",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ],
+                                "default": "array()",
+                                "required": false
+                            },
+                            "ver": {
+                                "label": "ver",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "bool",
+                                    "null"
+                                ],
+                                "default": "false",
+                                "required": false
+                            },
+                            "media": {
+                                "label": "media",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'all'",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "3b220cb79c11a562b843b38b646749dc": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "toConnector": "ifct"
+                    },
+                    "89fd8a0145191254dfdea96b2b280b8b": {
+                        "fromComponent": "e9cdb7f53ef771214c40622fcfcf2d2f",
+                        "fromConnector": "content",
+                        "toComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "toConnector": "condition"
+                    },
+                    "072ec831e3200849b05d119feb530870": {
+                        "fromComponent": "0b40ae2c9ee03d213244c66d49957419",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "adb45f947863540e22feaf9b50f48ee2",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

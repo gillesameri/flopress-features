@@ -1,0 +1,280 @@
+{
+    "title": "Show X Results on the Search Results Page",
+    "category": "Post",
+    "description": "If you want to change the default number of search results returned, simply add this feature.",
+    "content": {
+        "3b2e7c541a9e90eecb71a18f98ef9583": {
+            "title": "init",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "init",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "24379242450c00ffb9198e9eb8056b9b": {
+                        "x": 325,
+                        "y": 55,
+                        "name": "add_filter",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": ""
+                            },
+                            "function_to_add": {
+                                "label": "function_to_add",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false
+                            },
+                            "accepted_args": {
+                                "label": "accepted_args",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "1",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "true",
+                                "label": "true"
+                            }
+                        }
+                    },
+                    "6f99267f47e136d22fe95a6384d122b6": {
+                        "name": "pre_get_posts",
+                        "x": 0,
+                        "y": 95,
+                        "type": "filter",
+                        "inputs": {},
+                        "outputs": {
+                            "name": {
+                                "type": "string",
+                                "label": "name"
+                            },
+                            "callable": {
+                                "type": "callable",
+                                "label": "callable"
+                            }
+                        },
+                        "ref": "5a35f85867084e39375c404f77d23e97"
+                    }
+                },
+                "links": {
+                    "bcd68e85b307c3e767e42764e8cf4eb4": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "24379242450c00ffb9198e9eb8056b9b",
+                        "toConnector": "ifct"
+                    },
+                    "e9f1e8e6c4092f3c4b007ed7dd5e8d14": {
+                        "fromComponent": "6f99267f47e136d22fe95a6384d122b6",
+                        "fromConnector": "callable",
+                        "toComponent": "24379242450c00ffb9198e9eb8056b9b",
+                        "toConnector": "function_to_add"
+                    },
+                    "3364f2c8fd58a2c7a2fb3b45ed42b2fc": {
+                        "fromComponent": "6f99267f47e136d22fe95a6384d122b6",
+                        "fromConnector": "name",
+                        "toComponent": "24379242450c00ffb9198e9eb8056b9b",
+                        "toConnector": "tag"
+                    }
+                },
+                "autoload": false,
+                "priority": 10
+            }
+        },
+        "5a35f85867084e39375c404f77d23e97": {
+            "title": "pre_get_posts",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "pre_get_posts",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 10,
+                        "y": 25
+                    },
+                    "cadf5262ff8435bfabe11cdaaf1b06dc": {
+                        "x": 264,
+                        "y": 25,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "c406627b239e6d4e33e5be0d89da01ed": {
+                        "x": 10,
+                        "y": 105,
+                        "name": "is_search",
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "808c3b47777edd4707d83dc25900f19e": {
+                        "x": 550,
+                        "y": 145,
+                        "name": "set_query_var",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "var": {
+                                "label": "var",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "posts_per_archive_page"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ],
+                                "default": null,
+                                "required": true
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    },
+                    "cfd6cd3932736e3010dac5c5b3fefb7e": {
+                        "name": "post_number",
+                        "x": 10,
+                        "y": 185,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "3e8cf89fda42272b45bbfbd8b02526ca"
+                    }
+                },
+                "links": {
+                    "7eb45a16b9b83ede33ddff4118232eab": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "cadf5262ff8435bfabe11cdaaf1b06dc",
+                        "toConnector": "ifct"
+                    },
+                    "0e4da6bb54114586d07a2eacd4bfc306": {
+                        "fromComponent": "c406627b239e6d4e33e5be0d89da01ed",
+                        "fromConnector": "return",
+                        "toComponent": "cadf5262ff8435bfabe11cdaaf1b06dc",
+                        "toConnector": "condition"
+                    },
+                    "8d5c2d3e40d6c68d0948ad38e2fad6dd": {
+                        "fromComponent": "cadf5262ff8435bfabe11cdaaf1b06dc",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "808c3b47777edd4707d83dc25900f19e",
+                        "toConnector": "ifct"
+                    },
+                    "d1b8fe5ae67d05313f1b215745d6973c": {
+                        "fromComponent": "cfd6cd3932736e3010dac5c5b3fefb7e",
+                        "fromConnector": "content",
+                        "toComponent": "808c3b47777edd4707d83dc25900f19e",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "3e8cf89fda42272b45bbfbd8b02526ca": {
+            "title": "post_number",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 1,
+                "is_settings": true,
+                "title": "Number of posts"
+            }
+        }
+    }
+}

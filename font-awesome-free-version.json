@@ -1,0 +1,260 @@
+{
+    "title": "Font Awesome (Free version)",
+    "category": "Shortcode,Third-party",
+    "description": "Load Font Awesome and provide a shortcode to easily display icon.\nSee <a href=\"https:\/\/fontawesome.com\/icons\" target=\"_blank\">Font Awesome<\/a> for more informations.",
+    "content": {
+        "78265c6ce193c2d61d1b0cd5c0f2b1ff": {
+            "title": "wp_head",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_head",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "707fb97ede9cbf7b7298fe3faea9ecf2": {
+                        "x": 365,
+                        "y": 0,
+                        "name": "print",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "string": {
+                                "label": "string",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "a78ccdd201279039b3cc750df8d1780c": {
+                        "name": "styles",
+                        "x": 0,
+                        "y": 80,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "3bb67c0427ffff9608a96abcf5ac6130"
+                    }
+                },
+                "links": {
+                    "eeb3c015a5d3dfa6b8c54ba1efd3207d": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "707fb97ede9cbf7b7298fe3faea9ecf2",
+                        "toConnector": "ifct"
+                    },
+                    "e53672ee9e688e04279dc0d642f3e569": {
+                        "fromComponent": "a78ccdd201279039b3cc750df8d1780c",
+                        "fromConnector": "content",
+                        "toComponent": "707fb97ede9cbf7b7298fe3faea9ecf2",
+                        "toConnector": "string"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "3bb67c0427ffff9608a96abcf5ac6130": {
+            "title": "styles",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textarea"
+                ],
+                "value": "<link rel=\"stylesheet\" href=\"https:\/\/use.fontawesome.com\/releases\/v5.7.2\/css\/all.css\" integrity=\"sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr\" crossorigin=\"anonymous\">"
+            }
+        },
+        "612801bff9179d9695e15e53b2d9a8a7": {
+            "title": "icon",
+            "type": "shortcode",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "icon",
+                        "type": "hook-shortcode",
+                        "x": -410,
+                        "y": 5,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "array"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "ace422598516a46cb106bf1dbcd1846a": {
+                        "x": 405,
+                        "y": 5,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "39a0a461d837c297b6e9eabd29cfe7f0": {
+                        "x": 155,
+                        "y": 5,
+                        "name": "call_user_func_array",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "callable": {
+                                "label": "callable",
+                                "type": "callable",
+                                "value": "str_replace"
+                            },
+                            "param_arr": {
+                                "label": "param_arr",
+                                "type": "array"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "return": {
+                                "type": "mixed",
+                                "label": "return"
+                            }
+                        }
+                    },
+                    "5d16f58a88c7cba3deb821566ecf62a4": {
+                        "name": "tag",
+                        "x": -410,
+                        "y": 130,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "6ae429babd001dc9263284a8181a6dd5"
+                    },
+                    "2b03d3af77976aa72c3ae778a265aff2": {
+                        "x": -125,
+                        "y": 90,
+                        "name": "array",
+                        "type": "variable",
+                        "inputs": {
+                            "7a337cf1b4ee4219e2e317baeac7aa58": {
+                                "label": "",
+                                "type": "mixed",
+                                "value": "###"
+                            },
+                            "0b3525bf380a90eda4844a17718c323a": {
+                                "label": "",
+                                "type": "mixed"
+                            },
+                            "6a9879133c79ebb69734e8db07f63fc1": {
+                                "label": "",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "output_array": {
+                                "type": "array",
+                                "label": "value"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "56a8b42343e03a06f6b427c2ea23ac62": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "39a0a461d837c297b6e9eabd29cfe7f0",
+                        "toConnector": "ifct"
+                    },
+                    "e706f0c84dc59e0ce78cd52a1ebb49d0": {
+                        "fromComponent": "39a0a461d837c297b6e9eabd29cfe7f0",
+                        "fromConnector": "ofct",
+                        "toComponent": "ace422598516a46cb106bf1dbcd1846a",
+                        "toConnector": "ifct"
+                    },
+                    "a72ab71682fe34d0d384d67a49460d3e": {
+                        "fromComponent": "5d16f58a88c7cba3deb821566ecf62a4",
+                        "fromConnector": "content",
+                        "toComponent": "2b03d3af77976aa72c3ae778a265aff2",
+                        "toConnector": "6a9879133c79ebb69734e8db07f63fc1"
+                    },
+                    "494d500e4c17e511f664b2490bc286ea": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "2b03d3af77976aa72c3ae778a265aff2",
+                        "toConnector": "0b3525bf380a90eda4844a17718c323a"
+                    },
+                    "a58703d082d312d980ee74b172d4ff02": {
+                        "fromComponent": "2b03d3af77976aa72c3ae778a265aff2",
+                        "fromConnector": "output_array",
+                        "toComponent": "39a0a461d837c297b6e9eabd29cfe7f0",
+                        "toConnector": "param_arr"
+                    },
+                    "aab96fcecbb3a8274650fad484340986": {
+                        "fromComponent": "39a0a461d837c297b6e9eabd29cfe7f0",
+                        "fromConnector": "return",
+                        "toComponent": "ace422598516a46cb106bf1dbcd1846a",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "6ae429babd001dc9263284a8181a6dd5": {
+            "title": "tag",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "<i class=\"###\"><\/i>"
+            }
+        }
+    }
+}

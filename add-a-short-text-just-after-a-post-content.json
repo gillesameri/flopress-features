@@ -1,0 +1,319 @@
+{
+    "title": "Add a short text just after a post content",
+    "category": "Post",
+    "description": "Insert some text, images or ads just after a post",
+    "content": {
+        "5b8d8070ac68512033d100a7e1cdb689": {
+            "title": "the_content",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "the_content",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 490,
+                        "y": 40
+                    },
+                    "efcd25084584364c26e1c26b27f57e65": {
+                        "name": "message",
+                        "x": 490,
+                        "y": 150,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "5eff9565ac3792ca8aea05e7e095199d"
+                    },
+                    "5987e4c93368c2df98be9654dfe2a92c": {
+                        "x": 1060,
+                        "y": -60,
+                        "name": "if",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "condition": {
+                                "label": "condition",
+                                "type": "bool"
+                            }
+                        },
+                        "outputs": {
+                            "ofct_true": {
+                                "type": "efct",
+                                "label": "true",
+                                "required": false
+                            },
+                            "ofct_false": {
+                                "type": "efct",
+                                "label": "false",
+                                "required": false
+                            }
+                        }
+                    },
+                    "3c88dad3f632cac68319bac54c745f94": {
+                        "name": "is_feed",
+                        "x": 260,
+                        "y": -145,
+                        "type": "fct",
+                        "inputs": {
+                            "feeds": {
+                                "label": "feeds",
+                                "type": "string",
+                                "types": [
+                                    "string",
+                                    "array"
+                                ],
+                                "default": "''",
+                                "required": false
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "c4a04fc81baa386ca4a6c3e6ec18563e": {
+                        "name": "is_home",
+                        "x": 260,
+                        "y": -50,
+                        "type": "fct",
+                        "inputs": {},
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    },
+                    "ec710d6db056e60db35018fc78d2ddd3": {
+                        "name": "and",
+                        "x": 760,
+                        "y": -135,
+                        "type": "logical",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed"
+                            },
+                            "item2": {
+                                "label": "item2",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "return": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "5789cbb17ccf7ff889f766a80b4d3882": {
+                        "x": 1060,
+                        "y": 60,
+                        "name": "concat",
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "27762e0349ec0d8bd88df188436d132c": {
+                        "x": 1370,
+                        "y": -10,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "2ad1958dca50bc8014d71f31a9c4198a": {
+                        "name": "not",
+                        "x": 490,
+                        "y": -145,
+                        "type": "logical",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "bool": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "110f072652fdf9861188658b5b56db55": {
+                        "name": "not",
+                        "x": 490,
+                        "y": -50,
+                        "type": "logical",
+                        "inputs": {
+                            "item1": {
+                                "label": "item1",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "bool": {
+                                "type": "bool",
+                                "label": "result"
+                            }
+                        }
+                    },
+                    "b546feef0880e8dc67e1ce50a580db30": {
+                        "x": 1370,
+                        "y": 145,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "00d4a17b5e761adfedfdf9f211651060": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "5987e4c93368c2df98be9654dfe2a92c",
+                        "toConnector": "ifct"
+                    },
+                    "066c566cd10a2a04c7ecfcaa6126618e": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "5789cbb17ccf7ff889f766a80b4d3882",
+                        "toConnector": "string1"
+                    },
+                    "9293785920c7353797ebbff6eacf8dbf": {
+                        "fromComponent": "efcd25084584364c26e1c26b27f57e65",
+                        "fromConnector": "content",
+                        "toComponent": "5789cbb17ccf7ff889f766a80b4d3882",
+                        "toConnector": "string2"
+                    },
+                    "eafa55defb800b1a6b5b63b4dd1f2e9d": {
+                        "fromComponent": "5789cbb17ccf7ff889f766a80b4d3882",
+                        "fromConnector": "string",
+                        "toComponent": "27762e0349ec0d8bd88df188436d132c",
+                        "toConnector": "value"
+                    },
+                    "e7b160e47229ca26b647a3cf7b76b7a3": {
+                        "fromComponent": "ec710d6db056e60db35018fc78d2ddd3",
+                        "fromConnector": "return",
+                        "toComponent": "5987e4c93368c2df98be9654dfe2a92c",
+                        "toConnector": "condition"
+                    },
+                    "1aad2b50aeec1f363836f8d457ee3fd0": {
+                        "fromComponent": "c4a04fc81baa386ca4a6c3e6ec18563e",
+                        "fromConnector": "return",
+                        "toComponent": "110f072652fdf9861188658b5b56db55",
+                        "toConnector": "item1"
+                    },
+                    "ac11c85021fc24e3516afab15c4d0a8f": {
+                        "fromComponent": "110f072652fdf9861188658b5b56db55",
+                        "fromConnector": "bool",
+                        "toComponent": "ec710d6db056e60db35018fc78d2ddd3",
+                        "toConnector": "item2"
+                    },
+                    "c86ab1f277c9d2929d4a2ba50e6dc307": {
+                        "fromComponent": "3c88dad3f632cac68319bac54c745f94",
+                        "fromConnector": "return",
+                        "toComponent": "2ad1958dca50bc8014d71f31a9c4198a",
+                        "toConnector": "item1"
+                    },
+                    "7e5f43658e43aad265130190ece13ee4": {
+                        "fromComponent": "2ad1958dca50bc8014d71f31a9c4198a",
+                        "fromConnector": "bool",
+                        "toComponent": "ec710d6db056e60db35018fc78d2ddd3",
+                        "toConnector": "item1"
+                    },
+                    "5eace7394447222ad0aa2455ed52cd9f": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "content",
+                        "toComponent": "b546feef0880e8dc67e1ce50a580db30",
+                        "toConnector": "value"
+                    },
+                    "1c38d5df99f6f4584214d055f649626e": {
+                        "fromComponent": "5987e4c93368c2df98be9654dfe2a92c",
+                        "fromConnector": "ofct_true",
+                        "toComponent": "27762e0349ec0d8bd88df188436d132c",
+                        "toConnector": "ifct"
+                    },
+                    "0c8df4086c9d70d69b1b6c0817ff9eb5": {
+                        "fromComponent": "5987e4c93368c2df98be9654dfe2a92c",
+                        "fromConnector": "ofct_false",
+                        "toComponent": "b546feef0880e8dc67e1ce50a580db30",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "5eff9565ac3792ca8aea05e7e095199d": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textarea"
+                ],
+                "is_settings": true,
+                "title": "Footer note",
+                "description": "The footer that is displayed just after the content"
+            }
+        }
+    }
+}

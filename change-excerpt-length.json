@@ -1,0 +1,96 @@
+{
+    "title": "Change excerpt length",
+    "category": "Post",
+    "description": "WordPress limits excerpt lengths to 55 words. Add this feature if you need to change that.",
+    "content": {
+        "3e7e276c2288ddfce93659b1a93422ef": {
+            "title": "new_excerpt_length",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "excerpt_length",
+                        "x": -456.5,
+                        "y": -162.5,
+                        "type": "hook-filter",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "number": {
+                                "label": "number",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ]
+                            }
+                        }
+                    },
+                    "4d2b9ff176c5a462ec26fe8ad7a1d4ed": {
+                        "name": "return",
+                        "x": -121,
+                        "y": -164,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "b39bba719076b59f2bdcb0c9a9c872b4": {
+                        "name": "post_excerpt_length",
+                        "x": -457,
+                        "y": -39,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "792090c62f8af132e5c313b30cb84f6c"
+                    }
+                },
+                "links": {
+                    "91ca51d275cb3b3e97820c91260f60d2": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "4d2b9ff176c5a462ec26fe8ad7a1d4ed",
+                        "toConnector": "ifct"
+                    },
+                    "042d856387489db58fca6ebc8de22bb8": {
+                        "fromComponent": "b39bba719076b59f2bdcb0c9a9c872b4",
+                        "fromConnector": "content",
+                        "toComponent": "4d2b9ff176c5a462ec26fe8ad7a1d4ed",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "792090c62f8af132e5c313b30cb84f6c": {
+            "title": "post_excerpt_length",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "is_settings": true,
+                "type": [
+                    "number",
+                    "intfield"
+                ],
+                "value": 55,
+                "title": "Excerpt length",
+                "description": "Words numbers"
+            }
+        }
+    }
+}

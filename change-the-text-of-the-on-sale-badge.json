@@ -1,0 +1,251 @@
+{
+    "title": "Change the text of the on-sale badge",
+    "category": "WooCommerce,Third-party",
+    "description": "Customize the text and look of the on-sale badge",
+    "content": {
+        "a185f639c9c8380c3df4adbd64e29ad1": {
+            "title": "woocommerce_sale_flash",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "woocommerce_sale_flash",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "a8049028b7aa317e170afb81064b91fe": {
+                                "label": "message",
+                                "type": "mixed"
+                            },
+                            "7532d39e7c647ac50b2900ab74bd5e12": {
+                                "label": "post",
+                                "type": "mixed"
+                            },
+                            "9692216c0d84137f7fa87d9a032c383b": {
+                                "label": "product",
+                                "type": "mixed"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "8f8a5263340f408c980fbfc9b48196a7": {
+                        "x": 1170,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "fca4db994f7f2fc71027069a873f482e": {
+                        "name": "message",
+                        "x": 0,
+                        "y": 140,
+                        "type": "data",
+                        "inputs": {},
+                        "outputs": {
+                            "content": {
+                                "type": "mixed",
+                                "label": "output"
+                            }
+                        },
+                        "ref": "cfbac1f28cd36e3cff39624851ad7ce5"
+                    },
+                    "24403b327600d7e13e8f4268f1e33ce2": {
+                        "name": "string",
+                        "x": 280,
+                        "y": 125,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "string",
+                                "label": "value"
+                            }
+                        },
+                        "value": "<span class=\"onsale\">"
+                    },
+                    "245efc51ea1859f5d2f6b6b899296320": {
+                        "name": "string",
+                        "x": 280,
+                        "y": 205,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "string",
+                                "label": "value"
+                            }
+                        },
+                        "value": "<\/span>"
+                    },
+                    "4b4a8b625bebe2fa7b807f43a932581c": {
+                        "name": "esc_html__",
+                        "x": 280,
+                        "y": 0,
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "text": {
+                                "label": "text",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": ""
+                            },
+                            "domain": {
+                                "label": "domain",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": "'default'",
+                                "required": false,
+                                "value": "woocommerce"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "return": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "b6bd6682733f744aa8e28235cc68589d": {
+                        "x": 595,
+                        "y": 65,
+                        "name": "concat",
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    },
+                    "ab4d9348f1b4624a53ceef2c00046069": {
+                        "x": 870,
+                        "y": 185,
+                        "name": "concat",
+                        "type": "instruction",
+                        "inputs": {
+                            "string1": {
+                                "label": "string2",
+                                "type": "string"
+                            },
+                            "string2": {
+                                "label": "string2",
+                                "type": "string"
+                            }
+                        },
+                        "outputs": {
+                            "string": {
+                                "type": "string",
+                                "label": "string"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "7b1bbd587cd90cfa42af35bab1e23828": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "4b4a8b625bebe2fa7b807f43a932581c",
+                        "toConnector": "ifct"
+                    },
+                    "ba857a710d2f6b6ff3e2439c265cffe7": {
+                        "fromComponent": "4b4a8b625bebe2fa7b807f43a932581c",
+                        "fromConnector": "ofct",
+                        "toComponent": "8f8a5263340f408c980fbfc9b48196a7",
+                        "toConnector": "ifct"
+                    },
+                    "26b3bd903bb02ea1f294f0d09ac4397d": {
+                        "fromComponent": "24403b327600d7e13e8f4268f1e33ce2",
+                        "fromConnector": "output",
+                        "toComponent": "b6bd6682733f744aa8e28235cc68589d",
+                        "toConnector": "string1"
+                    },
+                    "bc0799de2976f16156468f182e774754": {
+                        "fromComponent": "b6bd6682733f744aa8e28235cc68589d",
+                        "fromConnector": "string",
+                        "toComponent": "ab4d9348f1b4624a53ceef2c00046069",
+                        "toConnector": "string1"
+                    },
+                    "a186ca57aa6fd95348552fdf66025dcc": {
+                        "fromComponent": "245efc51ea1859f5d2f6b6b899296320",
+                        "fromConnector": "output",
+                        "toComponent": "ab4d9348f1b4624a53ceef2c00046069",
+                        "toConnector": "string2"
+                    },
+                    "722b354b43ae6cbef0e3e1fc941b8b00": {
+                        "fromComponent": "fca4db994f7f2fc71027069a873f482e",
+                        "fromConnector": "content",
+                        "toComponent": "4b4a8b625bebe2fa7b807f43a932581c",
+                        "toConnector": "text"
+                    },
+                    "c7f2a0df156a4659f1f5eb4eb5d115cf": {
+                        "fromComponent": "4b4a8b625bebe2fa7b807f43a932581c",
+                        "fromConnector": "return",
+                        "toComponent": "b6bd6682733f744aa8e28235cc68589d",
+                        "toConnector": "string2"
+                    },
+                    "593e00130748b8c848d6908fb509641d": {
+                        "fromComponent": "ab4d9348f1b4624a53ceef2c00046069",
+                        "fromConnector": "string",
+                        "toComponent": "8f8a5263340f408c980fbfc9b48196a7",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "cfbac1f28cd36e3cff39624851ad7ce5": {
+            "title": "message",
+            "type": "data",
+            "content": {
+                "weight": 0,
+                "type": [
+                    "string",
+                    "textfield"
+                ],
+                "value": "Sale!",
+                "is_settings": true,
+                "title": "On-sale message"
+            }
+        }
+    }
+}

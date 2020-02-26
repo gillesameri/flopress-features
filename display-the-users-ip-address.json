@@ -1,0 +1,88 @@
+{
+    "title": "Display the users IP address",
+    "category": "Shortcode",
+    "description": "Display the users IP addresses in posts and pages using a shortcode.",
+    "content": {
+        "3adf8b4168f1bdb42befc4e84a6bfbcd": {
+            "title": "user_ip",
+            "type": "shortcode",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "user_ip",
+                        "type": "hook-shortcode",
+                        "x": 0,
+                        "y": 0,
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "args": {
+                                "label": "args",
+                                "type": "array"
+                            },
+                            "content": {
+                                "label": "content",
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "4239f9b18edb19b27aaee54c80f0cbe0": {
+                        "x": 240,
+                        "y": 45,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "c15c86a8e3c41b35c27001077b41b6a4": {
+                        "name": "server",
+                        "x": 0,
+                        "y": 120,
+                        "type": "global",
+                        "inputs": {
+                            "string": {
+                                "label": "key",
+                                "type": "string",
+                                "value": "REMOTE_ADDR"
+                            }
+                        },
+                        "outputs": {
+                            "value": {
+                                "type": "mixed",
+                                "label": "value"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "b34cd6932b1fcf80220f2342681a27e9": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "4239f9b18edb19b27aaee54c80f0cbe0",
+                        "toConnector": "ifct"
+                    },
+                    "2946c1c6f53724de65e739ed7f8cff6b": {
+                        "fromComponent": "c15c86a8e3c41b35c27001077b41b6a4",
+                        "fromConnector": "value",
+                        "toComponent": "4239f9b18edb19b27aaee54c80f0cbe0",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

@@ -1,0 +1,213 @@
+{
+    "title": "Display dashboard in a single column only",
+    "category": "Admin",
+    "description": "Active this feature to display the dashboard in a single column only.",
+    "content": {
+        "ad30a10a34ffcc3c89b8c28d09ad29d9": {
+            "title": "screen_layout_columns",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "screen_layout_columns",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "empty_columns": {
+                                "label": "empty_columns",
+                                "type": "array",
+                                "types": [
+                                    "array"
+                                ]
+                            },
+                            "screen_id": {
+                                "label": "screen_id",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ]
+                            },
+                            "this": {
+                                "label": "this",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "daa818acc03d991abcef703ff6ad5348": {
+                        "x": 355,
+                        "y": -85,
+                        "name": "set_array_value",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "variable": {
+                                "label": "variable",
+                                "type": "array"
+                            },
+                            "key": {
+                                "label": "key",
+                                "type": "string",
+                                "value": "dashboard"
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            }
+                        }
+                    },
+                    "7cd9574ededd3e279214e79690d3641c": {
+                        "name": "integer",
+                        "x": 0,
+                        "y": 145,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": 1
+                    },
+                    "38bc7af522eb776774d3a63a6a5ff0fb": {
+                        "x": 640,
+                        "y": 0,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "5bf62f1a41941090749c89bc6e9a00c6": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "daa818acc03d991abcef703ff6ad5348",
+                        "toConnector": "ifct"
+                    },
+                    "3a81ed9580e751212026a937150eb767": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "empty_columns",
+                        "toComponent": "daa818acc03d991abcef703ff6ad5348",
+                        "toConnector": "variable"
+                    },
+                    "efb5759f9ac401a929f5d0bf79c69743": {
+                        "fromComponent": "7cd9574ededd3e279214e79690d3641c",
+                        "fromConnector": "output",
+                        "toComponent": "daa818acc03d991abcef703ff6ad5348",
+                        "toConnector": "value"
+                    },
+                    "761ea95aeac8497411266d985ec018e2": {
+                        "fromComponent": "daa818acc03d991abcef703ff6ad5348",
+                        "fromConnector": "ofct",
+                        "toComponent": "38bc7af522eb776774d3a63a6a5ff0fb",
+                        "toConnector": "ifct"
+                    },
+                    "2fceed8d6791b4853affd938e520eb66": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "empty_columns",
+                        "toComponent": "38bc7af522eb776774d3a63a6a5ff0fb",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        },
+        "80c94ad4b8b4112a57a441b30820b293": {
+            "title": "get_user_option_screen_layout_dashboard",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "get_user_option_screen_layout_dashboard",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-filter",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "e7fbea589545aee43a06d877dac69adc": {
+                        "x": 418,
+                        "y": 26,
+                        "name": "return",
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed",
+                                "default": "false"
+                            }
+                        },
+                        "outputs": {}
+                    },
+                    "5740ec69120b605bc0b6ffe822cad781": {
+                        "name": "integer",
+                        "x": 0,
+                        "y": 80,
+                        "type": "variable",
+                        "inputs": {},
+                        "outputs": {
+                            "output": {
+                                "type": "int",
+                                "label": "value"
+                            }
+                        },
+                        "value": 1
+                    }
+                },
+                "links": {
+                    "598f786c4036c71d9e06fa57047bf11c": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "e7fbea589545aee43a06d877dac69adc",
+                        "toConnector": "ifct"
+                    },
+                    "b424e304d7a1fa52d6cf225b45e343ec": {
+                        "fromComponent": "5740ec69120b605bc0b6ffe822cad781",
+                        "fromConnector": "output",
+                        "toComponent": "e7fbea589545aee43a06d877dac69adc",
+                        "toConnector": "value"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

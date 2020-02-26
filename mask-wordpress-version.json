@@ -1,0 +1,68 @@
+{
+    "title": "Mask Wordpress version",
+    "category": "Security",
+    "description": "Want to remove the WordPress version number from your site? Simply add this feature.",
+    "content": {
+        "2d800a5edc54c1d8806115ce21aebb5b": {
+            "title": "remove_version",
+            "type": "filter",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "the_generator",
+                        "x": -541.4539156380162,
+                        "y": -176.92607572400493,
+                        "type": "hook-filter",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            },
+                            "generator_type": {
+                                "label": "generator_type",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            },
+                            "type": {
+                                "label": "type",
+                                "type": "mixed",
+                                "types": [
+                                    "mixed"
+                                ]
+                            }
+                        }
+                    },
+                    "ccc65dff4304fb1702ca066c6a7f03a6": {
+                        "name": "return",
+                        "x": -225.7399120645204,
+                        "y": -175.81430492533082,
+                        "type": "instruction",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "value": {
+                                "label": "value",
+                                "type": "mixed"
+                            }
+                        },
+                        "outputs": {}
+                    }
+                },
+                "links": {
+                    "09414e15023b779aad3dfa856915a5be": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "ccc65dff4304fb1702ca066c6a7f03a6",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

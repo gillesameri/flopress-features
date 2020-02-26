@@ -1,0 +1,89 @@
+{
+    "title": "Remove the theme editor submenu",
+    "category": "Admin",
+    "description": "Disable the theme editor and all other editors submenu from appearance section.",
+    "content": {
+        "1fcf712468375ccebce946e660c162c6": {
+            "title": "_admin_menu",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "_admin_menu",
+                        "inputs": [],
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "1ffdc50d021b4a686ef595a11d11d3d3": {
+                        "x": 270,
+                        "y": 0,
+                        "name": "remove_action",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "tag": {
+                                "label": "tag",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "admin_menu"
+                            },
+                            "function_to_remove": {
+                                "label": "function_to_remove",
+                                "type": "callable",
+                                "types": [
+                                    "callable"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "_add_themes_utility_last"
+                            },
+                            "priority": {
+                                "label": "priority",
+                                "type": "int",
+                                "types": [
+                                    "int"
+                                ],
+                                "default": "10",
+                                "required": false,
+                                "value": 101
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": false
+                            },
+                            "return": {
+                                "type": "bool",
+                                "label": "bool"
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "59eaa518ab801d7f5caff4b8d32de9cc": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "1ffdc50d021b4a686ef595a11d11d3d3",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}

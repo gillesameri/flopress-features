@@ -1,0 +1,65 @@
+{
+    "title": "Disable auto-save",
+    "category": "Tools,Post",
+    "description": "To disable WordPress\u2019 auto-saving functionality, simply add this feature.",
+    "content": {
+        "20f8818036e9f2eb57f708d7b169fc0e": {
+            "title": "wp_print_scripts",
+            "type": "action",
+            "content": {
+                "components": {
+                    "hook_args": {
+                        "name": "wp_print_scripts",
+                        "inputs": {},
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct"
+                            }
+                        },
+                        "type": "hook-action",
+                        "x": 0,
+                        "y": 0
+                    },
+                    "901ba719237a1006ddb780305c00eaa7": {
+                        "x": 265,
+                        "y": 0,
+                        "name": "wp_deregister_script",
+                        "type": "efct",
+                        "inputs": {
+                            "ifct": {
+                                "type": "efct",
+                                "required": true
+                            },
+                            "handle": {
+                                "label": "handle",
+                                "type": "string",
+                                "types": [
+                                    "string"
+                                ],
+                                "default": null,
+                                "required": true,
+                                "value": "disableAutoSave"
+                            }
+                        },
+                        "outputs": {
+                            "ofct": {
+                                "type": "efct",
+                                "required": true
+                            }
+                        }
+                    }
+                },
+                "links": {
+                    "bab597a623025bfe8578bfa70974ae80": {
+                        "fromComponent": "hook_args",
+                        "fromConnector": "ofct",
+                        "toComponent": "901ba719237a1006ddb780305c00eaa7",
+                        "toConnector": "ifct"
+                    }
+                },
+                "autoload": true,
+                "priority": 10
+            }
+        }
+    }
+}
